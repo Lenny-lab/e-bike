@@ -1,0 +1,1500 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小电驴驶向大世界 · 数据新闻作品</title>
+  <meta name="description" content="数据新闻大赛参赛作品 · 解码中国两轮电动车出海热潮与升级路径" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F0'/%3E%3Ctext x='16' y='23' font-size='22' text-anchor='middle' fill='%23C8102E' font-family='serif' font-weight='900'%3E电%3C/text%3E%3C/svg%3E" />
+
+  <!-- 衬线 + 无衬线 + 等宽 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ECharts 4.9（map 文件可直接 CDN 加载） -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<!-- ==================== 报头 ==================== -->
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-wordmark">
+      <span class="mw-zh">在<em>路上</em></span>
+      <span class="mw-en">A Data-Driven Journal of China's E-Bike Industry</span>
+    </div>
+    <div class="masthead-meta">
+      <span class="mh-date">2025 年 · 春 · 第 <em>12</em> 期</span>
+      <a href="#about">关于本作品</a>
+      <a href="#data">数据与方法</a>
+      <a href="#about">联系我们</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#ch1" data-section="ch1">全球版图</a>
+      <a href="#ch2" data-section="ch2">驱动力</a>
+      <a href="#ch3" data-section="ch3">从制造到智造</a>
+      <a href="#ch4" data-section="ch4">风险与博弈</a>
+      <a href="#ch5" data-section="ch5">数据洞察</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ==================== 文章开篇 ==================== -->
+<section class="hero">
+  <div class="hero-kicker">深度数据 · DATA STORY · 大数据新闻大赛参赛作品</div>
+
+  <h2 class="hero-title">
+    小电驴驶向<em>大世界</em><br>
+    解码中国电动车<em>出海十年</em>
+  </h2>
+
+  <p class="hero-dek">
+    <em class="dropcap">从</em>中国天津港启程的一辆小电驴，落地印尼雅加达的时间，是
+    <span class="num-emph">14</span> 天。我们用这条<em>从车间到港口、从港口到街巷</em>的物理路径作引，
+    试图回答一个问题：十年间，中国两轮电动车出口规模从
+    <span class="num-emph">462</span> 万辆涨到 <span class="num-emph">2210</span> 万辆，
+    翻了 <span class="num-emph">4.8</span> 倍——这辆车，到底是怎么跑出这条曲线的？
+  </p>
+
+  <div class="hero-byline">
+    <span><strong>采编</strong> 秦文雨 · 单文溪 · 卜言庆</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>数据</strong> 朱桂子瑜 · 赵晨瑜</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>视觉</strong> 李一</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>指导</strong> 数据新闻教研组</span>
+    <span class="hero-byline-sep">/</span>
+    <span>2025 年 6 月</span>
+  </div>
+</section>
+
+<!-- 4 个关键数字摘要条 -->
+<section class="hero-numbers" aria-label="关键数据">
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="2210">0<em>万辆</em></div>
+    <div class="hero-num-label">2024 年出口量</div>
+  </div>
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="58.6" data-decimal="1">0<em>亿美元</em></div>
+    <div class="hero-num-label">2024 年出口额</div>
+  </div>
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="24.8" data-decimal="1">0<em>%</em></div>
+    <div class="hero-num-label">近 5 年 CAGR</div>
+  </div>
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="180">0<em>+ 个</em></div>
+    <div class="hero-num-label">出口目的地</div>
+  </div>
+</section>
+
+<!-- ==================== 导语 ==================== -->
+<section class="lede" id="prologue">
+  <p class="lede-first">
+    <span class="dropcap">在</span>中国，<strong>两轮电动车是一种尺度</strong>——
+    它丈量县城里三公里的通勤、丈量外卖订单与午夜的桥梁、丈量城中村与写字楼之间的坡。
+    3.5 亿人每天骑它出门，把它当成脚的一部分。
+    过去十年，这双脚悄悄走到了一百八十个国家的街道上。
+  </p>
+
+  <figure class="lede-figure right" aria-label="印尼雅加达·雨季骑行">
+    <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- 背景 -->
+      <rect width="280" height="220" fill="#F5EBD3"/>
+      <!-- 远景 1：椰子树 -->
+      <g>
+        <rect x="22" y="78" width="3" height="62" fill="#7A4F1A"/>
+        <g fill="#3A5A28" stroke="#3A5A28" stroke-width="1">
+          <path d="M 23 78 Q 6 73 -2 64 Q 11 74 23 78 Z"/>
+          <path d="M 23 78 Q 41 73 50 64 Q 35 74 23 78 Z"/>
+          <path d="M 23 78 Q 18 64 18 52 Q 23 66 23 78 Z"/>
+          <path d="M 23 78 Q 28 64 28 52 Q 23 66 23 78 Z"/>
+          <path d="M 23 78 Q 14 68 4 60 Q 16 72 23 78 Z"/>
+        </g>
+      </g>
+      <!-- 远景 2：印尼屋顶剪影 -->
+      <g fill="#FAF7F2" stroke="#14213D" stroke-width="0.6">
+        <path d="M 78 110 L 96 92 L 114 110 Z"/>
+        <rect x="86" y="100" width="6" height="10" fill="#14213D"/>
+        <path d="M 168 116 L 188 96 L 208 116 Z"/>
+        <rect x="178" y="105" width="4" height="11" fill="#14213D"/>
+      </g>
+      <!-- 雨丝（斜向下） -->
+      <g stroke="#B07D2A" stroke-width="0.5" opacity="0.45" stroke-linecap="round">
+        <line x1="20" y1="0" x2="2" y2="26"/><line x1="60" y1="0" x2="42" y2="26"/>
+        <line x1="100" y1="0" x2="82" y2="26"/><line x1="140" y1="0" x2="122" y2="26"/>
+        <line x1="180" y1="0" x2="162" y2="26"/><line x1="220" y1="0" x2="202" y2="26"/>
+        <line x1="260" y1="0" x2="242" y2="26"/>
+        <line x1="40" y1="40" x2="22" y2="66"/><line x1="80" y1="40" x2="62" y2="66"/>
+        <line x1="120" y1="40" x2="102" y2="66"/><line x1="160" y1="40" x2="142" y2="66"/>
+        <line x1="200" y1="40" x2="182" y2="66"/><line x1="240" y1="40" x2="222" y2="66"/>
+      </g>
+      <!-- 水洼反光（地面） -->
+      <g fill="#9CB7CC" opacity="0.25">
+        <ellipse cx="50" cy="180" rx="22" ry="2"/>
+        <ellipse cx="170" cy="184" rx="30" ry="2"/>
+      </g>
+      <!-- 街道线 -->
+      <line x1="0" y1="190" x2="280" y2="190" stroke="#14213D" stroke-width="1.4"/>
+      <line x1="0" y1="198" x2="280" y2="198" stroke="#14213D" stroke-width="0.6" stroke-dasharray="3 3"/>
+
+      <!-- ===== 电瓶车（更大、更细致） ===== -->
+      <g>
+        <!-- 阴影 -->
+        <ellipse cx="140" cy="192" rx="80" ry="2.5" fill="#14213D" opacity="0.18"/>
+        <!-- 后轮（含轮毂电机） -->
+        <circle cx="210" cy="180" r="18" fill="#FAF7F2" stroke="#14213D" stroke-width="1.6"/>
+        <circle cx="210" cy="180" r="12" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.5"/>
+        <circle cx="210" cy="180" r="8" fill="#14213D"/>
+        <circle cx="210" cy="180" r="2.5" fill="#B07D2A"/>
+        <!-- 后轮辐条 -->
+        <g stroke="#14213D" stroke-width="0.5" opacity="0.4">
+          <line x1="210" y1="164" x2="210" y2="196"/>
+          <line x1="194" y1="180" x2="226" y2="180"/>
+          <line x1="199" y1="169" x2="221" y2="191"/>
+          <line x1="221" y1="169" x2="199" y2="191"/>
+        </g>
+        <!-- 前轮 -->
+        <circle cx="70" cy="180" r="16" fill="#FAF7F2" stroke="#14213D" stroke-width="1.6"/>
+        <circle cx="70" cy="180" r="10" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.5"/>
+        <circle cx="70" cy="180" r="6" fill="#14213D"/>
+        <circle cx="70" cy="180" r="2" fill="#B07D2A"/>
+        <g stroke="#14213D" stroke-width="0.5" opacity="0.4">
+          <line x1="70" y1="166" x2="70" y2="194"/>
+          <line x1="56" y1="180" x2="84" y2="180"/>
+          <line x1="60" y1="170" x2="80" y2="190"/>
+        </g>
+        <!-- 前挡泥板 -->
+        <path d="M 56 175 Q 70 158 84 175" fill="none" stroke="#14213D" stroke-width="1.2"/>
+        <!-- 后挡泥板 -->
+        <path d="M 192 175 Q 210 158 228 175" fill="none" stroke="#14213D" stroke-width="1.2"/>
+        <!-- 前叉（双线） -->
+        <line x1="64" y1="170" x2="60" y2="142" stroke="#14213D" stroke-width="1.6"/>
+        <line x1="76" y1="170" x2="64" y2="142" stroke="#14213D" stroke-width="1.6"/>
+        <!-- 头管（前立管） -->
+        <line x1="58" y1="142" x2="68" y2="115" stroke="#14213D" stroke-width="3" stroke-linecap="round"/>
+        <!-- 主梁（从车架到后部） -->
+        <path d="M 68 158 L 100 162 L 160 162 L 200 158" fill="none" stroke="#14213D" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- 鞍座立柱（向上） -->
+        <line x1="160" y1="162" x2="160" y2="128" stroke="#14213D" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- 后扶手（快递杆用） -->
+        <line x1="200" y1="158" x2="210" y2="135" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+        <line x1="206" y1="160" x2="216" y2="138" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+        <!-- 鞍座（更长更厚） -->
+        <path d="M 130 128 Q 160 122 195 130 Q 188 134 160 134 Q 138 134 130 128 Z" fill="#14213D" stroke="#14213D" stroke-width="0.5"/>
+        <path d="M 134 130 Q 160 126 190 130" fill="none" stroke="#B07D2A" stroke-width="0.6" opacity="0.7"/>
+        <!-- 脚踏板（踏板 + 防滑纹理） -->
+        <rect x="100" y="160" width="58" height="5" fill="#14213D" rx="1"/>
+        <g stroke="#B07D2A" stroke-width="0.4" opacity="0.6">
+          <line x1="106" y1="161" x2="106" y2="164"/><line x1="114" y1="161" x2="114" y2="164"/>
+          <line x1="122" y1="161" x2="122" y2="164"/><line x1="130" y1="161" x2="130" y2="164"/>
+          <line x1="138" y1="161" x2="138" y2="164"/><line x1="146" y1="161" x2="146" y2="164"/>
+          <line x1="154" y1="161" x2="154" y2="164"/>
+        </g>
+        <!-- 电池盒（脚踏板下方） -->
+        <rect x="100" y="166" width="60" height="10" fill="#FAF7F2" stroke="#14213D" stroke-width="0.8" rx="1"/>
+        <rect x="103" y="168" width="54" height="6" fill="#B07D2A" opacity="0.15"/>
+        <text x="130" y="174" text-anchor="middle" font-family="monospace" font-size="4.5" font-weight="700" fill="#14213D">48V</text>
+        <!-- 链条护板 -->
+        <line x1="160" y1="170" x2="200" y2="170" stroke="#7A4F1A" stroke-width="0.8"/>
+        <line x1="160" y1="172" x2="200" y2="172" stroke="#7A4F1A" stroke-width="0.8"/>
+        <g stroke="#7A4F1A" stroke-width="0.4" opacity="0.6">
+          <line x1="170" y1="170" x2="170" y2="172"/><line x1="180" y1="170" x2="180" y2="172"/>
+          <line x1="190" y1="170" x2="190" y2="172"/>
+        </g>
+        <!-- 车把（横管 + 把立） -->
+        <line x1="40" y1="115" x2="84" y2="115" stroke="#14213D" stroke-width="2.6" stroke-linecap="round"/>
+        <!-- 把立（从前立管到车把） -->
+        <line x1="62" y1="115" x2="63" y2="125" stroke="#14213D" stroke-width="2.2"/>
+        <!-- 左侧握把 + 刹车把 -->
+        <rect x="36" y="112" width="12" height="6" fill="#7A4F1A" rx="1.5"/>
+        <line x1="40" y1="115" x2="40" y2="121" stroke="#14213D" stroke-width="0.8"/>
+        <!-- 右侧握把 + 油门 -->
+        <rect x="76" y="112" width="12" height="6" fill="#7A4F1A" rx="1.5"/>
+        <circle cx="82" cy="115" r="1.2" fill="#B07D2A"/>
+        <!-- 后视镜（左） -->
+        <line x1="44" y1="115" x2="42" y2="100" stroke="#14213D" stroke-width="0.8"/>
+        <ellipse cx="42" cy="98" rx="2.5" ry="3.5" fill="none" stroke="#14213D" stroke-width="0.8"/>
+        <!-- 仪表盘（圆形 LCD） -->
+        <circle cx="63" cy="111" r="4" fill="#14213D" stroke="#14213D" stroke-width="0.6"/>
+        <circle cx="63" cy="111" r="3" fill="#0A2540"/>
+        <text x="63" y="113" text-anchor="middle" font-family="monospace" font-size="3.2" font-weight="700" fill="#B07D2A">28</text>
+        <!-- 前大灯 -->
+        <circle cx="80" cy="138" r="3.5" fill="#B07D2A" stroke="#14213D" stroke-width="0.6"/>
+        <circle cx="80" cy="138" r="1.5" fill="#FAF7F2"/>
+        <!-- 牌照 -->
+        <rect x="190" y="172" width="14" height="5" fill="#FAF7F2" stroke="#14213D" stroke-width="0.4"/>
+        <text x="197" y="176" text-anchor="middle" font-family="monospace" font-size="2.4" fill="#14213D">B 1234</text>
+      </g>
+
+      <!-- 骑手（雨衣 + 头盔，前倾） -->
+      <g>
+        <!-- 头盔 -->
+        <circle cx="50" cy="86" r="7" fill="#B07D2A" stroke="#14213D" stroke-width="0.8"/>
+        <path d="M 43 86 Q 50 80 57 86" fill="#14213D"/>
+        <!-- 面罩（透明） -->
+        <path d="M 46 88 Q 50 92 54 88" fill="none" stroke="#14213D" stroke-width="0.4" opacity="0.5"/>
+        <!-- 雨衣身体（前倾） -->
+        <path d="M 44 93 L 32 130 L 70 134 L 65 95 Z" fill="#7A4F1A" stroke="#14213D" stroke-width="0.8"/>
+        <!-- 雨衣反光条 -->
+        <line x1="35" y1="120" x2="68" y2="125" stroke="#B07D2A" stroke-width="0.6" opacity="0.7"/>
+        <!-- 手臂（伸向车把） -->
+        <path d="M 42 105 Q 50 110 60 116" fill="none" stroke="#7A4F1A" stroke-width="3.2" stroke-linecap="round"/>
+        <!-- 腿（前踏姿） -->
+        <line x1="48" y1="132" x2="56" y2="158" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="62" y1="134" x2="68" y2="160" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <figcaption class="lf-caption"><strong>🇮🇩 雅加达</strong>雨季·<em>穿行</em></figcaption>
+  </figure>
+
+  <p>
+    <em class="kicker">三 个 场 景</em>
+    雅加达的雨季，印尼骑手 Riko 在拥堵的车流中穿行，座下是一台来自浙江的电动摩托车；
+
+    <figure class="lede-figure left" aria-label="荷兰阿姆斯特丹·运河骑行">
+      <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="220" fill="#F5EBD3"/>
+        <!-- 远景 1：风车 -->
+        <g>
+          <polygon points="46,110 56,60 68,60 78,110" fill="#FAF7F2" stroke="#14213D" stroke-width="0.8"/>
+          <rect x="58" y="78" width="8" height="12" fill="#14213D"/>
+          <g transform="translate(62 60)" stroke="#14213D" stroke-width="1.4" fill="#FAF7F2">
+            <line x1="0" y1="0" x2="0" y2="-26" stroke-width="2.8"/>
+            <polygon points="0,0 -4,-26 4,-26"/>
+            <line x1="0" y1="0" x2="0" y2="26" stroke-width="2.8"/>
+            <polygon points="0,0 -4,26 4,26"/>
+            <line x1="0" y1="0" x2="-26" y2="0" stroke-width="2.8"/>
+            <polygon points="0,0 -26,-4 -26,4"/>
+            <line x1="0" y1="0" x2="26" y2="0" stroke-width="2.8"/>
+            <polygon points="0,0 26,-4 26,4"/>
+            <circle r="2.5" fill="#B07D2A"/>
+          </g>
+        </g>
+        <!-- 远景 2：运河桥 + 拱形 -->
+        <g stroke="#14213D" stroke-width="0.8" fill="none">
+          <path d="M 100 150 Q 122 130 144 150" stroke-width="1.4"/>
+          <line x1="106" y1="142" x2="111" y2="152" stroke-width="0.5"/>
+          <line x1="116" y1="135" x2="121" y2="145" stroke-width="0.5"/>
+          <line x1="126" y1="135" x2="131" y2="145" stroke-width="0.5"/>
+          <line x1="136" y1="142" x2="141" y2="152" stroke-width="0.5"/>
+          <line x1="100" y1="150" x2="144" y2="150" stroke-width="0.6"/>
+        </g>
+        <!-- 运河水面 -->
+        <rect x="0" y="166" width="280" height="6" fill="#9CB7CC" opacity="0.5"/>
+        <g stroke="#4A6B8A" stroke-width="0.5" opacity="0.6">
+          <path d="M 10 169 Q 18 168 26 169"/>
+          <path d="M 60 169 Q 68 168 76 169"/>
+          <path d="M 110 169 Q 118 168 126 169"/>
+          <path d="M 160 169 Q 168 168 176 169"/>
+          <path d="M 210 169 Q 218 168 226 169"/>
+          <path d="M 250 169 Q 258 168 266 169"/>
+        </g>
+        <!-- 自行车道 -->
+        <line x1="0" y1="186" x2="280" y2="186" stroke="#14213D" stroke-width="1.6"/>
+        <line x1="0" y1="194" x2="280" y2="194" stroke="#14213D" stroke-width="0.6" stroke-dasharray="3 3"/>
+
+        <!-- ===== 电瓶车（e-bike 风格 + 后轮毂电机） ===== -->
+        <g>
+          <ellipse cx="140" cy="188" rx="78" ry="2.2" fill="#14213D" opacity="0.18"/>
+          <!-- 后轮 + 电机 -->
+          <circle cx="216" cy="176" r="17" fill="#FAF7F2" stroke="#14213D" stroke-width="1.6"/>
+          <circle cx="216" cy="176" r="11" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="216" cy="176" r="7" fill="#14213D"/>
+          <circle cx="216" cy="176" r="2" fill="#B07D2A"/>
+          <g stroke="#14213D" stroke-width="0.5" opacity="0.4">
+            <line x1="216" y1="161" x2="216" y2="191"/>
+            <line x1="201" y1="176" x2="231" y2="176"/>
+          </g>
+          <!-- 前轮 -->
+          <circle cx="68" cy="176" r="15" fill="#FAF7F2" stroke="#14213D" stroke-width="1.6"/>
+          <circle cx="68" cy="176" r="9" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="68" cy="176" r="5" fill="#14213D"/>
+          <g stroke="#14213D" stroke-width="0.5" opacity="0.4">
+            <line x1="68" y1="163" x2="68" y2="189"/>
+            <line x1="55" y1="176" x2="81" y2="176"/>
+          </g>
+          <!-- 前后挡泥板 -->
+          <path d="M 56 172 Q 68 156 80 172" fill="none" stroke="#14213D" stroke-width="1.1"/>
+          <path d="M 200 172 Q 216 156 232 172" fill="none" stroke="#14213D" stroke-width="1.1"/>
+          <!-- 前叉 -->
+          <line x1="62" y1="166" x2="58" y2="140" stroke="#14213D" stroke-width="1.6"/>
+          <line x1="74" y1="166" x2="62" y2="140" stroke="#14213D" stroke-width="1.6"/>
+          <!-- 头管 -->
+          <line x1="58" y1="140" x2="68" y2="118" stroke="#14213D" stroke-width="2.8" stroke-linecap="round"/>
+          <!-- 主梁（直管，e-bike 风格） -->
+          <line x1="68" y1="160" x2="200" y2="160" stroke="#14213D" stroke-width="2.2"/>
+          <!-- 下梁 -->
+          <line x1="80" y1="166" x2="180" y2="166" stroke="#14213D" stroke-width="1.8"/>
+          <!-- 鞍座立柱 -->
+          <line x1="160" y1="160" x2="160" y2="130" stroke="#14213D" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- 鞍座 -->
+          <path d="M 132 130 Q 160 124 192 132 Q 184 136 160 136 Q 138 136 132 130 Z" fill="#14213D" stroke="#14213D" stroke-width="0.5"/>
+          <!-- 脚踏 + 中置电机 -->
+          <circle cx="124" cy="170" r="5" fill="#FAF7F2" stroke="#14213D" stroke-width="0.8"/>
+          <circle cx="124" cy="170" r="2" fill="#14213D"/>
+          <line x1="115" y1="170" x2="100" y2="170" stroke="#14213D" stroke-width="0.8"/>
+          <line x1="133" y1="170" x2="148" y2="170" stroke="#14213D" stroke-width="0.8"/>
+          <text x="124" y="184" text-anchor="middle" font-family="monospace" font-size="2.6" fill="#14213D">BOSCH</text>
+          <!-- 电池盒（斜管内） -->
+          <rect x="100" y="156" width="55" height="6" fill="#FAF7F2" stroke="#14213D" stroke-width="0.6" rx="1"/>
+          <!-- 链条 -->
+          <line x1="160" y1="168" x2="216" y2="168" stroke="#7A4F1A" stroke-width="0.7"/>
+          <!-- 车把（直把） -->
+          <line x1="40" y1="118" x2="84" y2="118" stroke="#14213D" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="62" y1="118" x2="63" y2="126" stroke="#14213D" stroke-width="2"/>
+          <!-- 左侧握把 -->
+          <rect x="36" y="115" width="12" height="6" fill="#7A4F1A" rx="1.5"/>
+          <!-- 右侧握把 + 油门 -->
+          <rect x="76" y="115" width="12" height="6" fill="#7A4F1A" rx="1.5"/>
+          <circle cx="82" cy="118" r="1.2" fill="#B07D2A"/>
+          <!-- 仪表（圆 LCD） -->
+          <circle cx="63" cy="113" r="4" fill="#14213D"/>
+          <circle cx="63" cy="113" r="3" fill="#0A2540"/>
+          <text x="63" y="115" text-anchor="middle" font-family="monospace" font-size="3" font-weight="700" fill="#B07D2A">25</text>
+          <!-- 前大灯（复古圆灯） -->
+          <circle cx="78" cy="135" r="3.5" fill="#B07D2A" stroke="#14213D" stroke-width="0.6"/>
+          <circle cx="78" cy="135" r="1.5" fill="#FAF7F2"/>
+          <!-- 货架（无） -->
+          <!-- 后挡泥板上的小反光片 -->
+          <rect x="214" y="161" width="4" height="2" fill="#C8102E" opacity="0.7"/>
+        </g>
+
+        <!-- 骑手（女·长发·背包） -->
+        <g>
+          <!-- 头 -->
+          <circle cx="52" cy="88" r="6.5" fill="#FAF7F2" stroke="#14213D" stroke-width="0.8"/>
+          <!-- 长发飘动（运河风） -->
+          <path d="M 47 84 Q 30 86 24 100 Q 32 96 44 90 Z" fill="#14213D" opacity="0.85"/>
+          <path d="M 58 84 Q 70 90 72 102 Q 64 100 56 92 Z" fill="#14213D" opacity="0.85"/>
+          <!-- 身体（外套） -->
+          <path d="M 46 96 L 34 130 L 70 134 L 64 98 Z" fill="#9C6E36" stroke="#14213D" stroke-width="0.8"/>
+          <!-- 背包带 -->
+          <line x1="50" y1="100" x2="56" y2="120" stroke="#14213D" stroke-width="1.2" opacity="0.7"/>
+          <!-- 手臂 -->
+          <path d="M 42 108 Q 52 113 60 118" fill="none" stroke="#9C6E36" stroke-width="3" stroke-linecap="round"/>
+          <!-- 腿 -->
+          <line x1="48" y1="132" x2="56" y2="156" stroke="#14213D" stroke-width="3" stroke-linecap="round"/>
+          <line x1="62" y1="134" x2="68" y2="158" stroke="#14213D" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- 远处另一辆自行车剪影（运河对岸） -->
+        <g opacity="0.45">
+          <circle cx="248" cy="170" r="6" fill="none" stroke="#14213D" stroke-width="0.8"/>
+          <circle cx="268" cy="170" r="6" fill="none" stroke="#14213D" stroke-width="0.8"/>
+          <line x1="248" y1="170" x2="268" y2="170" stroke="#14213D" stroke-width="0.6"/>
+          <line x1="248" y1="170" x2="252" y2="160" stroke="#14213D" stroke-width="0.6"/>
+          <line x1="268" y1="170" x2="264" y2="160" stroke="#14213D" stroke-width="0.6"/>
+        </g>
+      </svg>
+      <figcaption class="lf-caption"><strong>🇳🇱 阿姆斯特丹</strong>运河·<em>上学路</em></figcaption>
+    </figure>
+
+    阿姆斯特丹的清晨，荷兰大学生 Mira 把小电驴骑上渡轮，准备穿越运河去上课；
+
+    <figure class="lede-figure right" aria-label="巴西圣保罗·18°坡快递">
+      <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="220" fill="#F5EBD3"/>
+        <!-- 远景：圣保罗轮廓（高低楼 + 教堂） -->
+        <g fill="#FAF7F2" stroke="#14213D" stroke-width="0.6">
+          <rect x="18"  y="86"  width="12" height="42"/>
+          <rect x="32"  y="74"  width="10" height="54"/>
+          <!-- 教堂（双塔） -->
+          <rect x="46"  y="64"  width="6"  height="64"/>
+          <rect x="54"  y="64"  width="6"  height="64"/>
+          <polygon points="46,64 49,56 52,64" fill="#14213D"/>
+          <polygon points="54,64 57,56 60,64" fill="#14213D"/>
+          <line x1="49" y1="60" x2="49" y2="64" stroke="#14213D" stroke-width="0.4"/>
+          <line x1="57" y1="60" x2="57" y2="64" stroke="#14213D" stroke-width="0.4"/>
+          <rect x="66"  y="80"  width="10" height="48"/>
+          <rect x="78"  y="70"  width="10" height="58"/>
+          <rect x="90"  y="86"  width="12" height="42"/>
+        </g>
+        <!-- 落日（圣保罗傍晚） -->
+        <circle cx="232" cy="68" r="16" fill="#B07D2A" opacity="0.65"/>
+        <line x1="210" y1="68" x2="254" y2="68" stroke="#B07D2A" stroke-width="0.4" opacity="0.5"/>
+        <line x1="232" y1="46" x2="232" y2="90" stroke="#B07D2A" stroke-width="0.4" opacity="0.5"/>
+        <line x1="216" y1="52" x2="248" y2="84" stroke="#B07D2A" stroke-width="0.3" opacity="0.4"/>
+        <line x1="216" y1="84" x2="248" y2="52" stroke="#B07D2A" stroke-width="0.3" opacity="0.4"/>
+        <!-- 18° 陡坡（斜线，斜率 tan18°≈0.32） -->
+        <line x1="0" y1="210" x2="280" y2="130" stroke="#14213D" stroke-width="2"/>
+        <!-- 路面纹理（沿坡道方向的斜线） -->
+        <g stroke="#14213D" stroke-width="0.4" opacity="0.4">
+          <line x1="0"  y1="204" x2="280" y2="124" stroke-dasharray="2 4"/>
+          <line x1="0"  y1="216" x2="280" y2="136" stroke-dasharray="2 6" opacity="0.3"/>
+        </g>
+        <!-- 坡度角标识（远离主体避免重叠） -->
+        <g transform="translate(244 116)">
+          <text x="0" y="0" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#B07D2A" font-weight="700">18°</text>
+          <text x="0" y="10" font-family="'Noto Serif SC', serif" font-size="6" fill="#7A4F1A" font-style="italic">坡道 / slope</text>
+          <!-- 角度弧线 -->
+          <path d="M 0 0 L -16 0 A 16 16 0 0 0 -15.2 -5" fill="none" stroke="#B07D2A" stroke-width="0.6"/>
+        </g>
+
+        <!-- ===== 电瓶车（TAILG 电摩 + 后备箱，整体倾斜匹配坡度） ===== -->
+        <g transform="rotate(-10 145 160)">
+          <ellipse cx="145" cy="192" rx="80" ry="2.2" fill="#14213D" opacity="0.18"/>
+          <!-- 后轮 + 电机 -->
+          <circle cx="218" cy="180" r="18" fill="#FAF7F2" stroke="#14213D" stroke-width="1.6"/>
+          <circle cx="218" cy="180" r="12" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="218" cy="180" r="8" fill="#14213D"/>
+          <circle cx="218" cy="180" r="2.5" fill="#B07D2A"/>
+          <g stroke="#14213D" stroke-width="0.5" opacity="0.4">
+            <line x1="218" y1="164" x2="218" y2="196"/>
+            <line x1="202" y1="180" x2="234" y2="180"/>
+            <line x1="207" y1="169" x2="229" y2="191"/>
+            <line x1="229" y1="169" x2="207" y2="191"/>
+          </g>
+          <!-- 前轮 -->
+          <circle cx="72" cy="180" r="16" fill="#FAF7F2" stroke="#14213D" stroke-width="1.6"/>
+          <circle cx="72" cy="180" r="10" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="72" cy="180" r="6" fill="#14213D"/>
+          <circle cx="72" cy="180" r="2" fill="#B07D2A"/>
+          <g stroke="#14213D" stroke-width="0.5" opacity="0.4">
+            <line x1="72" y1="166" x2="72" y2="194"/>
+            <line x1="58" y1="180" x2="86" y2="180"/>
+            <line x1="62" y1="170" x2="82" y2="190"/>
+          </g>
+          <!-- 前后挡泥板 -->
+          <path d="M 58 175 Q 72 158 86 175" fill="none" stroke="#14213D" stroke-width="1.2"/>
+          <path d="M 200 175 Q 218 158 236 175" fill="none" stroke="#14213D" stroke-width="1.2"/>
+          <!-- 前叉 -->
+          <line x1="66" y1="170" x2="62" y2="142" stroke="#14213D" stroke-width="1.6"/>
+          <line x1="78" y1="170" x2="66" y2="142" stroke="#14213D" stroke-width="1.6"/>
+          <!-- 头管 -->
+          <line x1="60" y1="142" x2="70" y2="115" stroke="#14213D" stroke-width="3" stroke-linecap="round"/>
+          <!-- 主梁 -->
+          <line x1="70" y1="158" x2="200" y2="158" stroke="#14213D" stroke-width="2.4"/>
+          <!-- 脚踏板 -->
+          <rect x="100" y="160" width="60" height="5" fill="#14213D" rx="1"/>
+          <g stroke="#B07D2A" stroke-width="0.4" opacity="0.6">
+            <line x1="108" y1="161" x2="108" y2="164"/><line x1="116" y1="161" x2="116" y2="164"/>
+            <line x1="124" y1="161" x2="124" y2="164"/><line x1="132" y1="161" x2="132" y2="164"/>
+            <line x1="140" y1="161" x2="140" y2="164"/><line x1="148" y1="161" x2="148" y2="164"/>
+            <line x1="156" y1="161" x2="156" y2="164"/>
+          </g>
+          <!-- 电池盒 -->
+          <rect x="100" y="166" width="60" height="10" fill="#FAF7F2" stroke="#14213D" stroke-width="0.8" rx="1"/>
+          <text x="130" y="174" text-anchor="middle" font-family="monospace" font-size="4.5" font-weight="700" fill="#14213D">48V 24Ah</text>
+          <!-- 鞍座立柱 + 鞍座 -->
+          <line x1="160" y1="158" x2="160" y2="128" stroke="#14213D" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M 130 128 Q 160 122 195 130 Q 188 134 160 134 Q 138 134 130 128 Z" fill="#14213D"/>
+          <!-- 后货架 + 快递箱 -->
+          <line x1="200" y1="155" x2="210" y2="125" stroke="#14213D" stroke-width="1.8"/>
+          <line x1="218" y1="155" x2="220" y2="125" stroke="#14213D" stroke-width="1.8"/>
+          <line x1="208" y1="125" x2="220" y2="125" stroke="#14213D" stroke-width="1.4"/>
+          <!-- 快递箱（橙红色） -->
+          <rect x="188" y="100" width="38" height="26" fill="#C8102E" stroke="#14213D" stroke-width="1" rx="2"/>
+          <rect x="191" y="103" width="32" height="20" fill="none" stroke="#FAF7F2" stroke-width="0.6" rx="1"/>
+          <text x="207" y="115" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="5" font-weight="700" fill="#FAF7F2">快递</text>
+          <text x="207" y="121" text-anchor="middle" font-family="monospace" font-size="3.5" fill="#FAF7F2">EXPRESS</text>
+          <!-- 链条 -->
+          <line x1="160" y1="170" x2="218" y2="170" stroke="#7A4F1A" stroke-width="0.7"/>
+          <!-- 车把（直把 + 后视镜） -->
+          <line x1="42" y1="115" x2="86" y2="115" stroke="#14213D" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="64" y1="115" x2="65" y2="125" stroke="#14213D" stroke-width="2"/>
+          <rect x="38" y="112" width="12" height="6" fill="#7A4F1A" rx="1.5"/>
+          <rect x="78" y="112" width="12" height="6" fill="#7A4F1A" rx="1.5"/>
+          <circle cx="84" cy="115" r="1.2" fill="#B07D2A"/>
+          <!-- 后视镜 -->
+          <line x1="46" y1="115" x2="44" y2="100" stroke="#14213D" stroke-width="0.8"/>
+          <ellipse cx="44" cy="98" rx="2.5" ry="3.5" fill="none" stroke="#14213D" stroke-width="0.8"/>
+          <!-- TAILG 仪表（高亮品牌） -->
+          <rect x="55" y="106" width="18" height="9" fill="#14213D" rx="1.5"/>
+          <text x="64" y="113" text-anchor="middle" font-family="monospace" font-size="4.5" font-weight="700" fill="#B07D2A">TAILG</text>
+          <!-- 前大灯 -->
+          <circle cx="80" cy="135" r="3.5" fill="#B07D2A" stroke="#14213D" stroke-width="0.6"/>
+          <circle cx="80" cy="135" r="1.5" fill="#FAF7F2"/>
+        </g>
+
+        <!-- 骑手（快递员·前倾·背包） -->
+        <g>
+          <!-- 头盔 -->
+          <circle cx="48" cy="88" r="7" fill="#B07D2A" stroke="#14213D" stroke-width="0.8"/>
+          <path d="M 41 88 Q 48 82 55 88" fill="#14213D"/>
+          <!-- 身体（前倾） -->
+          <path d="M 40 95 L 30 132 L 68 134 L 62 96 Z" fill="#7A4F1A" stroke="#14213D" stroke-width="0.8"/>
+          <!-- 背包带 -->
+          <line x1="46" y1="100" x2="50" y2="118" stroke="#14213D" stroke-width="1" opacity="0.6"/>
+          <line x1="56" y1="100" x2="60" y2="118" stroke="#14213D" stroke-width="1" opacity="0.6"/>
+          <!-- 工服 LOGO 点 -->
+          <text x="50" y="116" text-anchor="middle" font-family="monospace" font-size="3.5" font-weight="700" fill="#B07D2A">JD</text>
+          <!-- 手臂（伸向车把） -->
+          <path d="M 38 108 Q 48 113 60 118" fill="none" stroke="#7A4F1A" stroke-width="3.2" stroke-linecap="round"/>
+          <!-- 腿（前踏姿） -->
+          <line x1="44" y1="132" x2="52" y2="158" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="60" y1="134" x2="66" y2="160" stroke="#14213D" stroke-width="3.2" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <figcaption class="lf-caption"><strong>🇧🇷 圣保罗</strong>18° 坡·<em>快递员</em></figcaption>
+    </figure>
+
+    圣保罗的傍晚，快递员 João 在 18 度坡道上加速，仪表盘上的<em>"TAILG"</em>字样在落日中闪光。
+    三个真实场景，三块不同大陆——背后是同一辆中国造的小电驴。
+  </p>
+  <p>
+    <em>这辆小车为什么能跑这么远？</em>它从中国的工厂出发，穿越海关、跨越重洋，
+    进入了 180 多个国家的街道与巷弄。我们花了三个月时间，从海关数据、产业报告、社交媒体评论、
+    商家访谈与实地调研中，梳理出这辆小电驴驶向世界的完整路径。
+  </p>
+  <p class="lede-close">
+    你将看到——<br>
+    <strong>出口数字背后</strong>，是政策的杠杆、产业链的红利、品牌的跃迁，<br>
+    以及一场<em>远未结束的博弈</em>。
+  </p>
+</section>
+
+<!-- ==================== 章节 01：全球市场版图 ==================== -->
+<section class="chapter chapter-alt" id="ch1">
+  <div class="chapter-head">
+    <div class="chapter-kicker">Chapter 01 · 全球版图</div>
+    <h3 class="chapter-title">一辆车的全球<em>漂流</em></h3>
+    <p class="chapter-dek">
+      从 <span class="num-emph">462</span> 万辆到 <span class="num-emph">2210</span> 万辆，
+      十年之间，数字翻了将近 <em>5</em> 倍。
+      我们用一张世界地图、一条时间线、一组分档数据——看清这辆小车驶过的每一片大陆。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：全球漂流 -->
+  <div class="chapter-banner">
+    <div class="chapter-banner-svg banner-map" id="bannerMapCh1"></div>
+    <div class="chapter-banner-caption">
+      <strong>从中国出发，驶向六大洲</strong>
+      一辆小电驴的轨迹<br>
+      十年穿越 180+ 国家<br>
+      累计 1.36 亿辆
+    </div>
+  </div>
+
+  <!-- 1.1 出口趋势 -->
+  <figure class="figure">
+    <div id="chartYearly" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>1</i> · 十年出口翻 4.8 倍，出口额跑赢出口量</strong>
+      出口量年均增长 <span class="num-emph">16.9%</span>，出口额年均增长 <span class="num-emph">21.8%</span>——
+      单台车创造的"出海价值"，比十年前贵了近一倍。
+      这不是通胀，而是中国制造<em>卖出</em>的产品不一样了。
+      <span class="figure-source">数据来源：中国海关总署、UN Comtrade 整理 · 单位：万辆 / 亿美元</span>
+    </figcaption>
+  </figure>
+
+  <div class="prose">
+    <h5 class="sub-head">一 条 隐 蔽 的 曲 线</h5>
+    <p>
+      如果只看出口量，这是一个<strong>"量"的扩张故事</strong>——
+      十年时间，规模翻了将近 5 倍。但如果把出口额和出口量放在一起看，
+      你会发现另一条更隐蔽、更重要的曲线：<strong>单价</strong>。
+    </p>
+    <p>
+      <span class="num-emph">2014</span> 年，一辆中国出口的两轮电动车平均卖
+      <span class="num-emph">178</span> 美元；十年后，这个数字变成了
+      <span class="num-emph">265</span> 美元。增幅
+      <em>49%</em>——同期人民币兑美元的汇率波动不足以解释这个数字。
+      背后的真正原因，是产品本身的升级。
+    </p>
+  </div>
+
+  <!-- 1.2 出口 TOP 12 排名（替代重复地图：banner 已有大地图，这里用条形图更聚焦） -->
+  <figure class="figure">
+    <div id="chartTopBar" class="chart chart-tall"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>2</i> · 出口规模 TOP <span class="num-emph">12</span> 单一市场</strong>
+      <em>德国</em>、<em>美国</em>、<em>印尼</em>、<em>荷兰</em>占据前四；<em>印度</em>增速最快（<span class="num-emph">41.3%</span> CAGR）。
+      条形长度 = 2024 年中国对其出口额（亿美元）；点击任一条可打开完整国家档案。
+      <span class="figure-source">数据来源：UN Comtrade (HS 8711.60.90) · 海关总署 · 2024</span>
+    </figcaption>
+  </figure>
+
+  <!-- 1.3 区域占比 -->
+  <div class="region-strip">
+    <div class="region-cell">
+      <div class="region-cell-name">欧洲</div>
+      <div class="region-cell-figure">32.5<em>%</em></div>
+      <div class="region-cell-list">德国 · 荷兰 · 法国 · 意大利 · 西班牙</div>
+    </div>
+    <div class="region-cell">
+      <div class="region-cell-name">东南亚</div>
+      <div class="region-cell-figure">24.8<em>%</em></div>
+      <div class="region-cell-list">印尼 · 越南 · 泰国 · 菲律宾 · 马来西亚</div>
+    </div>
+    <div class="region-cell">
+      <div class="region-cell-name">北美</div>
+      <div class="region-cell-figure">15.2<em>%</em></div>
+      <div class="region-cell-list">美国 · 加拿大 · 墨西哥</div>
+    </div>
+  </div>
+
+  <div class="region-strip" style="border-top: none;">
+    <div class="region-cell">
+      <div class="region-cell-name">南亚</div>
+      <div class="region-cell-figure">12.6<em>%</em></div>
+      <div class="region-cell-list">印度 · 孟加拉国 · 斯里兰卡</div>
+    </div>
+    <div class="region-cell">
+      <div class="region-cell-name">南美</div>
+      <div class="region-cell-figure">8.4<em>%</em></div>
+      <div class="region-cell-list">巴西 · 阿根廷 · 智利</div>
+    </div>
+    <div class="region-cell">
+      <div class="region-cell-name">中东 · 非洲 · 其他</div>
+      <div class="region-cell-figure">6.5<em>%</em></div>
+      <div class="region-cell-list">海湾六国 · 尼日利亚 · 肯尼亚</div>
+    </div>
+  </div>
+
+  <!-- 1.4 单价分档 -->
+  <figure class="figure">
+    <div id="chartPrice" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>3</i> · 单价七年涨 56%，高端产品占比扩大</strong>
+      把出口产品按单价分成三档：低端（&lt;<span class="num-emph">200</span> 美元）、中端（<span class="num-emph">200</span>–<span class="num-emph">500</span> 美元）、
+      高端（&gt;<span class="num-emph">500</span> 美元）。七年间，三档单价全部上涨——
+      但<em>高端档的涨幅最大</em>，从 <span class="num-emph">480</span> 美元升至 <span class="num-emph">780</span> 美元。
+      <span class="figure-source">数据来源：海关 HS 编码 87116090 出口单价分档统计</span>
+    </figcaption>
+  </figure>
+
+  <div class="takeaway">
+    <div class="takeaway-inner">
+      <div class="takeaway-label">记 者 笔 记</div>
+      <div class="takeaway-text">
+        采访过的一位浙江出口商说：<em>"十年前客户问的是'最便宜的多少钱'，
+        现在问的是'续航多少、智能功能有哪些、保修几年'。"</em>
+        这句话比任何宏观数据，都能解释为什么单价在涨。
+      </div>
+      <div class="takeaway-meta">
+        <span>访谈地点：浙江·台州</span>
+        <span class="takeaway-sep">·</span>
+        <span>2024 年 11 月</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 章节 02：出海驱动力 ==================== -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <div class="chapter-kicker">Chapter 02 · 驱动力</div>
+    <h3 class="chapter-title">是什么在推这辆小车<em>出海</em></h3>
+    <p class="chapter-dek">
+      一辆电动车的出海，是<strong>政策、产业、消费</strong>三股力量共振的结果。
+      我们把它拆解成看得见的因子——政策时间轴、产业链配套率、海外用户真实评价——
+      看清楚每一个齿轮的咬合方式。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：三齿轮咬合 -->
+  <div class="chapter-banner">
+    <svg class="chapter-banner-svg banner-gears" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g class="gear-1" transform="translate(220 90)">
+        <g fill="#14213D">
+          <circle r="34"/>
+          <rect x="-5" y="-44" width="10" height="14"/>
+          <rect x="-5" y="30"  width="10" height="14"/>
+          <rect x="-44" y="-5" width="14" height="10"/>
+          <rect x="30" y="-5"  width="14" height="10"/>
+          <rect x="-32" y="-32" width="10" height="10" transform="rotate(45)"/>
+          <rect x="22" y="-32" width="10" height="10" transform="rotate(45)"/>
+          <rect x="-32" y="22" width="10" height="10" transform="rotate(45)"/>
+          <rect x="22" y="22" width="10" height="10" transform="rotate(45)"/>
+        </g>
+        <circle r="14" fill="#FAF7F0"/>
+        <text y="4" font-family="serif" font-size="11" fill="#14213D" text-anchor="middle" font-weight="700">政策</text>
+      </g>
+      <g class="gear-2" transform="translate(110 90)">
+        <g fill="#C8102E">
+          <circle r="28"/>
+          <rect x="-4" y="-36" width="8" height="12"/>
+          <rect x="-4" y="24"  width="8" height="12"/>
+          <rect x="-36" y="-4" width="12" height="8"/>
+          <rect x="24" y="-4"  width="12" height="8"/>
+        </g>
+        <circle r="11" fill="#FAF7F0"/>
+        <text y="3" font-family="serif" font-size="10" fill="#C8102E" text-anchor="middle" font-weight="700">产业</text>
+      </g>
+      <g class="gear-3" transform="translate(340 110)">
+        <g fill="#D9822B">
+          <circle r="26"/>
+          <rect x="-4" y="-34" width="8" height="11"/>
+          <rect x="-4" y="23"  width="8" height="11"/>
+          <rect x="-34" y="-4" width="11" height="8"/>
+          <rect x="23" y="-4"  width="11" height="8"/>
+        </g>
+        <circle r="10" fill="#FAF7F0"/>
+        <text y="3" font-family="serif" font-size="10" fill="#D9822B" text-anchor="middle" font-weight="700">消费</text>
+      </g>
+      <path d="M180 80 Q 200 70 220 70" stroke="#888" stroke-width="0.8" fill="none" stroke-dasharray="3 3"/>
+      <path d="M260 80 Q 240 90 220 100" stroke="#888" stroke-width="0.8" fill="none" stroke-dasharray="3 3"/>
+      <text x="60" y="180" font-family="serif" font-size="11" fill="#888" font-style="italic">三个齿轮 · 咬合出海</text>
+    </svg>
+    <div class="chapter-banner-caption">
+      <strong>三股力量 · 咬合共振</strong>
+      政策推一把<br>
+      产业接一手<br>
+      消费买回家
+    </div>
+  </div>
+
+  <!-- 2.1 政策时间轴 -->
+  <h5 class="sub-head sub-head-rule">2.1 · 全球政策时间轴，2019—2024</h5>
+  <div class="timeline" id="timeline"></div>
+  <div class="prose" style="margin-top: 32px;">
+    <p>
+      政策的杠杆作用是<em>双向</em>的：当某国推出"油转电"补贴，中国出口商闻风而动；
+      而当某国启动反补贴调查，整个行业的海外策略就要重新画图。
+      六个年头里，仅<strong>"高影响"级别的政策事件就有 6 起</strong>——
+      这是一片政策驱动的市场，不是单纯靠产品说话的市场。
+    </p>
+  </div>
+
+  <!-- 2.2 三电配套率 -->
+  <figure class="figure">
+    <div id="chartSupply" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>4</i> · "三电"产业链本土配套率</strong>
+      电机、电控、电池管理系统（BMS）三项的本土配套率均超过 <span class="num-emph">80%</span>。
+      但<em>控制器芯片</em>与<em>功率半导体</em>两项关键元件仍高度依赖进口——
+      这是中国电动车产业链最大优势，也是最脆弱的咽喉。
+      <span class="figure-source">数据来源：工信部、中国电子元件行业协会，2024</span>
+    </figcaption>
+  </figure>
+
+  <blockquote class="pullquote">
+    "产业链的优势让我们能把成本压到全球最低——<br>
+    但也意味着，一旦关键元件被卡脖子，<br>
+    整条链都得停下来。"
+    <span class="pullquote-source">—— 雅迪控股副总裁 周超 · 2024 产业带访谈</span>
+  </blockquote>
+
+  <!-- 2.3 电瓶车拆解图 -->
+  <section class="exploded" id="explodedScooter" aria-label="电瓶车拆解图">
+    <div class="exploded-head">
+      <div class="exploded-kicker">Supply Chain · 产业链拆解</div>
+      <h3 class="exploded-title">一辆电瓶车的<em>八个心脏</em></h3>
+      <p class="exploded-dek">
+        每一辆出口到海外的小电驴，背后都是八条产业链的合奏。
+        本土配套率越高，话语权越稳——而脆弱的咽喉，往往藏在不起眼的角落。
+      </p>
+    </div>
+
+    <div class="exploded-stage">
+      <div class="exploded-controls">
+        <button class="exploded-btn is-active" id="exBtnAssemble" type="button">整车</button>
+        <button class="exploded-btn" id="exBtnExplode" type="button">分解</button>
+        <span class="exploded-hint">点击<em>分解</em>按钮 · 8 个部件沿引线散开 · 点击任一部件查看详解</span>
+      </div>
+
+      <svg class="exploded-svg" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg" aria-label="一辆电瓶车的八个核心部件侧视图">
+
+        <!-- 地面阴影 + 参考线 -->
+        <line x1="60" y1="450" x2="1040" y2="450" stroke="#B07D2A" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.4"/>
+        <!-- 整车地面投影（Vogue 风的极淡椭圆） -->
+        <ellipse cx="520" cy="498" rx="380" ry="6" fill="#14213D" opacity="0.10"/>
+        <!-- 地面刻度尺（Vogue 数据感） -->
+        <g stroke="#B07D2A" stroke-width="0.4" opacity="0.35">
+          <line x1="60"  y1="455" x2="60"  y2="462"/>
+          <line x1="200" y1="455" x2="200" y2="460"/>
+          <line x1="340" y1="455" x2="340" y2="460"/>
+          <line x1="480" y1="455" x2="480" y2="462"/>
+          <line x1="620" y1="455" x2="620" y2="460"/>
+          <line x1="760" y1="455" x2="760" y2="460"/>
+          <line x1="900" y1="455" x2="900" y2="462"/>
+          <line x1="1040" y1="455" x2="1040" y2="460"/>
+          <line x1="60" y1="450" x2="1040" y2="450"/>
+        </g>
+        <text x="60"  y="476" font-family="monospace" font-size="9" fill="#7A4F1A" opacity="0.6">0mm</text>
+        <text x="480" y="476" font-family="monospace" font-size="9" fill="#7A4F1A" opacity="0.6">1200mm</text>
+        <text x="900" y="476" font-family="monospace" font-size="9" fill="#7A4F1A" opacity="0.6">—</text>
+
+        <!-- 8 条引线（始终可见，从部件指向外圈标签） -->
+        <g class="rays" stroke="#B07D2A" stroke-width="0.8" stroke-dasharray="2 3" fill="none">
+          <line class="ray ray-1" x1="250" y1="160" x2="80"   y2="80"/>   <!-- → 智能仪表 -->
+          <line class="ray ray-2" x1="200" y1="195" x2="80"   y2="180"/>  <!-- → 车把 -->
+          <line class="ray ray-3" x1="700" y1="200" x2="700"  y2="60"/>   <!-- → 鞍座 -->
+          <line class="ray ray-4" x1="660" y1="290" x2="930"  y2="170"/>  <!-- → 电控 -->
+          <line class="ray ray-5" x1="830" y1="430" x2="1020" y2="380"/>  <!-- → 电机 -->
+          <line class="ray ray-6" x1="560" y1="400" x2="900"  y2="490"/>  <!-- → 链条 -->
+          <line class="ray ray-7" x1="500" y1="425" x2="500"  y2="540"/>  <!-- → 电池盒 -->
+          <line class="ray ray-8" x1="300" y1="380" x2="120"  y2="500"/>  <!-- → 车架 -->
+        </g>
+
+        <!-- 8 个端点 -->
+        <g class="node-dots" fill="#B07D2A">
+          <circle cx="80"   cy="80"  r="4"/>
+          <circle cx="80"   cy="180" r="4"/>
+          <circle cx="700"  cy="60"  r="4"/>
+          <circle cx="930"  cy="170" r="4"/>
+          <circle cx="1020" cy="380" r="4"/>
+          <circle cx="900"  cy="490" r="4"/>
+          <circle cx="500"  cy="540" r="4"/>
+          <circle cx="120"  cy="500" r="4"/>
+        </g>
+
+        <!-- 8 个端点标签（始终在外圈，引线另一端） -->
+        <g class="node-labels" font-family="'Noto Serif SC', Georgia, serif" fill="#14213D">
+          <g transform="translate(70 60)">
+            <text font-style="italic" font-size="20" font-weight="500">智能仪表</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">SMART DASH</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">68%</text>
+          </g>
+          <g transform="translate(70 160)">
+            <text font-style="italic" font-size="20" font-weight="500">车把</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">HANDLEBAR</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">91%</text>
+          </g>
+          <g transform="translate(700 40)">
+            <text font-style="italic" font-size="20" font-weight="500">鞍座</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">SADDLE</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">95%</text>
+          </g>
+          <g transform="translate(950 150)">
+            <text font-style="italic" font-size="20" font-weight="500">电控</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">CONTROLLER</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">88%</text>
+          </g>
+          <g transform="translate(990 360)">
+            <text font-style="italic" font-size="20" font-weight="500">电机</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">MOTOR</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">96%</text>
+          </g>
+          <g transform="translate(890 472)">
+            <text font-style="italic" font-size="20" font-weight="500">链条</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">CHAIN</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">94%</text>
+          </g>
+          <g transform="translate(470 524)">
+            <text font-style="italic" font-size="20" font-weight="500" text-anchor="middle">电池盒</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2" text-anchor="middle">BATTERY PACK</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A" text-anchor="middle">82%</text>
+          </g>
+          <g transform="translate(60 484)">
+            <text font-style="italic" font-size="20" font-weight="500">车架</text>
+            <text y="16" font-size="9" fill="#7A4F1A" font-style="italic" letter-spacing="2">FRAME</text>
+            <text y="32" font-family="monospace" font-size="11" font-weight="700" fill="#B07D2A">94%</text>
+          </g>
+        </g>
+
+        <!-- ===== 真实电瓶车侧视（8 部件按真实位置） ===== -->
+        <g class="scooter">
+
+          <!-- 1. 后轮（先画，置底） -->
+          <g class="wheel-rear">
+            <circle cx="800" cy="430" r="60" fill="#FAF7F2" stroke="#14213D" stroke-width="2.2"/>
+            <circle cx="800" cy="430" r="50" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="800" cy="430" r="46" fill="none" stroke="#14213D" stroke-width="0.8"/>
+            <circle cx="800" cy="430" r="12" fill="#14213D"/>
+            <circle cx="800" cy="430" r="4" fill="#B07D2A"/>
+            <g stroke="#14213D" stroke-width="0.9" opacity="0.55">
+              <line x1="800" y1="374" x2="800" y2="486"/>
+              <line x1="744" y1="430" x2="856" y2="430"/>
+              <line x1="761" y1="391" x2="839" y2="469"/>
+              <line x1="839" y1="391" x2="761" y2="469"/>
+            </g>
+          </g>
+
+          <!-- 2. 前轮 -->
+          <g class="wheel-front">
+            <circle cx="240" cy="430" r="60" fill="#FAF7F2" stroke="#14213D" stroke-width="2.2"/>
+            <circle cx="240" cy="430" r="50" fill="none" stroke="#14213D" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="240" cy="430" r="46" fill="none" stroke="#14213D" stroke-width="0.8"/>
+            <circle cx="240" cy="430" r="12" fill="#14213D"/>
+            <circle cx="240" cy="430" r="4" fill="#B07D2A"/>
+            <g stroke="#14213D" stroke-width="0.9" opacity="0.55">
+              <line x1="240" y1="374" x2="240" y2="486"/>
+              <line x1="184" y1="430" x2="296" y2="430"/>
+              <line x1="201" y1="391" x2="279" y2="469"/>
+              <line x1="279" y1="391" x2="201" y2="469"/>
+            </g>
+          </g>
+
+          <!-- 3. 8. 车架（最底层管架：主梁+鞍座柱+车把柱） -->
+          <g class="part part-frame" data-part="frame">
+            <!-- 主梁：从前轮中心弧形上升，经过脚踏板，再下降到后轮 -->
+            <path d="M 240 430 Q 320 380 400 380 L 660 380 Q 740 380 800 430" fill="none" stroke="#14213D" stroke-width="5" stroke-linecap="round"/>
+            <!-- 脚踏板（车架主梁上的平台） -->
+            <rect x="340" y="378" width="380" height="12" fill="#14213D" rx="2"/>
+            <rect x="346" y="382" width="368" height="3" fill="#B07D2A" opacity="0.7"/>
+            <!-- 防滑纹理 -->
+            <g stroke="#B07D2A" stroke-width="0.3" opacity="0.6">
+              <line x1="360" y1="384" x2="360" y2="389"/><line x1="380" y1="384" x2="380" y2="389"/>
+              <line x1="400" y1="384" x2="400" y2="389"/><line x1="420" y1="384" x2="420" y2="389"/>
+              <line x1="440" y1="384" x2="440" y2="389"/><line x1="460" y1="384" x2="460" y2="389"/>
+              <line x1="480" y1="384" x2="480" y2="389"/><line x1="500" y1="384" x2="500" y2="389"/>
+              <line x1="520" y1="384" x2="520" y2="389"/><line x1="540" y1="384" x2="540" y2="389"/>
+              <line x1="560" y1="384" x2="560" y2="389"/><line x1="580" y1="384" x2="580" y2="389"/>
+              <line x1="600" y1="384" x2="600" y2="389"/><line x1="620" y1="384" x2="620" y2="389"/>
+              <line x1="640" y1="384" x2="640" y2="389"/><line x1="660" y1="384" x2="660" y2="389"/>
+              <line x1="680" y1="384" x2="680" y2="389"/>
+            </g>
+            <!-- 鞍座立柱：从车架后段上到鞍座 -->
+            <line x1="700" y1="380" x2="700" y2="225" stroke="#14213D" stroke-width="4.5" stroke-linecap="round"/>
+            <!-- 车把立柱：从车架前段斜上到车把 -->
+            <line x1="320" y1="378" x2="245" y2="200" stroke="#14213D" stroke-width="4.5" stroke-linecap="round"/>
+            <!-- 前叉（双线 + 减震弹簧） -->
+            <line x1="232" y1="380" x2="220" y2="430" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+            <line x1="248" y1="380" x2="260" y2="430" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+            <!-- 前减震弹簧 -->
+            <g stroke="#7A4F1A" stroke-width="1.2" fill="none">
+              <path d="M 222 388 Q 226 396 222 404 Q 226 412 222 420"/>
+              <path d="M 258 388 Q 254 396 258 404 Q 254 412 258 420"/>
+            </g>
+            <!-- 后减震（液压筒） -->
+            <line x1="772" y1="385" x2="785" y2="430" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+            <line x1="780" y1="385" x2="790" y2="430" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+            <g stroke="#7A4F1A" stroke-width="1.2" fill="none">
+              <path d="M 773 390 Q 776 400 773 410 Q 776 420 773 428"/>
+            </g>
+            <!-- 后扶手（货架底） -->
+            <line x1="720" y1="260" x2="760" y2="220" stroke="#14213D" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="715" y1="270" x2="755" y2="232" stroke="#14213D" stroke-width="1.8"/>
+            <!-- 侧支撑架 -->
+            <line x1="450" y1="392" x2="455" y2="448" stroke="#14213D" stroke-width="1.6"/>
+            <line x1="450" y1="448" x2="465" y2="450" stroke="#14213D" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+
+          <!-- 4. 链条（踏板下到后轮电机） -->
+          <g class="part part-chain" data-part="chain">
+            <!-- 链轮：踏板后段 -->
+            <circle cx="540" cy="400" r="11" fill="#FAF7F2" stroke="#14213D" stroke-width="1.4"/>
+            <circle cx="540" cy="400" r="5" fill="#14213D"/>
+            <!-- 链条护板（半透） -->
+            <path d="M 540 389 Q 670 393 800 408 L 800 412 Q 670 412 540 411 Z" fill="#7A4F1A" opacity="0.18"/>
+            <!-- 链条（上下双线） -->
+            <line x1="540" y1="389" x2="800" y2="408" stroke="#7A4F1A" stroke-width="1.4"/>
+            <line x1="540" y1="411" x2="800" y2="452" stroke="#7A4F1A" stroke-width="1.4"/>
+            <!-- 链条齿纹 -->
+            <g stroke="#7A4F1A" stroke-width="0.8" opacity="0.7">
+              <line x1="560" y1="389" x2="560" y2="411"/>
+              <line x1="600" y1="389" x2="600" y2="411"/>
+              <line x1="640" y1="389" x2="640" y2="411"/>
+              <line x1="680" y1="389" x2="680" y2="411"/>
+              <line x1="720" y1="389" x2="720" y2="411"/>
+              <line x1="760" y1="389" x2="760" y2="411"/>
+            </g>
+          </g>
+
+          <!-- 1. 电机（后轮中心齿轮） -->
+          <g class="part part-motor" data-part="motor">
+            <circle cx="800" cy="430" r="26" fill="#FAF7F2" stroke="#14213D" stroke-width="2"/>
+            <circle cx="800" cy="430" r="22" fill="none" stroke="#14213D" stroke-width="0.6" opacity="0.5"/>
+            <circle cx="800" cy="430" r="15" fill="#14213D"/>
+            <circle cx="800" cy="430" r="5" fill="#B07D2A"/>
+            <g stroke="#FAF7F2" stroke-width="1.2">
+              <line x1="800" y1="411" x2="800" y2="449"/>
+              <line x1="781" y1="430" x2="819" y2="430"/>
+              <line x1="786" y1="416" x2="814" y2="444"/>
+              <line x1="786" y1="444" x2="814" y2="416"/>
+            </g>
+          </g>
+
+          <!-- 2. 电控（鞍座柱底座小盒） -->
+          <g class="part part-controller" data-part="controller">
+            <rect x="635" y="280" width="56" height="42" fill="#FAF7F2" stroke="#14213D" stroke-width="2" rx="3"/>
+            <rect x="643" y="288" width="40" height="26" fill="#14213D"/>
+            <circle cx="652" cy="294" r="2" fill="#B07D2A"/>
+            <circle cx="664" cy="294" r="2" fill="#B07D2A"/>
+            <circle cx="676" cy="294" r="2" fill="#B07D2A"/>
+            <line x1="635" y1="308" x2="691" y2="308" stroke="#B07D2A" stroke-width="0.5" opacity="0.6"/>
+            <text x="663" y="318" text-anchor="middle" font-family="monospace" font-size="6" font-weight="700" fill="#7A4F1A" letter-spacing="0.5">VCU</text>
+          </g>
+
+          <!-- 3. 智能仪表（车把中央显示屏） -->
+          <g class="part part-dash" data-part="dash">
+            <rect x="200" y="150" width="58" height="38" fill="#14213D" stroke="#14213D" stroke-width="1.5" rx="4"/>
+            <rect x="206" y="156" width="46" height="26" fill="#0A2540" stroke="#B07D2A" stroke-width="0.5"/>
+            <text x="229" y="174" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#B07D2A">28</text>
+            <text x="229" y="180" text-anchor="middle" font-family="monospace" font-size="3" fill="#B07D2A" opacity="0.7">km/h</text>
+            <circle cx="212" cy="166" r="1.4" fill="#FAF7F2"/>
+            <circle cx="212" cy="172" r="1.4" fill="#FAF7F2"/>
+            <line x1="222" y1="188" x2="236" y2="200" stroke="#14213D" stroke-width="3" stroke-linecap="round"/>
+          </g>
+
+          <!-- 4. 车把（水平横管+两侧把套） -->
+          <g class="part part-handle" data-part="handle">
+            <line x1="160" y1="200" x2="300" y2="200" stroke="#14213D" stroke-width="4" stroke-linecap="round"/>
+            <!-- 左侧握把 + 刹车把 -->
+            <rect x="155" y="194" width="28" height="14" fill="#7A4F1A" rx="2"/>
+            <line x1="160" y1="194" x2="156" y2="184" stroke="#14213D" stroke-width="1.2"/>
+            <!-- 右侧握把 + 油门 -->
+            <rect x="277" y="194" width="28" height="14" fill="#7A4F1A" rx="2"/>
+            <circle cx="291" cy="201" r="3" fill="#B07D2A"/>
+            <line x1="300" y1="194" x2="304" y2="184" stroke="#14213D" stroke-width="1.2"/>
+            <!-- 后视镜（左） -->
+            <line x1="160" y1="200" x2="155" y2="175" stroke="#14213D" stroke-width="1.2"/>
+            <ellipse cx="153" cy="170" rx="3" ry="4" fill="none" stroke="#14213D" stroke-width="1.2"/>
+            <ellipse cx="153" cy="170" rx="2" ry="2.5" fill="#9CB7CC" opacity="0.4"/>
+            <!-- 后视镜（右） -->
+            <line x1="300" y1="200" x2="305" y2="175" stroke="#14213D" stroke-width="1.2"/>
+            <ellipse cx="307" cy="170" rx="3" ry="4" fill="none" stroke="#14213D" stroke-width="1.2"/>
+          </g>
+
+          <!-- 5. 鞍座（坐垫） -->
+          <g class="part part-saddle" data-part="saddle">
+            <ellipse cx="700" cy="222" rx="48" ry="9" fill="#14213D"/>
+            <ellipse cx="700" cy="219" rx="48" ry="6" fill="#7A4F1A"/>
+            <ellipse cx="700" cy="216" rx="44" ry="4" fill="#3A3A3A" opacity="0.4"/>
+            <!-- 鞍座缝线（Vogue 风细节） -->
+            <line x1="668" y1="222" x2="730" y2="222" stroke="#B07D2A" stroke-width="0.4" stroke-dasharray="2 2" opacity="0.6"/>
+            <!-- 后部扶手 -->
+            <line x1="748" y1="218" x2="755" y2="195" stroke="#14213D" stroke-width="2"/>
+            <line x1="752" y1="218" x2="759" y2="195" stroke="#14213D" stroke-width="2"/>
+          </g>
+
+          <!-- 6. 电池盒（脚踏板下方长矩形） -->
+          <g class="part part-battery" data-part="battery">
+            <rect x="350" y="400" width="320" height="32" fill="#FAF7F2" stroke="#14213D" stroke-width="2" rx="3"/>
+            <rect x="358" y="406" width="304" height="20" fill="#B07D2A" opacity="0.13" stroke="#B07D2A" stroke-width="0.5" rx="2"/>
+            <text x="510" y="421" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#14213D">48V 20Ah</text>
+            <circle cx="364" cy="416" r="2" fill="#B07D2A"/>
+            <circle cx="656" cy="416" r="2" fill="#B07D2A"/>
+            <!-- 电池节位虚线 -->
+            <g stroke="#14213D" stroke-width="0.5" opacity="0.35" stroke-dasharray="2 2">
+              <line x1="440" y1="402" x2="440" y2="430"/>
+              <line x1="510" y1="402" x2="510" y2="430"/>
+              <line x1="580" y1="402" x2="580" y2="430"/>
+            </g>
+            <!-- 充电口（电池盒左端） -->
+            <rect x="354" y="412" width="6" height="8" fill="#14213D" rx="1"/>
+          </g>
+
+          <!-- 7. 前大灯（细节：车把下方） -->
+          <circle cx="218" cy="345" r="8" fill="#FAF7F2" stroke="#14213D" stroke-width="1.4"/>
+          <circle cx="218" cy="345" r="5" fill="#B07D2A" opacity="0.45"/>
+          <circle cx="218" cy="345" r="2.5" fill="#B07D2A"/>
+          <line x1="212" y1="345" x2="200" y2="345" stroke="#14213D" stroke-width="1.2"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="exploded-legend">
+      <div class="exploded-legend-item">
+        <span class="exploded-legend-dot high"></span>
+        <span>配套率 ≥ <span class="num-emph">80%</span> —— 优势稳固</span>
+      </div>
+      <div class="exploded-legend-item">
+        <span class="exploded-legend-dot mid"></span>
+        <span><span class="num-emph">50</span>–<span class="num-emph">80%</span> —— 逐步追赶</span>
+      </div>
+      <div class="exploded-legend-item">
+        <span class="exploded-legend-dot low"></span>
+        <span>≤ <span class="num-emph">50%</span> —— 咽喉脆弱</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.4 海外情感分析 -->
+  <figure class="figure">
+    <div id="chartSentiment" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>5</i> · 海外用户在说什么</strong>
+      我们抓取了 Reddit、X（Twitter）、YouTube 三大平台上 <span class="num-emph">42,318</span> 条讨论中国电动车的英文评论，
+      通过 LDA 主题建模 + 情感分类，整理出六个核心议题。
+      海外用户对<em>"性价比""智能化""外观设计"</em>评价最正面——而<em>"售后服务"</em>与<em>"品牌信任度"</em>是明显的短板。
+      <span class="figure-source">数据来源：爬虫抓取 · LDA 主题建模 · 情感倾向分析（2024 Q4）</span>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ==================== 章节 03：从制造到智造 ==================== -->
+<section class="chapter chapter-alt" id="ch3">
+  <div class="chapter-head">
+    <div class="chapter-kicker">Chapter 03 · 从制造到智造</div>
+    <h3 class="chapter-title">一辆车的<em>进化论</em></h3>
+    <p class="chapter-dek">
+      价格只是表象，<em>技术升级才是真正的话语权</em>。
+      电池从铅酸到锂电再到固态；功能从解锁到 OTA；品牌从代步到智能到高端——
+      这是一场全维度的进化。我们拆成电池、智能化、品牌三条线索来看。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：三轨进化 -->
+  <div class="chapter-banner">
+    <svg class="chapter-banner-svg banner-tracks" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="40" y1="170" x2="560" y2="170" stroke="#1A1A1A" stroke-width="1"/>
+      <g>
+        <line class="trace-line" x1="40" y1="160" x2="180" y2="100" stroke="#C8102E" stroke-width="1.5"/>
+        <line class="trace-line" x1="180" y1="100" x2="320" y2="60" stroke="#C8102E" stroke-width="1.5"/>
+        <line class="trace-line" x1="320" y1="60" x2="560" y2="40" stroke="#C8102E" stroke-width="1.5"/>
+        <circle cx="180" cy="100" r="3" fill="#C8102E"/>
+        <circle cx="320" cy="60"  r="3" fill="#C8102E"/>
+        <text x="40" y="190" font-family="serif" font-size="10" fill="#1A1A1A" font-style="italic">电池</text>
+        <text x="120" y="155" font-family="serif" font-size="9" fill="#888">铅酸</text>
+        <text x="270" y="115" font-family="serif" font-size="9" fill="#888">锂电</text>
+        <text x="450" y="50" font-family="serif" font-size="9" fill="#C8102E" font-weight="700">固态</text>
+      </g>
+      <g>
+        <line class="trace-line" x1="40" y1="165" x2="200" y2="150" stroke="#0E4D8C" stroke-width="1.5"/>
+        <line class="trace-line" x1="200" y1="150" x2="360" y2="120" stroke="#0E4D8C" stroke-width="1.5"/>
+        <line class="trace-line" x1="360" y1="120" x2="560" y2="80" stroke="#0E4D8C" stroke-width="1.5"/>
+        <circle cx="200" cy="150" r="3" fill="#0E4D8C"/>
+        <circle cx="360" cy="120" r="3" fill="#0E4D8C"/>
+      </g>
+      <g>
+        <line class="trace-line" x1="40" y1="168" x2="220" y2="160" stroke="#5B7C3D" stroke-width="1.5"/>
+        <line class="trace-line" x1="220" y1="160" x2="380" y2="140" stroke="#5B7C3D" stroke-width="1.5"/>
+        <line class="trace-line" x1="380" y1="140" x2="560" y2="100" stroke="#5B7C3D" stroke-width="1.5"/>
+        <circle cx="220" cy="160" r="3" fill="#5B7C3D"/>
+        <circle cx="380" cy="140" r="3" fill="#5B7C3D"/>
+      </g>
+      <text x="40"  y="20" font-family="serif" font-size="11" fill="#C8102E" font-weight="700">电池</text>
+      <text x="220" y="20" font-family="serif" font-size="11" fill="#0E4D8C" font-weight="700">智能</text>
+      <text x="400" y="20" font-family="serif" font-size="11" fill="#5B7C3D" font-weight="700">品牌</text>
+      <text x="40" y="200" font-family="serif" font-size="11" fill="#888" font-style="italic">2014 → 2024 · 三条上升曲线</text>
+    </svg>
+    <div class="chapter-banner-caption">
+      <strong>三条进化曲线</strong>
+      电池锂电化<br>
+      智能网联化<br>
+      品牌高端化
+    </div>
+  </div>
+
+  <!-- 3.1 电池演进 -->
+  <figure class="figure">
+    <div id="chartBattery" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>6</i> · 电池技术十年演进</strong>
+      <span class="num-emph">2014</span> 年，锂电池在中国两轮电动车新车的搭载率仅 <span class="num-emph">12%</span>；十年后，这个数字变成 <span class="num-emph">79%</span>。
+      固态电池虽然只占 <span class="num-emph">3%</span>，却代表了下一代技术制高点——<em>谁率先量产，谁就能拿下未来十年</em>。
+      <span class="figure-source">数据来源：行业上市公司年报、中国电池工业协会</span>
+    </figcaption>
+  </figure>
+
+  <div class="prose">
+    <h5 class="sub-head">产 业 带 速 写</h5>
+    <p>
+      在浙江台州的产业带，我们走访了一家电池供应商的产线。
+      总经理指着两条并行的产线说：一条是铅酸的，慢慢减；一条是锂电的，一直在加。
+      <em>"明年我们再上一条固态的试制线，"</em>他说，<em>"等良率上来了，老产线就可以拆了。"</em>
+    </p>
+  </div>
+
+  <!-- 3.2 智能化渗透 -->
+  <figure class="figure">
+    <div id="chartSmart" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>7</i> · 智能化功能渗透率</strong>
+      八项主流智能功能中，GPS 定位、无钥匙启动、APP 联动三项的渗透率已超过 <span class="num-emph">50%</span>。
+      但<em>"辅助驾驶"</em>渗透率仅 <span class="num-emph">8%</span>——
+      这一功能何时在两轮车领域普及，将是中国电动车能否甩开日系品牌的关键变量。
+      <span class="figure-source">数据来源：雅迪、爱玛、九号等品牌 2024 年新车型配置统计</span>
+    </figcaption>
+  </figure>
+
+  <!-- 3.3 品牌案例 -->
+  <h5 class="sub-head sub-head-rule">3.3 · 四个品牌样本，看中国力量的<em>高端化路径</em></h5>
+  <div class="case-list" id="brandGrid"></div>
+</section>
+
+<!-- ==================== 章节 04：风险与博弈 ==================== -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <div class="chapter-kicker">Chapter 04 · 风险与博弈</div>
+    <h3 class="chapter-title">硬币的<em>另一面</em></h3>
+    <p class="chapter-dek">
+      出海不是单向的浪漫叙事——贸易摩擦、技术壁垒、本土竞争，每一道关卡
+      都在重新定义<em>"中国制造"</em>的真正含金量。本章我们做一次冷静的复盘。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：3 段对抗 (出口→壁垒→本土) -->
+  <div class="chapter-banner">
+    <svg class="chapter-banner-svg banner-board" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+      <!-- 背景 3 段底色（极淡） -->
+      <rect x="40"   y="20" width="320" height="240" fill="#FAF7F2" stroke="#B07D2A" stroke-width="0.6" stroke-dasharray="2 3"/>
+      <rect x="440"  y="20" width="320" height="240" fill="#F5EBD3" stroke="#B07D2A" stroke-width="0.6" stroke-dasharray="2 3"/>
+      <rect x="840"  y="20" width="320" height="240" fill="#FAF7F2" stroke="#B07D2A" stroke-width="0.6" stroke-dasharray="2 3"/>
+
+      <!-- === 段 1：左侧·中国出海（电瓶车 + 集装箱） === -->
+      <g transform="translate(110 80)">
+        <!-- 电瓶车简笔 -->
+        <g stroke="#14213D" stroke-width="1.6" fill="none" stroke-linecap="round">
+          <circle cx="20" cy="105" r="18" fill="#FAF7F2"/>
+          <circle cx="180" cy="105" r="18" fill="#FAF7F2"/>
+          <line x1="20" y1="105" x2="180" y2="105"/>
+          <line x1="55" y1="105" x2="55" y2="60"/>
+          <line x1="40" y1="60" x2="80" y2="60"/>
+          <line x1="40" y1="60" x2="40" y2="48"/>
+          <line x1="80" y1="60" x2="80" y2="48"/>
+          <rect x="40" y="48" width="40" height="14" fill="#14213D"/>
+          <line x1="100" y1="105" x2="100" y2="65"/>
+          <ellipse cx="100" cy="62" rx="20" ry="4" fill="#7A4F1A"/>
+        </g>
+      </g>
+      <text x="200" y="280" font-family="serif" font-size="14" fill="#14213D" text-anchor="middle" font-weight="500">中国出海</text>
+      <text x="200" y="296" font-family="monospace" font-size="10" fill="#7A4F1A" text-anchor="middle" letter-spacing="2">CHINA EXPORT</text>
+
+      <!-- 中间箭头（被墙挡住） -->
+      <g class="scan" stroke="#B07D2A" stroke-width="1.4" fill="none">
+        <path d="M380 130 Q 410 90 440 130" stroke-dasharray="4 3"/>
+        <path d="M380 150 Q 410 190 440 150" stroke-dasharray="4 3"/>
+        <path d="M425 145 L 440 150 L 425 155" fill="#B07D2A"/>
+      </g>
+
+      <!-- === 段 2：中段·关税壁垒（高墙+印章） === -->
+      <g transform="translate(490 60)">
+        <!-- 高墙主体（砖墙纹理） -->
+        <rect x="0" y="0" width="220" height="160" fill="#14213D" stroke="#14213D" stroke-width="1.5"/>
+        <!-- 砖缝 -->
+        <g stroke="#FAF7F2" stroke-width="0.4" opacity="0.4">
+          <line x1="0" y1="20"  x2="220" y2="20"/>
+          <line x1="0" y1="40"  x2="220" y2="40"/>
+          <line x1="0" y1="60"  x2="220" y2="60"/>
+          <line x1="0" y1="80"  x2="220" y2="80"/>
+          <line x1="0" y1="100" x2="220" y2="100"/>
+          <line x1="0" y1="120" x2="220" y2="120"/>
+          <line x1="0" y1="140" x2="220" y2="140"/>
+          <line x1="40" y1="0" x2="40" y2="20"/>
+          <line x1="80" y1="0" x2="80" y2="20"/>
+          <line x1="120" y1="0" x2="120" y2="20"/>
+          <line x1="160" y1="0" x2="160" y2="20"/>
+          <line x1="20" y1="20" x2="20" y2="40"/>
+          <line x1="60" y1="20" x2="60" y2="40"/>
+          <line x1="100" y1="20" x2="100" y2="40"/>
+          <line x1="140" y1="20" x2="140" y2="40"/>
+          <line x1="180" y1="20" x2="180" y2="40"/>
+          <line x1="40" y1="40" x2="40" y2="60"/>
+          <line x1="80" y1="40" x2="80" y2="60"/>
+          <line x1="120" y1="40" x2="120" y2="60"/>
+          <line x1="160" y1="40" x2="160" y2="60"/>
+          <line x1="200" y1="40" x2="200" y2="60"/>
+          <line x1="20" y1="60" x2="20" y2="80"/>
+          <line x1="60" y1="60" x2="60" y2="80"/>
+          <line x1="100" y1="60" x2="100" y2="80"/>
+          <line x1="140" y1="60" x2="140" y2="80"/>
+          <line x1="180" y1="60" x2="180" y2="80"/>
+          <line x1="40" y1="80" x2="40" y2="100"/>
+          <line x1="80" y1="80" x2="80" y2="100"/>
+          <line x1="120" y1="80" x2="120" y2="100"/>
+          <line x1="160" y1="80" x2="160" y2="100"/>
+          <line x1="200" y1="80" x2="200" y2="100"/>
+          <line x1="20" y1="100" x2="20" y2="120"/>
+          <line x1="60" y1="100" x2="60" y2="120"/>
+          <line x1="100" y1="100" x2="100" y2="120"/>
+          <line x1="140" y1="100" x2="140" y2="120"/>
+          <line x1="180" y1="100" x2="180" y2="120"/>
+          <line x1="40" y1="120" x2="40" y2="140"/>
+          <line x1="80" y1="120" x2="80" y2="140"/>
+          <line x1="120" y1="120" x2="120" y2="140"/>
+          <line x1="160" y1="120" x2="160" y2="140"/>
+          <line x1="200" y1="120" x2="200" y2="140"/>
+          <line x1="20" y1="140" x2="20" y2="160"/>
+          <line x1="60" y1="140" x2="60" y2="160"/>
+          <line x1="100" y1="140" x2="100" y2="160"/>
+          <line x1="140" y1="140" x2="140" y2="160"/>
+          <line x1="180" y1="140" x2="180" y2="160"/>
+        </g>
+        <!-- 红色印章（圆形） -->
+        <circle cx="110" cy="80" r="34" fill="none" stroke="#C8102E" stroke-width="2.5" opacity="0.85"/>
+        <circle cx="110" cy="80" r="28" fill="none" stroke="#C8102E" stroke-width="0.8" opacity="0.6"/>
+        <text x="110" y="74" font-family="serif" font-size="12" fill="#C8102E" text-anchor="middle" font-weight="700">关税</text>
+        <text x="110" y="90" font-family="serif" font-size="12" fill="#C8102E" text-anchor="middle" font-weight="700">壁垒</text>
+      </g>
+      <text x="600" y="280" font-family="serif" font-size="14" fill="#14213D" text-anchor="middle" font-weight="500">贸易壁垒</text>
+      <text x="600" y="296" font-family="monospace" font-size="10" fill="#7A4F1A" text-anchor="middle" letter-spacing="2">TRADE BARRIER · 38-79%</text>
+
+      <!-- 中间箭头（绕过墙） -->
+      <g class="scan" stroke="#B07D2A" stroke-width="1.4" fill="none">
+        <path d="M780 130 Q 810 90 840 130" stroke-dasharray="4 3"/>
+        <path d="M780 150 Q 810 190 840 150" stroke-dasharray="4 3"/>
+        <path d="M825 145 L 840 150 L 825 155" fill="#B07D2A"/>
+      </g>
+
+      <!-- === 段 3：右侧·本土市场盾牌 === -->
+      <g transform="translate(900 60)">
+        <!-- 盾牌 -->
+        <path d="M110 0 L 200 30 L 200 110 Q 200 180 110 220 Q 20 180 20 110 L 20 30 Z" fill="#FAF7F2" stroke="#14213D" stroke-width="2"/>
+        <path d="M110 14 L 186 40 L 186 110 Q 186 170 110 204 Q 34 170 34 110 L 34 40 Z" fill="none" stroke="#B07D2A" stroke-width="0.8" stroke-dasharray="2 2"/>
+        <!-- 盾中星 -->
+        <g transform="translate(110 110)">
+          <path d="M0 -30 L 8.8 -9.3 L 30 -9.3 L 13 4 L 19 24 L 0 12 L -19 24 L -13 4 L -30 -9.3 L -8.8 -9.3 Z" fill="#14213D" opacity="0.9"/>
+          <circle r="3" fill="#B07D2A"/>
+        </g>
+        <!-- 盾上铭牌 -->
+        <rect x="65" y="160" width="90" height="20" fill="#14213D"/>
+        <text x="110" y="174" font-family="serif" font-size="10" fill="#FAF7F2" text-anchor="middle" font-weight="700">本土竞对</text>
+      </g>
+      <text x="1000" y="280" font-family="serif" font-size="14" fill="#14213D" text-anchor="middle" font-weight="500">本土市场</text>
+      <text x="1000" y="296" font-family="monospace" font-size="10" fill="#7A4F1A" text-anchor="middle" letter-spacing="2">LOCAL MARKET</text>
+
+      <!-- 顶部飘带·Trade War -->
+      <g transform="translate(530 30)">
+        <path d="M0 0 L 140 0 L 150 12 L 140 24 L 0 24 Z" fill="#14213D"/>
+        <text x="70" y="17" font-family="serif" font-size="12" fill="#B07D2A" text-anchor="middle" font-weight="700" letter-spacing="3">TRADE WAR · 博弈</text>
+      </g>
+
+    </svg>
+    <div class="chapter-banner-caption">
+      <strong>硬币的另一面</strong>
+      关税壁垒<br>
+      认证门票<br>
+      本土竞对
+    </div>
+  </div>
+
+  <!-- 4.1 贸易摩擦 -->
+  <h5 class="sub-head sub-head-rule">4.1 · 贸易摩擦时间轴</h5>
+  <div class="timeline" id="tradeTimeline"></div>
+  <div class="prose" style="margin-top: 32px;">
+    <p>
+      关税、反倾销、反补贴、<span class="num-emph">301</span> 调查——
+      从 <span class="num-emph">2018</span> 年到 <span class="num-emph">2025</span> 年，
+      针对中国电动两轮车的国际贸易壁垒<strong>不是在减少，而是在增加</strong>。
+      强度的峰值出现在 <span class="num-emph">2024</span> 年——欧盟宣布对中国电动车加征
+      <span class="num-emph">17%</span>–<span class="num-emph">38%</span> 的关税。
+    </p>
+  </div>
+
+  <!-- 4.2 认证成本 -->
+  <figure class="figure">
+    <div id="chartCert" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>8</i> · 出海"门票"：各国认证成本</strong>
+      进入一个新市场，先要花几十万人民币、一年时间等认证。
+      美国 DOT 最贵，单型号认证成本约 <span class="num-emph">12.3</span> 万美元；日本 PSmark 最快，<span class="num-emph">4</span>–<span class="num-emph">6</span> 个月可拿下。
+      这还只是<em>单一型号</em>的成本——一个品牌要做全球生意，往往要同时跑 <span class="num-emph">6</span>–<span class="num-emph">8</span> 个认证。
+      <span class="figure-source">数据来源：各认证机构公开费率 + 行业咨询服务报价</span>
+    </figcaption>
+  </figure>
+
+  <!-- 4.3 竞争格局 -->
+  <figure class="figure">
+    <div id="chartCompetition" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>9</i> · 全球竞争格局：中国 vs 日系 vs 本土</strong>
+      中国品牌（雅迪、爱玛、九号、新日、小牛）合计份额超过 <span class="num-emph">60%</span>，
+      日系三家（本田、雅马哈、铃木）合计约 <span class="num-emph">29%</span>——
+      <em>总量上中国已占绝对优势</em>。但在高端市场（日系传统强项）、新兴本土玩家（Gogoro 等）那里，
+      真正的较量不在销量，而在<em>技术深度与品牌溢价</em>。
+      <span class="figure-source">数据来源：Statista、艾瑞咨询、各品牌全球销量披露</span>
+    </figcaption>
+  </figure>
+
+  <div class="takeaway">
+    <div class="takeaway-inner">
+      <div class="takeaway-label">冷 静 视 角</div>
+      <div class="takeaway-text">
+        一位产业研究员的判断值得记录：<em>"中国电动车的优势是产业链，
+        弱势也是产业链。优势让我们便宜，弱势让我们脆弱。
+        下一阶段的赢家，一定是那些能把产业链优势转化为<em>技术深度</em>与<em>品牌资产</em>的人。"</em>
+      </div>
+      <div class="takeaway-meta">
+        <span>访谈对象：某头部产业研究机构首席分析师</span>
+        <span class="takeaway-sep">·</span>
+        <span>2025 年 1 月</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 章节 05：数据洞察（深色收尾） ==================== -->
+<section class="outro" id="ch5">
+  <div class="outro-inner">
+    <div class="outro-head">
+      <div class="outro-kicker">Data Insights · 数据洞察</div>
+      <h3 class="outro-title">三句话总结<br>这辆车驶向的<em>未来</em></h3>
+    </div>
+
+    <div class="outro-list">
+      <div class="outro-item">
+        <div class="outro-num">01</div>
+        <div>
+          <h4 class="outro-headline">从"卖出"到"走进去"</h4>
+          <p class="outro-text">
+            中国电动车的下一站，不是更多的出口量，而是<em>更深的本土化</em>——
+            本地研发、本地生产、本地服务、本地品牌。
+            谁先完成这一步，谁就在新一波全球分工里卡到更好的位置。
+          </p>
+        </div>
+      </div>
+      <div class="outro-item">
+        <div class="outro-num">02</div>
+        <div>
+          <h4 class="outro-headline">从"价格战"到"技术战"</h4>
+          <p class="outro-text">
+            锂电化、智能化、品牌化<em>三轮驱动</em>正在重新定义竞争维度。
+            谁掌握了电池与软件，谁就掌握了下一代话语权——单靠产能和成本的时代正在过去。
+          </p>
+        </div>
+      </div>
+      <div class="outro-item">
+        <div class="outro-num">03</div>
+        <div>
+          <h4 class="outro-headline">从"中国造"到"中国方案"</h4>
+          <p class="outro-text">
+            单车出口只是起点，<em>换电网络、智慧出行平台、绿色基建</em>
+            正在组成中国向全球输出的"出行方案"——这才是真正的星辰大海。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 文末署名 ==================== -->
+<section class="colophon" id="about">
+  <div class="colophon-title">关于本作品 · Colophon</div>
+  <div class="colophon-grid">
+    <div class="colophon-col">
+      <h4>采 编 团 队</h4>
+      <p>
+        秦文雨（撰稿主笔）<br>
+        单文溪（采访调研）<br>
+        卜言庆（撰稿 · 调研）
+      </p>
+    </div>
+    <div class="colophon-col">
+      <h4>数 据 团 队</h4>
+      <p>
+        朱桂子瑜（数据统筹）<br>
+        赵晨瑜（数据采集）<br>
+        <em>海关数据 · UN Comtrade · 行业年报</em>
+      </p>
+    </div>
+    <div class="colophon-col">
+      <h4>视 觉 设 计</h4>
+      <p>
+        李一（视觉主创）<br>
+        赵晨瑜 · 朱桂子瑜（图表协作）<br>
+        <em>ECharts · GSAP · 思源宋体</em>
+      </p>
+    </div>
+    <div class="colophon-col" id="data">
+      <h4>数 据 与 方 法</h4>
+      <p>
+        出口数据：中国海关总署 HS <span class="num-emph">8711.60.90</span><br>
+        行业报告：Statista、艾瑞咨询<br>
+        情感分析：Reddit · X · YouTube 爬虫<br>
+        实地调研：浙江、江苏、广东产业带
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 页脚 ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2025 数据新闻大赛 · 在路上编辑部</span>
+    <span>本作品为参赛作品 · 数据来源已尽力核实 · 欢迎批评指正</span>
+  </div>
+</footer>
+
+<!-- ==================== 脚本 ==================== -->
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/banner-map.js"></script>
+<script src="../../js/charts.js"></script>
+<script src="js/style-C.js"></script>
+</body>
+</html>
