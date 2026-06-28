@@ -18,3 +18,8 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# R17 验证 / 调试截图（不纳入版本控制）
+r17c-*.png
+r17-verify*.py
+debug*.py
