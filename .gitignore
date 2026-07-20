@@ -1,0 +1,74 @@
+# 开发脚本与日志（不纳入版本控制）
+check_*.py
+reshoot*.py
+take_*.py
+screenshot_*.py
+cleanup_*.py
+fix_*.py
+add_*.py
+r11_*.py
+*.log
+trash.log
+desktop.ini
+.DS_Store
+Thumbs.db
+
+# 编辑器/系统
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# R17 验证 / 调试截图（不纳入版本控制）
+r17c-*.png
+r17-verify*.py
+debug*.py
+cdn-blocked-*.png
+final-*.png
+final-*.png
+initial-state.png
+e2e_*.py
+verify_styleC_*.py
+reveal_trigger.py
+corner-test.png
+chart-legend-test.png
+profit-table-fix.png
+check_corner.py
+check_legend.py
+check_profit.py
+
+# R20 scan screenshots
+r20-*.png
+r20-fix-*.png
+r21-*.png
+r21f-*.png
+r21v-*.png
+r21v2-*.png
+r21z-*.png
+r21zoom-*.png
+
+# 个人审计截图
+audit-*.png
+
+# R22 字体本地化验证截图
+r22-*.png
+r22b-*.png
+
+# R23 重构验证截图
+r23-*.png
+
+# R24 配色修复验证截图
+r24-*.png
+
+# R25 电脑端 light mode 修复验证截图
+r25-*.png
+
+# R26 手机端图片可见性修复验证截图
+r26-*.png
+r26-*.jpg
+
+# R28 数据真实性修复验证截图
+r30-*.png
+
+# 其它工具留下的视觉验证目录
+_codex_visual_check/

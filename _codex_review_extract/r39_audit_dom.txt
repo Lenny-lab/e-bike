@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>audit</title></head><body><iframe id="f" src="/index.html" style="width:390px;height:900px;border:0"></iframe><pre id="r">{
+  "reverseIntro": true,
+  "reverseIntroText": "OPENING INTERACTION · 一辆车的多语种提醒\n先听见一声倒车提示\n\n同一辆中国电动车进入不同国家，最先改变的可能不是外观，而是它向街头说话的方式。点击“倒车”，让提示音在不同区域之间切换，看一辆车如何被重新翻译。\n\n倒车\n",
+  "reverseIntroCanvas": false,
+  "identityCards": true,
+  "identityCardsText": "IDENTITY CARDS · 从商品到规则对象\n一辆车，三张身份牌\n\n补充材料里的关键线索是：出海不是把同一辆车复制到海外，而是在不同制度和使用场景中重新命名。点击卡片翻面查看。\n\n海关\nHS 871160\n贸易统计口径\n\n在贸易数据中",
+  "identityCardsCanvas": false,
+  "identityJourney": true,
+  "identityJourneyText": "SUPPLEMENT · 身份、规则与市场分层\n同一辆车，出海后有了多重身份\n\n补充材料提示我们，出口增长不能只看数量。车辆在海关、仓储、法规和街头使用场景中会被重新分类，本章用四组图解把这些变化放回同一条链路里。以下新增数字均按“待核实”",
+  "identityJourneyCanvas": false,
+  "chartDestinationMatrix": true,
+  "chartDestinationMatrixText": "",
+  "chartDestinationMatrixCanvas": true,
+  "chartCompetition": true,
+  "chartCompetitionText": "",
+  "chartCompetitionCanvas": true,
+  "explodedScooter": true,
+  "explodedScooterText": "SUPPLY CHAIN · 产业链拆解\n一辆电瓶车的八个心脏\n\n每一辆出口到海外的小电驴，背后都是八条产业链的合奏。 本土配套率越高，话语权越稳——而脆弱的咽喉，往往藏在不起眼的角落。\n\n整车\n分解\n点击分解按钮 · 8 个部件沿引线散开",
+  "explodedScooterCanvas": false,
+  "qmarks": 21,
+  "vw": 390,
+  "docW": 390,
+  "bodyW": 390,
+  "overflow": false
+}</pre><script>
+const done=()=>{const f=document.getElementById('f');const d=f.contentDocument;const ids=['reverseIntro','identityCards','identityJourney','chartDestinationMatrix','chartCompetition','explodedScooter'];const res={};ids.forEach(id=>{const el=d.getElementById(id);res[id]=!!el;res[id+'Text']=el?el.innerText.slice(0,120):'';res[id+'Canvas']=el?!!el.querySelector('canvas'):false;});res.qmarks=d.body.innerText.split('?').length-1;res.vw=f.contentWindow.innerWidth;res.docW=d.documentElement.scrollWidth;res.bodyW=d.body.scrollWidth;res.overflow=res.docW>res.vw+2||res.bodyW>res.vw+2;document.getElementById('r').textContent=JSON.stringify(res,null,2)};document.getElementById('f').onload=()=>setTimeout(done,4000);setTimeout(done,7000);</script></body></html>
+[69944:20960:0703/141711.124:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+[69944:49376:0703/141711.714:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.

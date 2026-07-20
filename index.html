@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一辆中国小电驴何以驶向海外大世界？</title>
+  <meta name="description" content="解码中国两轮电动车出海热潮与升级路径" />
+  <meta name="author" content="骑着电驴游世界编辑部 · 秦文雨 / 单文溪 / 卜言庆 / 朱桂子瑜 / 李一" />
+  <meta name="theme-color" content="#bf9b30" />
+
+  <!--
+    Security headers (meta fallback for non-Vercel hosts like GitHub Pages).
+    Vercel deployment also gets these via vercel.json; the browser intersects both policies.
+    Note: frame-ancestors / report-uri / sandbox CANNOT be set via meta — those live in the HTTP header only.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="在路上 · 数据新闻" />
+  <meta property="og:title" content="一辆中国小电驴何以驶向海外大世界？" />
+  <meta property="og:description" content="从中国出发，抵达 2025 年海关表中的 199 个贸易伙伴 · 一份关于中国两轮电动车出海的深度数据报道" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:author" content="在路上编辑部" />
+  <meta property="article:section" content="数据新闻" />
+  <meta property="article:tag" content="中国制造" />
+  <meta property="article:tag" content="出海" />
+  <meta property="article:tag" content="两轮电动车" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="一辆中国小电驴何以驶向海外大世界？" />
+  <meta name="twitter:description" content="从中国出发，抵达 2025 年海关表中的 199 个贸易伙伴 · 一份关于中国两轮电动车出海的深度数据报道" />
+
+  <link rel="canonical" href="https://lenny-lab.github.io/e-bike/versions/style-C/" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF7F0'/%3E%3Ctext x='16' y='23' font-size='22' text-anchor='middle' fill='%23bf9b30' font-family='serif' font-weight='900'%E7%94%B5%3C/text%3E%3C/svg%3E" />
+  <link rel="alternate" type="application/rss+xml" title="在路上编辑部" href="https://lenny-lab.github.io/e-bike/rss.xml" />
+
+  <!-- R22 · 字体完全本地化：移除 fonts.font.im 外链，改为 system font stack
+       (中英文都靠系统自带字体：PingFang/Source Han Serif/Microsoft YaHei/Georgia)
+       原因：移动 4G/5G 访问 fonts.font.im 不稳定，导致字体加载失败→排版乱。
+       用 system stack 后 100% 离线可用，所有设备都能看到一致的精致排版。 -->
+  <!-- (no external font links — system font stack only) -->
+
+  <link rel="stylesheet" href="css/style.css?v=66" />
+
+  <!-- ECharts 4.9（map 文件可直接 CDN 加载） -->
+  <script src="assets/lib/echarts.min.js"></script>
+  <script src="assets/lib/echarts-world.js"></script>
+  <script src="assets/lib/gsap.min.js"></script>
+</head>
+<body>
+<!-- R36: 移除 skip-link (R19 a11y 但默认 top:-100px 偶尔被截图工具截到, 视觉用户不需要) -->
+
+<!-- ==================== 报头 ==================== -->
+<header class="masthead" role="banner">
+  <div class="masthead-top">
+    <div class="masthead-wordmark">
+      <span class="mw-zh">骑着电驴游世界编辑部</span>
+      <span class="mw-en">Data Report: China’s E-Bicycle Industry</span>
+    </div>
+    <div class="masthead-meta">
+      <span class="mh-date">数据新闻专题</span>
+      <a href="#data">数据与方法</a>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== 文章开篇 ==================== -->
+<section class="hero">
+  <div class="hero-kicker">深度数据·DATA STORY</div>
+
+  <h1 class="hero-title">
+    <span class="hero-title-line hero-title-main">一辆中国<em>小电驴</em></span>
+    <span class="hero-title-line hero-title-question">何以驶向<em>海外大世界</em>？</span>
+  </h1>
+
+  <p class="hero-dek">
+    <span class="lede-opening">从中国港口启程</span>的一辆小电驴，落地东南亚街头，可能只需要十几天——但这十几天里，它经历的不只是地理位移。
+    在中国海关的统计表里，它叫“电动摩托车及脚踏车”，归入 <em>HS 871160</em>；
+    在出口商的仓库里，它可能还不是一辆完整的车，而是一排车架、一箱电机、几包控制器和电池配件；
+    到了海外，它又被当地法规重新命名为<em>电助力自行车、轻便摩托、电动摩托、低速车、园区用车、货运三轮</em>，或者一批等待组装的 <em>CKD / SKD</em> 散件。
+  </p>
+  <p class="hero-dek">
+    2020—2025 年六个完整年度，中国“电动摩托车及脚踏车”出口量从 <span class="num-emph">1,794</span> 万辆增至 <span class="num-emph">2,673</span> 万辆，六年间累计出口 <span class="num-emph">1.21 亿辆</span>。
+    到了 <span class="num-emph">2026</span> 年第一季度，新的增长信号再次出现：单季出口约 <span class="num-emph">720</span> 万辆，同比增长 <span class="num-emph">68.2%</span>。
+    本文沿着这一辆车的旅程追问——它走了多远，依靠怎样的产业链出发，又如何完成合规、维修与信任？
+  </p>
+
+  <div class="hero-byline">
+    <span><strong>主编</strong> 卜言庆</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>访谈</strong> 单文溪</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>文案</strong> 秦文雨</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>数据</strong> 朱桂子瑜</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>视觉</strong> 李一</span>
+    <span class="hero-byline-sep">/</span>
+    <span><strong>指导</strong> 龚凯乐 · 范海潮 · 朱威</span>
+  </div>
+</section>
+
+<!-- 4 个关键数字摘要条 -->
+<main id="main-content" role="main">
+<section class="hero-numbers" aria-label="关键数据">
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="1794"><span class="hero-num-value">0</span><em>万辆</em></div>
+    <div class="hero-num-label">2020 年出口量</div>
+    <div class="hero-num-note">出口额 35.05 亿美元</div>
+  </div>
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="2673"><span class="hero-num-value">0</span><em>万辆</em></div>
+    <div class="hero-num-label">2025 年出口量</div>
+    <div class="hero-num-note">出口额 68.27 亿美元</div>
+  </div>
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="720"><span class="hero-num-value">0</span><em>万辆</em></div>
+    <div class="hero-num-label">2026 年第一季度出口量</div>
+    <div class="hero-num-note">同比增长 +68.2%</div>
+  </div>
+  <div class="hero-num">
+    <div class="hero-num-figure" data-count="199"><span class="hero-num-value">0</span><em>个贸易伙伴</em></div>
+    <div class="hero-num-label">2025 年贸易伙伴</div>
+    <div class="hero-num-note">海关表中有正值记录</div>
+  </div>
+</section>
+
+<section class="reverse-intro" id="reverseIntro" aria-label="倒车提示语言互动">
+  <div class="reverse-copy">
+    <div class="chapter-kicker">Opening Interaction · 一辆车的多语种提醒</div>
+    <h2>先听一声<em>倒车提示</em></h2>
+    <p>同一辆中国电动车进入不同国家，最先改变的可能不是外观，而是它向街头说话的方式。点击“倒车”，让提示音在不同区域之间切换，看一辆车如何被重新翻译。</p>
+    <button class="reverse-btn" id="reverseBtn" type="button">倒车</button>
+    <div class="reverse-status">
+      <strong id="reversePhrase" lang="zh-CN">倒车，请注意</strong>
+      <span id="reverseLang" class="reverse-lang">中文 · 中国</span>
+    </div>
+  </div>
+  <div class="reverse-stage">
+    <div class="reverse-runway">
+      <!-- 跑道地面 -->
+      <div class="reverse-ground"></div>
+      <!-- 移动的车道虚线 -->
+      <div class="reverse-lane reverse-lane-near"></div>
+      <div class="reverse-lane reverse-lane-far"></div>
+
+      <!-- 跑动的小电驴 -->
+      <svg class="reverse-scooter" viewBox="0 0 520 260" aria-hidden="true">
+        <ellipse cx="260" cy="232" rx="220" ry="8" fill="rgba(20,33,61,.10)"/>
+        <path d="M74 196 C126 174 185 166 255 168 C328 171 389 178 446 198" fill="none" stroke="#14213D" stroke-width="9" stroke-linecap="round"/>
+        <g class="reverse-wheel">
+          <circle cx="132" cy="202" r="43" fill="#FAF8F1" stroke="#14213D" stroke-width="7"/>
+          <circle cx="132" cy="202" r="18" fill="#14213D"/>
+          <circle cx="132" cy="202" r="8" fill="#B07D2A"/>
+        </g>
+        <g class="reverse-wheel">
+          <circle cx="405" cy="202" r="43" fill="#FAF8F1" stroke="#14213D" stroke-width="7"/>
+          <circle cx="405" cy="202" r="22" fill="#14213D"/>
+          <circle cx="405" cy="202" r="9" fill="#B07D2A"/>
+        </g>
+        <path d="M150 178 L194 122 L276 124 L326 178" fill="none" stroke="#14213D" stroke-width="8" stroke-linejoin="round"/>
+        <rect x="190" y="146" width="152" height="30" rx="5" fill="#F5EBD3" stroke="#14213D" stroke-width="4"/>
+        <text x="266" y="167" text-anchor="middle" font-size="14" font-family="Georgia" fill="#14213D">48V 20Ah</text>
+        <path d="M288 110 C308 92 350 94 365 111 C344 121 313 122 288 110Z" fill="#14213D"/>
+        <path d="M338 112 L373 56" stroke="#14213D" stroke-width="7"/>
+        <path d="M368 58 L412 48" stroke="#14213D" stroke-width="5" stroke-linecap="round"/>
+        <path d="M204 122 L178 70" stroke="#14213D" stroke-width="7"/>
+        <rect x="155" y="52" width="72" height="34" rx="7" fill="#14213D"/>
+        <circle cx="174" cy="69" r="4" fill="#B07D2A"/>
+        <circle cx="191" cy="69" r="4" fill="#B07D2A"/>
+        <circle cx="208" cy="69" r="4" fill="#B07D2A"/>
+        <path d="M108 166 C132 144 169 145 190 166" fill="none" stroke="#B07D2A" stroke-width="5"/>
+        <path d="M371 166 C389 148 424 151 441 170" fill="none" stroke="#B07D2A" stroke-width="5"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 倒车提示音频池：6 个语种，点击按钮循环切换并播放当前语种语音 -->
+  <div class="reverse-audio-pool" aria-hidden="true">
+    <audio id="reverseAudioZh" preload="auto" src="assets/audio/reverse/reverse-v2-zh.m4a"></audio>
+    <audio id="reverseAudioEn" preload="auto" src="assets/audio/reverse/reverse-en.mp3"></audio>
+    <audio id="reverseAudioEs" preload="auto" src="assets/audio/reverse/reverse-es.mp3"></audio>
+    <audio id="reverseAudioId" preload="auto" src="assets/audio/reverse/reverse-id.mp3"></audio>
+    <audio id="reverseAudioRu" preload="auto" src="assets/audio/reverse/reverse-ru.mp3"></audio>
+    <audio id="reverseAudioAr" preload="auto" src="assets/audio/reverse/reverse-ar.mp3"></audio>
+  </div>
+</section>
+<section class="identity-cards" id="identityCards" aria-label="一辆车的三张身份牌">
+  <div class="identity-head">
+    <div class="chapter-kicker">Identity Cards · 从商品到规则对象</div>
+    <h2>一辆车，三张<em>身份牌</em></h2>
+    <p class="identity-summary">出海不是把同一辆车复制到海外，而是在不同制度和使用场景中重新命名。</p>
+    <p class="identity-instruction">点击卡片翻面查看</p>
+  </div>
+  <div class="identity-card-row">
+    <!-- Ⅰ 海关 -->
+    <article class="identity-card" data-card="customs" tabindex="0" aria-label="海关身份：HS 871160 贸易统计口径">
+      <div class="identity-card-inner">
+        <div class="identity-face identity-front">
+          <div class="identity-strip">China Customs · 中国海关</div>
+          <span class="identity-corner identity-corner-tl"></span>
+          <span class="identity-corner identity-corner-tr"></span>
+          <span class="identity-corner identity-corner-bl"></span>
+          <span class="identity-corner identity-corner-br"></span>
+
+          <span class="identity-numeral">Ⅰ</span>
+
+          <div class="identity-emblem">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="88" fill="none" stroke="#B07D2A" stroke-width="1.2"/>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="#B07D2A" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="48" fill="none" stroke="#B07D2A" stroke-width="0.4" stroke-dasharray="2 3"/>
+              <text x="100" y="92" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#14213D" font-style="italic" font-weight="700">HS</text>
+              <text x="100" y="120" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#14213D" font-style="italic" font-weight="700">871160</text>
+              <path id="circlePath1" d="M 100,100 m -68,0 a 68,68 0 1,1 136,0 a 68,68 0 1,1 -136,0" fill="none"/>
+              <text font-family="Inter, sans-serif" font-size="9" fill="#B07D2A" letter-spacing="3">
+                <textPath href="#circlePath1" startOffset="0">DOUANE · CUSTOMS · 海关 · CUSTOMS · </textPath>
+              </text>
+            </svg>
+          </div>
+
+          <strong class="identity-title">HS 871160</strong>
+          <em class="identity-subtitle">贸易统计口径 · 电动摩托车及脚踏车</em>
+
+          <div class="identity-hint">点击翻面 · click to flip</div>
+        </div>
+        <div class="identity-face identity-back">
+          <div class="identity-back-strip">你看到的是</div>
+          <strong>一辆海关表里的车</strong>
+          <p>在中国海关 2025 年的统计表里，这辆车是 <b>2673 万辆 / 68.27 亿美元</b> 出口额中的一个数据点。HS 871160 是一个 6 位编码，它决定了出口退税、关税、最惠国待遇和反倾销税率。</p>
+          <ul class="identity-stats">
+            <li><b>2020</b><span>1,794 万辆</span><i>35.05 亿美元</i></li>
+            <li><b>2025</b><span>2,673 万辆</span><i>68.27 亿美元</i></li>
+            <li><b>6 年累计</b><span>1.21 亿辆</span><i>2025 · 199 个贸易伙伴</i></li>
+            <li><b>2026Q1</b><span>720 万辆</span><i>同比 +68.2%</i></li>
+          </ul>
+          <div class="identity-back-foot">← 回到正面</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ⅱ 仓库 -->
+    <article class="identity-card" data-card="warehouse" tabindex="0" aria-label="仓库身份：CKD / SKD 套件与本地组装">
+      <div class="identity-card-inner">
+        <div class="identity-face identity-front">
+          <div class="identity-strip">Export Warehouse · 出口仓库</div>
+          <span class="identity-corner identity-corner-tl"></span>
+          <span class="identity-corner identity-corner-tr"></span>
+          <span class="identity-corner identity-corner-bl"></span>
+          <span class="identity-corner identity-corner-br"></span>
+
+          <span class="identity-numeral">Ⅱ</span>
+
+          <div class="identity-emblem">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <g stroke="#14213D" stroke-width="1.4" fill="none" stroke-linejoin="round">
+                <rect x="30" y="78" width="140" height="86"/>
+                <line x1="30" y1="78" x2="14" y2="66"/>
+                <line x1="170" y1="78" x2="186" y2="66"/>
+                <line x1="14" y1="66" x2="186" y2="66"/>
+                <rect x="36" y="84" width="62" height="76"/>
+                <rect x="102" y="84" width="62" height="76"/>
+                <line x1="36" y1="106" x2="98" y2="106"/>
+                <line x1="102" y1="106" x2="164" y2="106"/>
+                <line x1="36" y1="138" x2="98" y2="138"/>
+                <line x1="102" y1="138" x2="164" y2="138"/>
+                <polygon points="62,150 80,118 96,118 116,150"/>
+                <circle cx="138" cy="148" r="11"/>
+                <circle cx="138" cy="148" r="3.5" fill="#14213D"/>
+                <rect x="50" y="98" width="22" height="14"/>
+                <line x1="50" y1="105" x2="72" y2="105"/>
+                <line x1="56" y1="102" x2="56" y2="108"/>
+                <line x1="61" y1="102" x2="61" y2="108"/>
+                <line x1="66" y1="102" x2="66" y2="108"/>
+              </g>
+              <rect x="30" y="78" width="140" height="6" fill="#B07D2A"/>
+              <line x1="100" y1="84" x2="100" y2="160" stroke="#B07D2A" stroke-width="0.5" stroke-dasharray="3 3"/>
+              <text x="100" y="186" text-anchor="middle" font-family="Inter" font-size="9" fill="#B07D2A" letter-spacing="3">CKD · SKD · CKD · SKD · </text>
+            </svg>
+          </div>
+
+          <strong class="identity-title">CKD / SKD</strong>
+          <em class="identity-subtitle">套件与本地组装 · 整车出口的替代路径</em>
+
+          <div class="identity-hint">点击翻面 · click to flip</div>
+        </div>
+        <div class="identity-face identity-back">
+          <div class="identity-back-strip">你看到的是</div>
+          <strong>一套散件与一条暗线</strong>
+          <p>遇到关税、认证或本地化要求时，企业把“整车出口”拆成 <b>车架、车厢、电机、控制器</b>，到港后再在中亚、东南亚或非洲重新组装。它把一锤子买卖变成长期配套。</p>
+          <ul class="identity-stats">
+            <li><b>丰县</b><span>1000+ 配套</span><i>500 万辆/年</i></li>
+            <li><b>锡山</b><span>660 家集群</span><i>6.0 亿$</i></li>
+          </ul>
+          <div class="identity-back-foot">← 回到正面</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ⅲ 街头 -->
+    <article class="identity-card" data-card="street" tabindex="0" aria-label="街头身份：Local Rules 法规与真实道路">
+      <div class="identity-card-inner">
+        <div class="identity-face identity-front">
+          <div class="identity-strip">Destination Street · 目的地街头</div>
+          <span class="identity-corner identity-corner-tl"></span>
+          <span class="identity-corner identity-corner-tr"></span>
+          <span class="identity-corner identity-corner-bl"></span>
+          <span class="identity-corner identity-corner-br"></span>
+
+          <span class="identity-numeral">Ⅲ</span>
+
+          <div class="identity-emblem">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <g stroke="#14213D" stroke-width="1.4" fill="none" stroke-linejoin="round">
+                <path d="M 22 168 L 100 96 L 178 168 Z" fill="#F4EAD8" stroke="#14213D"/>
+                <line x1="100" y1="96" x2="100" y2="168" stroke="#B07D2A" stroke-width="2.4" stroke-dasharray="7 5"/>
+                <line x1="22" y1="168" x2="178" y2="168" stroke="#14213D" stroke-width="1.4"/>
+                <line x1="40" y1="155" x2="68" y2="124" stroke="#14213D" stroke-width="0.6"/>
+                <line x1="160" y1="155" x2="132" y2="124" stroke="#14213D" stroke-width="0.6"/>
+                <circle cx="50" cy="48" r="22" fill="#FAF7F2" stroke="#C8102E" stroke-width="2.6"/>
+                <text x="50" y="56" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#C8102E" font-weight="700">20</text>
+                <circle cx="150" cy="48" r="22" fill="#FAF7F2" stroke="#C8102E" stroke-width="2.6"/>
+                <text x="150" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#C8102E" font-weight="700" letter-spacing="0.5">mph</text>
+                <ellipse cx="100" cy="142" rx="18" ry="2.2" fill="#14213D"/>
+                <circle cx="89" cy="142" r="3.6" fill="#14213D"/>
+                <circle cx="111" cy="142" r="3.6" fill="#14213D"/>
+                <path d="M 89 142 L 94 124 L 106 124 L 111 142" stroke="#14213D" stroke-width="1.4" fill="none"/>
+                <line x1="100" y1="124" x2="100" y2="118" stroke="#14213D" stroke-width="1.4"/>
+                <line x1="100" y1="118" x2="106" y2="118" stroke="#14213D" stroke-width="1.4"/>
+              </g>
+              <text x="100" y="190" text-anchor="middle" font-family="Inter" font-size="9" fill="#B07D2A" letter-spacing="3">LOCAL RULES · 法规 · LOCAL RULES · </text>
+            </svg>
+          </div>
+
+          <strong class="identity-title">Local Rules</strong>
+          <em class="identity-subtitle">法规与真实道路 · 在场与具体使用</em>
+
+          <div class="identity-hint">点击翻面 · click to flip</div>
+        </div>
+        <div class="identity-face identity-back">
+          <div class="identity-back-strip">你看到的是</div>
+          <strong>一辆路上的车</strong>
+          <p>到了目的地，车辆要回答：<b>速度、电池、牌照、坡道、雨季、载重、维修</b>。在雅加达雨季穿行，在阿姆斯特丹搭渡轮，在圣保罗坡道上加速。</p>
+          <ul class="identity-stats">
+            <li><b>印尼</b><span>125.86 万辆</span><i>133.61 $/辆</i></li>
+            <li><b>美国</b><span>687.61 万辆</span><i>230.93 $/辆</i></li>
+            <li><b>日本</b><span>40.62 万辆</span><i>409.59 $/辆</i></li>
+          </ul>
+          <div class="identity-back-foot">← 回到正面</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- ==================== 导语 ==================== -->
+<section class="lede" id="prologue">
+  <p>
+    这篇报道不只追问<strong>中国小电驴卖到了哪里</strong>，也追问它如何在不同市场里变换身份：在雅加达雨季穿行，在阿姆斯特丹搭上渡轮，在圣保罗坡道上加速。它从中国出发，却必须在每一个目的地重新被定义。
+  </p>
+  <p>
+    它也曾是一种日常生活的尺度——<em>丈量县城里三公里的通勤</em>，<em>丈量外卖订单与午夜的桥梁</em>，也丈量城中村与写字楼之间的坡，<span class="num-emph">3.5 亿</span>辆社会保有量（<em>工业和信息化部，2023 年底口径</em>）。2020—2025 这六个年度里，2025 年海关表记录 <span class="num-emph">199</span> 个有正值的贸易伙伴，也出现在海外用户关于“中国 <em>e-bike</em>”“中国电动三轮车”“中国电摩”的讨论里。2024—2026 年的短视频热度和订单线索，只能说明传播与需求在集中释放，不能直接等同为某一市场的销量结论。
+  </p>
+
+  <p class="lede-scene-kicker">
+    <em class="kicker">三 个 场 景</em>
+  </p><figure class="lede-scene">
+    <div class="lede-scene-svg">
+      <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="雅加达雨季·印尼骑手">
+        <defs>
+          <linearGradient id="jktSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f4ead2"/>
+            <stop offset="1" stop-color="#ead8ad"/>
+          </linearGradient>
+        </defs>
+        <rect width="280" height="220" fill="url(#jktSky)"/>
+        <g opacity="0.34" stroke="#b07d2a" stroke-width="0.8">
+          <line x1="20" y1="12" x2="6" y2="36"/><line x1="64" y1="10" x2="50" y2="34"/><line x1="108" y1="12" x2="94" y2="36"/><line x1="154" y1="8" x2="140" y2="32"/><line x1="204" y1="13" x2="190" y2="37"/><line x1="248" y1="12" x2="234" y2="36"/>
+        </g>
+        <g fill="#efe4c8" stroke="#14213d" stroke-width="0.7" opacity="0.65">
+          <rect x="18" y="78" width="26" height="54"/><rect x="48" y="65" width="22" height="67"/><rect x="74" y="88" width="28" height="44"/><rect x="222" y="70" width="18" height="62"/><rect x="244" y="84" width="18" height="48"/>
+        </g>
+        <g fill="none" stroke="#14213d" stroke-width="1">
+          <path d="M0 160 C55 154 100 164 152 158 S235 152 280 158" opacity="0.35"/>
+          <path d="M0 181 L280 181"/><path d="M0 193 L280 193" stroke-dasharray="5 5" opacity="0.8"/>
+        </g>
+        <g transform="translate(42 120)">
+          <ellipse cx="105" cy="62" rx="78" ry="3" fill="#14213d" opacity="0.18"/>
+          <g stroke="#14213d" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M62 45 L99 45 L125 57"/>
+            <path d="M99 45 L112 32 L134 31"/>
+            <path d="M62 45 L52 62"/>
+            <path d="M125 57 L151 55 L164 36"/>
+          </g>
+          <rect x="78" y="38" width="42" height="12" rx="3" fill="#f8f4ea" stroke="#14213d"/>
+          <path d="M61 38 C79 28 117 26 139 37 C121 40 85 41 61 38Z" fill="#14213d"/>
+          <circle cx="52" cy="62" r="15" fill="#f8f4ea" stroke="#14213d" stroke-width="2"/>
+          <circle cx="52" cy="62" r="8" fill="#14213d"/><circle cx="52" cy="62" r="4" fill="#f5ebd3"/>
+          <circle cx="151" cy="62" r="15" fill="#f8f4ea" stroke="#14213d" stroke-width="2"/>
+          <circle cx="151" cy="62" r="8" fill="#14213d"/><circle cx="151" cy="62" r="4" fill="#b07d2a"/>
+          <g transform="translate(48 2)">
+            <circle cx="39" cy="19" r="6" fill="#b07d2a" stroke="#14213d"/>
+            <path d="M35 26 L23 58 L58 58 L47 27Z" fill="#8a5a21" stroke="#14213d" stroke-width="1.5"/>
+            <path d="M31 58 L25 79 M51 58 L56 79" stroke="#14213d" stroke-width="3" stroke-linecap="round"/>
+            <path d="M27 42 L11 35 M51 39 L68 44" stroke="#14213d" stroke-width="3" stroke-linecap="round"/>
+            <rect x="64" y="42" width="12" height="6" rx="1" fill="#b07d2a" stroke="#14213d"/>
+          </g>
+        </g>
+        <text x="16" y="24" font-family="Arial" font-size="8" letter-spacing="2" fill="#b07d2a">JAKARTA · 雅加达</text>
+      </svg>
+    </div>
+    <figcaption class="lede-scene-body">
+      <span class="lede-scene-tag">01 · 雅加达 雨季</span>
+      <p>雅加达的雨季，印尼骑手 <strong>Riko</strong> 在拥堵的车流中穿行，座下是一台来自浙江的电动摩托车——后视镜上挂着雨衣，仪表盘上的里程数早已破万。</p>
+    </figcaption>
+  </figure>
+
+  <figure class="lede-scene">
+    <div class="lede-scene-svg">
+      <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="阿姆斯特丹运河·上学路">
+        <rect width="280" height="220" fill="#f5ebd3"/>
+        <g fill="none" stroke="#b07d2a" stroke-width="0.7" opacity="0.35">
+          <path d="M10 138 C44 128 88 148 124 137 S202 126 268 138"/>
+          <path d="M0 154 C42 146 85 164 126 153 S206 143 280 154"/>
+          <path d="M0 170 C43 163 86 179 128 169 S208 158 280 170"/>
+        </g>
+        <g stroke="#14213d" stroke-width="0.8" fill="#faf7f2">
+          <path d="M22 96 L44 74 L66 96Z"/><rect x="34" y="84" width="8" height="12" fill="#14213d"/>
+          <path d="M204 92 L226 70 L248 92Z"/><rect x="215" y="80" width="8" height="12" fill="#14213d"/>
+          <rect x="86" y="76" width="16" height="64"/><rect x="106" y="86" width="12" height="54"/><rect x="122" y="70" width="14" height="70"/>
+        </g>
+        <g transform="translate(17 141)">
+          <path d="M0 18 H236 C227 34 198 42 55 42 C24 42 7 33 0 18Z" fill="#f8f4ea" stroke="#14213d" stroke-width="1.3"/>
+          <path d="M22 18 H182" stroke="#14213d" stroke-width="1"/>
+          <rect x="58" y="1" width="58" height="17" rx="2" fill="#f5ebd3" stroke="#14213d"/>
+          <rect x="122" y="5" width="36" height="13" rx="2" fill="#f5ebd3" stroke="#14213d"/>
+          <text x="84" y="13" font-family="Arial" font-size="6" fill="#14213d">FERRY</text>
+        </g>
+        <g transform="translate(53 91)">
+          <ellipse cx="95" cy="91" rx="68" ry="3" fill="#14213d" opacity="0.18"/>
+          <g stroke="#14213d" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M57 58 L96 58 L122 69"/>
+            <path d="M96 58 L110 43 L135 42"/>
+            <path d="M57 58 L48 76"/>
+            <path d="M122 69 L145 66 L156 49"/>
+          </g>
+          <rect x="74" y="51" width="44" height="12" rx="3" fill="#f8f4ea" stroke="#14213d"/>
+          <path d="M68 50 C86 43 118 43 137 51 C118 55 87 55 68 50Z" fill="#14213d"/>
+          <circle cx="48" cy="76" r="14" fill="#f8f4ea" stroke="#14213d" stroke-width="2"/><circle cx="48" cy="76" r="7" fill="#14213d"/><circle cx="48" cy="76" r="3.4" fill="#f5ebd3"/>
+          <circle cx="145" cy="76" r="14" fill="#f8f4ea" stroke="#14213d" stroke-width="2"/><circle cx="145" cy="76" r="7" fill="#14213d"/><circle cx="145" cy="76" r="3.4" fill="#b07d2a"/>
+          <g transform="translate(44 0)">
+            <circle cx="39" cy="27" r="6" fill="#f5d08a" stroke="#14213d"/>
+            <path d="M34 34 L23 64 L55 64 L47 35Z" fill="#8a5a21" stroke="#14213d" stroke-width="1.4"/>
+            <path d="M28 64 L23 84 M48 64 L54 84" stroke="#14213d" stroke-width="3" stroke-linecap="round"/>
+            <path d="M30 47 L12 40 M49 46 L66 49" stroke="#14213d" stroke-width="3" stroke-linecap="round"/>
+            <rect x="63" y="47" width="11" height="6" rx="1" fill="#b07d2a" stroke="#14213d"/>
+          </g>
+        </g>
+        <g transform="translate(28 32)" stroke="#14213d" stroke-width="1.1" fill="none">
+          <line x1="0" y1="74" x2="0" y2="16"/><line x1="0" y1="16" x2="-22" y2="4"/><line x1="0" y1="16" x2="26" y2="6"/><line x1="0" y1="16" x2="-9" y2="-12"/><line x1="0" y1="16" x2="8" y2="43"/>
+          <circle cx="0" cy="16" r="3" fill="#f5ebd3"/>
+        </g>
+        <text x="16" y="24" font-family="Arial" font-size="8" letter-spacing="2" fill="#b07d2a">AMSTERDAM · 阿姆斯特丹</text>
+      </svg>
+    </div>
+    <figcaption class="lede-scene-body">
+      <span class="lede-scene-tag">02 · 阿姆斯特丹 清晨</span>
+      <p>荷兰大学生 <strong>Mira</strong> 把小电驴骑上渡轮，准备穿越运河去上课。在欧洲城市中，荷兰的电动自行车渗透率属于第一梯队，远高于大部分欧盟国家。</p>
+    </figcaption>
+  </figure>
+
+  <figure class="lede-scene">
+    <div class="lede-scene-svg">
+      <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="圣保罗 18° 坡·快递员">
+        <rect width="280" height="220" fill="#f5ebd3"/>
+        <circle cx="232" cy="55" r="16" fill="#b07d2a" opacity="0.66"/>
+        <g stroke="#b07d2a" stroke-width="0.6" opacity="0.45"><line x1="208" y1="55" x2="256" y2="55"/><line x1="232" y1="31" x2="232" y2="79"/><line x1="215" y1="38" x2="249" y2="72"/><line x1="249" y1="38" x2="215" y2="72"/></g>
+        <g fill="#faf7f2" stroke="#14213d" stroke-width="0.7" opacity="0.9">
+          <rect x="18" y="72" width="12" height="46"/><rect x="34" y="62" width="10" height="56"/><rect x="48" y="80" width="14" height="38"/><rect x="68" y="70" width="12" height="48"/><rect x="84" y="58" width="12" height="60"/><rect x="102" y="76" width="12" height="42"/>
+        </g>
+        <g stroke="#14213d" stroke-width="1.5" fill="none">
+          <path d="M0 178 L280 132"/>
+          <path d="M0 191 L280 145" stroke-dasharray="5 5" opacity="0.65"/>
+        </g>
+        <g transform="translate(173 96) rotate(-10)">
+          <rect x="0" y="0" width="44" height="26" rx="3" fill="#b5122b" stroke="#14213d"/>
+          <rect x="8" y="6" width="28" height="14" rx="2" fill="#f8f4ea" opacity="0.18"/>
+          <text x="22" y="16" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="#faf7f2">DELIVERY</text>
+        </g>
+        <g transform="translate(48 112) rotate(-10 105 60)">
+          <ellipse cx="106" cy="82" rx="76" ry="3" fill="#14213d" opacity="0.18"/>
+          <g stroke="#14213d" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M60 50 L104 50 L130 62"/>
+            <path d="M104 50 L119 33 L144 32"/>
+            <path d="M60 50 L50 70"/>
+            <path d="M130 62 L155 59 L168 40"/>
+          </g>
+          <rect x="79" y="43" width="48" height="13" rx="3" fill="#f8f4ea" stroke="#14213d"/>
+          <rect x="90" y="47" width="26" height="5" fill="#14213d" opacity="0.16"/>
+          <text x="103" y="52" text-anchor="middle" font-family="Arial" font-size="4.5" fill="#14213d">48V 20Ah</text>
+          <path d="M70 41 C91 32 130 32 151 43 C132 47 92 47 70 41Z" fill="#14213d"/>
+          <circle cx="50" cy="70" r="16" fill="#f8f4ea" stroke="#14213d" stroke-width="2"/><circle cx="50" cy="70" r="8" fill="#14213d"/><circle cx="50" cy="70" r="3.8" fill="#f5ebd3"/>
+          <circle cx="155" cy="70" r="16" fill="#f8f4ea" stroke="#14213d" stroke-width="2"/><circle cx="155" cy="70" r="8" fill="#14213d"/><circle cx="155" cy="70" r="3.8" fill="#b07d2a"/>
+          <rect x="134" y="24" width="30" height="18" rx="2" fill="#b5122b" stroke="#14213d"/>
+          <text x="149" y="36" text-anchor="middle" font-family="Arial" font-size="6" fill="#faf7f2">APP</text>
+          <g transform="translate(42 -8)">
+            <circle cx="42" cy="25" r="6" fill="#b07d2a" stroke="#14213d"/>
+            <rect x="36" y="10" width="12" height="8" fill="#14213d"/>
+            <path d="M37 32 L25 66 L58 66 L50 33Z" fill="#8a5a21" stroke="#14213d" stroke-width="1.4"/>
+            <path d="M31 66 L23 88 M51 66 L58 87" stroke="#14213d" stroke-width="3" stroke-linecap="round"/>
+            <path d="M31 47 L13 39 M51 45 L69 49" stroke="#14213d" stroke-width="3" stroke-linecap="round"/>
+            <rect x="66" y="47" width="11" height="6" rx="1" fill="#b07d2a" stroke="#14213d"/>
+          </g>
+        </g>
+        <text x="226" y="108" font-family="Arial" font-size="13" font-style="italic" fill="#b07d2a">18°</text>
+        <text x="228" y="121" font-family="Arial" font-size="6" fill="#8b6f1f">steep slope</text>
+        <text x="16" y="24" font-family="Arial" font-size="8" letter-spacing="2" fill="#b07d2a">SAO PAULO · 圣保罗</text>
+      </svg>
+    </div>
+    <figcaption class="lede-scene-body">
+      <span class="lede-scene-tag">03 · 圣保罗 傍晚</span>
+      <p>快递员 <strong>João</strong> 在 18° 坡道上加速，仪表盘上的“TAILG”字样在落日中闪光。三个真实场景，三块不同大陆——背后是同一辆中国造的小电驴。</p>
+    </figcaption>
+  </figure>
+
+    </figcaption>
+  </figure>
+  <blockquote class="lede-pq">
+    <span class="lede-pq-qmark" aria-hidden="true">&ldquo;</span>
+    <em>这辆小车为什么能跑这么远？</em>
+    <span class="lede-pq-qmark lede-pq-qmark-end" aria-hidden="true">&rdquo;</span>
+  </blockquote>
+  <p>
+    它从中国的工厂出发，穿越海关、跨越重洋，进入了 2025 年海关表所列 199 个贸易伙伴的市场。我们将从海关数据、产业报告、社交媒体评论、商家访谈与实地调研中，梳理出这辆小电驴驶向世界的完整路径。
+  </p>
+  <p class="lede-close">你将看到——<strong>出口数字背后</strong>，是政策的杠杆、产业链的红利、品牌的跃迁，以及一场<em>远未结束的博弈</em>。</p>
+</section>
+
+<!-- ==================== 章节 01：全球市场版图 ==================== -->
+<section class="chapter chapter-alt" id="ch1">
+  <div class="chapter-head">
+    <div class="chapter-gate">01</div>
+    <span class="chapter-question">它走了多远？</span>
+    <div class="chapter-kicker">Chapter 01 · 全球版图</div>
+    <h2 class="chapter-title">出发｜一辆车的全球<em>漂流</em></h2>
+    <p   class="chapter-dek">
+      从 <span class="num-emph">1,794</span> 万辆到 <span class="num-emph">2,673</span> 万辆，
+      六个完整年度（2020—2025），出口量累计 <em>1.21 亿辆</em>；
+      到了 2026 年第一季度，单季再添 <span class="num-emph">720</span> 万辆，同比 <em>+68.2%</em>。
+      我们用一张世界地图、一条时间线、一组分档数据——看清这辆小车驶过的每一片大陆。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：全球漂流 -->
+  <div class="chapter-banner">
+    <div class="chapter-banner-svg banner-map" id="bannerMapCh1"></div>
+    <div class="chapter-banner-caption">
+      <strong>从中国出发，驶向六大洲</strong>
+      一辆小电驴的轨迹<br>
+      六年累计出口超 <span class="num-emph">1.21 亿辆</span><br>
+      覆盖 <span class="num-emph">199</span> 个贸易伙伴（2025 单一年度）
+    </div>
+  </div>
+
+  <!-- 1.1 出口趋势 -->
+  <figure class="figure">
+    <div id="chartYearly" class="chart"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>1</i> · 2020—2025 出口趋势：金额增幅高于数量</strong>
+      出口量由 1,794 万辆增至 2,672.69 万辆，累计增长 <span class="num-emph">49.0%</span>，五年 CAGR 为 <span class="num-emph">8.30%</span>；
+      出口额由 35.05 亿美元增至 68.27 亿美元，累计增长 <span class="num-emph">94.8%</span>，五年 CAGR 为 <span class="num-emph">14.26%</span>。
+      平均报关单价由约 195 美元/辆升至约 255 美元/辆，但这一变化不能单独解释为产品高端化。
+      <span class="figure-source">数据来源：UN Comtrade HS 8711.60.90（2020—2024）+ 海关总署 2025 国别明细表 · 单位：万辆 / 亿美元</span>
+    </figcaption>
+  </figure>
+
+  <!-- 1.1b 2020—2025 CAGR 对比卡 -->
+  <div class="cagr-compare" aria-label="2020—2025 CAGR 对比卡">
+    <div class="cagr-compare-head"><span class="cagr-compare-eyebrow">5-Year CAGR · 五年复合增长率</span></div>
+    <div class="cagr-compare-grid">
+      <div class="cagr-cell"><div class="cagr-cell-eyebrow">2020 基期</div><div class="cagr-cell-pair"><div><b>1794</b><i>万辆</i></div><div><b>35.05</b><i>亿美元</i></div></div><div class="cagr-cell-note">UN Comtrade HS 8711.60.90</div></div>
+      <div class="cagr-cell cagr-cell-mid"><div class="cagr-cell-eyebrow">五年 CAGR</div><div class="cagr-cell-pair cagr-cell-pair-cagr"><div><b>+8.30%</b><i>数量</i></div><div><b>+14.26%</b><i>金额</i></div></div><div class="cagr-cell-note">按 2020 与 2025 端点复算</div></div>
+      <div class="cagr-cell"><div class="cagr-cell-eyebrow">2025 末值</div><div class="cagr-cell-pair"><div><b>2673</b><i>万辆</i></div><div><b>68.27</b><i>亿美元</i></div></div><div class="cagr-cell-note">较 2020：数量 +49.0% / 金额 +94.8%</div></div>
+    </div>
+    <p class="cagr-compare-foot">2020—2024 来自 UN Comtrade；2025 来自海关总署 HS 87116000 国别明细汇总。CAGR 按五个年度间隔计算。</p>
+  </div>
+  <div class="prose">
+    <p>
+      按中国海关“电动摩托车及脚踏车”宽口径统计（HS 871160），2020 年出口量约 1,794 万辆、出口额约 35.05 亿美元；到 2025 年，这两个数字分别增至约 2,673 万辆和 68.27 亿美元。<span class="num-emph">六年累计出口约 1.21 亿辆</span>，2025 年海关表记录 199 个有正值的贸易伙伴。
+    </p>
+    <p>
+      把 2020 年到 2025 年连起来看，它更像一段有起伏的航线。
+    </p>
+
+    <h5 class="sub-head sub-head--center">六 年 <em>六 个 节 点</em></h5>
+    <p>
+      <strong>2020</strong> 是起点之年。1794 万辆、35.05 亿美元，是中国小电驴出海的新台阶。疫情改变了全球个人出行、短途配送等微出行需求，轻便、低成本、易维护的电动两轮车被更多市场看见。
+    </p>
+    <p>
+      <strong>2021</strong> 是爆发之年。出口量增至 2290 万辆，出口额升至 52.85 亿美元。数量同比增长 27.7%，金额同比增长 50.8%。那一年，中国小电驴不仅出得更多，也出得更贵。
+    </p>
+    <p>
+      <strong>2022</strong> 是反常之年。出口量降至 1617 万辆，同比下滑 29.3%；出口额却稳住 53.36 亿美元，几乎没有同步下跌。平均报关单价从 2021 年的约 231 美元/辆跃升至约 330 美元/辆。2022 年的单价高点，需要放回当时的成本环境中理解——那一年，电池原材料、芯片和国际海运价格仍处在高位，欧美市场的高单价订单占比也有所抬升。平均报关单价被推高，<em>并不必然意味着出口产品已经整体完成高端化</em>。
+    </p>
+    <p>
+      <strong>2023</strong> 年，调整继续。出口量降至 1505 万辆，出口额回落至 45.57 亿美元。
+    </p>
+    <p>
+      <strong>2024</strong> 年反弹至 2213 万辆、58.18 亿美元。结束 2022-2023 的调整周期，量额双升。
+    </p>
+    <p>
+      <strong>2025</strong> 年进一步攀升到 2673 万辆、68.27 亿美元。出口量重新回升，平均报关单价回落到 255 美元/辆左右，更多订单回到了中端和大众价格带。<em>增长的动力从“单价拉高”，转向了“数量放大”。</em>
+    </p>
+
+    <h5 class="sub-head sub-head--center">“<em>海外</em>”并不是一个市场</h5>
+    <p>
+      “海外市场”这个词过于笼统。放到目的地数据里，中国小电驴的出海至少可以分出几类市场。
+    </p>
+    <p>
+      2025 年，按海关总署 HS 87116000 国别出口数据，<em>美国仍是最大目的地：出口额约 15.88 亿美元，数量约 688 万辆</em>。其出口额约为第二名荷兰的 3.8 倍。
+    </p>
+    <p>
+      欧洲构成第二极。荷兰、波兰、德国在 2025 年分别约为 4.14 亿美元、3.17 亿美元、2.98 亿美元。其中荷兰既是消费市场，也是欧洲重要港口和转口枢纽。<em>出口到荷兰，不等于全部在荷兰本地被骑上路。</em>
+    </p>
+    <p>
+      东南亚和南亚构成第三极。2025 年，印度尼西亚出口额为 1.68 亿美元、出口量 125.86 万辆，平均报关单价 133.61 美元/辆；印度出口额为 3.12 亿美元、出口量 149.70 万辆，平均报关单价 208.24 美元/辆。两地数量均处于主要目的地前列，但平均报关单价低于美国、荷兰、德国等市场。
+    </p>
+
+
+    <h5 class="sub-head sub-head--center" style="font-size: clamp(22px, 1.9vw, 26px);">所谓<em>出海</em>，不是把同一辆车卖给全世界</h5>
+    <p>
+      美国是量价双高市场。它既买得多，也不完全停留在最低价格带。印尼是高量低价市场，更像基础款、实用型需求的放大器。日本、加拿大、波兰等市场数量未必最大，但平均报关单价更高。荷兰、德国、土耳其则介于港口、消费、转口和合规通道之间。
+    </p>
+    <p>
+      同一类中国出口商品，到了不同目的地，会进入完全不同的价格带和使用场景。面对美国客户，谈的是功能、合规、零售渠道和售后；面对印尼客户，先谈价格、续航、维修和批量；面对欧洲客户，还得先搞清楚：它到底是电助力自行车、轻便摩托，还是需要型式认证的 L 类车辆。
+    </p>
+    <p class="prose-center">
+      <em>所谓出海，不是把同一辆车卖给全世界。</em><br>
+      <em>同一个中国供应链，要翻译成许多套本地答案。</em>
+    </p>
+    <p class="prose-source">
+      数据来源：UN Comtrade (HS 871160) · 海关总署 2018-2025 出口主要商品量值表 · 详细分国别数据见 UN Comtrade 8711.60（2020-2024）。
+    </p>
+  </div>
+
+  <!-- 1.2 出口 TOP 12 排名（替代重复地图：banner 已有大地图，这里用条形图更聚焦） -->
+  <figure class="figure">
+    <div id="chartTopBar" class="chart chart-tall"></div>
+    <figcaption class="figure-caption">
+      <strong>图 <i>2</i> · 出口规模 TOP <span class="num-emph">12</span> 单一市场</strong>
+      <em>美国</em>、<em>荷兰</em>、<em>波兰</em>、<em>印度</em>占据前四，合计 <span class="num-emph">26.30 亿美元</span>，占 TOP 12 出口额的 <span class="num-emph">62.2%</span>；
+      TOP 12 合计 <span class="num-emph">42.30 亿美元</span>，占 2025 年出口总额 68.27 亿美元的 <span class="num-emph">62.0%</span>。
+      条形长度 = 2025 年中国对其出口额（亿美元）；点击任一条可打开完整国家档案。
+      <span class="figure-source">数据来源：海关总署《2025年出口数据-海关总署.xlsx》· HS 87116000 · 按“美元”列排序与汇总</span>
+    </figcaption>
+  </figure>
+
+  <!-- 原区域份额卡已撤下：2024 分组存在区域重叠，且未基于 2025 全量伙伴重新复算。 -->
+
+  <!-- 1.4 单价分档 -->
+
+
+
+</section>
+
+<!-- ==================== 章节 02：出海驱动力 ==================== -->
+
+<!-- ==================== supplement identity chain ==================== -->
+<!-- R50 · 0717 整改：原 identityJourney 是一个未编号的“巨型仓库”，被夹在 ch1 与 ch2 之间。
+     整改：去掉”Chapter 02 · 成链与变身“这种会与 ch2 冲突的章号，改用显式 § 编号。
+     内部按 §6 法规 / §7 CKD 散件 / §8 产业链 / §9 海外需求分小节。-->
+<section class="identity-journey" id="identityJourney">
+  <div class="chapter-head compact-head">
+    <div class="chapter-kicker">§ 6 – § 9 · 法规 · 散件 · 产业链 · 海外需求</div>
+    <h2 class="chapter-title">同一辆车，出海后有了<em>多重身份</em></h2>
+    <p class="chapter-dek">出口增长不能只看数量。车辆在海关、仓储、法规和街头使用场景中会被重新分类，本节用四组图解把这些变化放回同一条链路里——目的地法规、CKD 散件、产业链分层、海外客户更看重的性能。本节只保留可追溯到政府开放数据、法规原文或企业正式披露的数据；认证不是一张通用门票，而是由目的地、速度、功率、踏板和车辆用途共同决定。</p>
+  </div>
+
+  <!-- R50 · 0717 整改：删除 4 张法规概览卡片（与下方 4 组真实数据卡重复，且容易产生 1.53% / 2 辆 等断章取义的数字）。
+       下方 4 个 reg-data-card（malaysia / singapore / europe / us）作为唯一法规切面，标注全部使用 data.gov.my / Singapore LTA / Eurostat / CPSC 真实数据源。-->
+
+  <!-- §6 法规重新命名：四个真实登记样本 (docx 0703 重构稿 §6.1-§6.4) -->
+  <div class="regulatory-data" aria-label="法规重新命名·四组登记样本">
+    <div class="reg-section-head">
+      <span class="reg-kicker">从出口到登记 · Regulatory Reality Check</span>
+      <h3>同一辆车，到了四个地方被切成了四套口径</h3>
+      <p>出口端是一条线，目的地端是一张网。下面的四组数据来自政府开放数据，用来对照“看似很高的出口量”在海外登记体系里到底长什么样。</p>
+    </div>
+
+    <div class="reg-grid">
+      <!-- §6.1 Malaysia -->
+      <article class="reg-data-card malaysia">
+        <header class="rd-head">
+          <span class="rd-flag">🇲🇾</span>
+          <div>
+            <span class="rd-eyebrow">§6.1 · Malaysia 登记体系</span>
+            <strong class="rd-title">增长 85 倍，不等于成为主流</strong>
+          </div>
+        </header>
+        <div class="rd-body">
+          <div class="rd-double">
+            <div class="rd-half rd-left">
+              <span class="rd-cap">电动摩托新增登记（2020 vs 2025）</span>
+              <div class="rd-year-card">
+                <div class="rd-year-num rd-year-num-2020"><b>127</b><i>辆</i></div>
+                <div class="rd-year-num rd-year-num-2025"><b>10,781</b><i>辆</i></div>
+                <div class="rd-year-arrow">→<br><span>约 85 倍</span></div>
+              </div>
+              <span class="rd-cap-sub">数据来源：data.gov.my（2020 / 2025）</span>
+            </div>
+            <div class="rd-half rd-right">
+              <span class="rd-cap">2025 新增摩托车占比</span>
+              <svg viewBox="0 0 120 120" class="rd-donut" aria-hidden="true">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#E4D8C2" stroke-width="14"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#B07D2A" stroke-width="14"
+                        stroke-dasharray="4.61 296.9" transform="rotate(-90 60 60)" stroke-linecap="butt"/>
+                <text x="60" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#14213D">1.53<tspan font-size="11">%</tspan></text>
+                <text x="60" y="74" text-anchor="middle" font-family="monospace" font-size="7" fill="#7A4F1A" letter-spacing="1.4">ELECTRIC</text>
+              </svg>
+              <span class="rd-cap-sub">分子 10,781 / 分母 70.47 万（全燃料摩托新增）</span>
+            </div>
+          </div>
+          <p class="rd-note">登记量 ≠ 销量 ≠ 进口量 ≠ 中国品牌份额。增长再快也只是新生摩托市场的 1.53%。</p>
+        </div>
+      </article>
+
+      <!-- §6.2 Singapore -->
+      <article class="reg-data-card singapore">
+        <header class="rd-head">
+          <span class="rd-flag">🇸🇬</span>
+          <div>
+            <span class="rd-eyebrow">§6.2 · Singapore 保有量封存</span>
+            <strong class="rd-title">2020 年正式登记里，电动摩托只有 2 辆</strong>
+          </div>
+        </header>
+        <div class="rd-body">
+          <div class="sg-frozen">
+            <div class="sg-frozen-tag">AS OF 2020 · 口径封存 · 不可外推为当前市场</div>
+            <div class="sg-frozen-fig"><b>14.01</b><em>万</em><span>辆 摩托车保有量（燃油 140,099 + 电动 2）</span></div>
+            <div class="sg-frozen-grid">
+              <div class="sg-frozen-cell">
+                <span class="sg-frozen-cell-cap">燃油摩托</span>
+                <div class="sg-frozen-cell-num"><b>140,099</b><i>辆</i></div>
+                <span class="sg-frozen-cell-frac">≈ 99.9986%</span>
+              </div>
+              <div class="sg-frozen-cell">
+                <span class="sg-frozen-cell-cap">电动摩托</span>
+                <div class="sg-frozen-cell-num sg-frozen-cell-num-2"><b>2</b><i>辆</i></div>
+                <span class="sg-frozen-cell-frac">≈ 0.0014% · 约 1 : 70,050</span>
+              </div>
+            </div>
+            <p class="rd-note">数据来源：Singapore LTA 机动车保有量（2020 年）。该口径仅描述 2020 年正式登记体系里的存有量，不能作为当前新加坡市场判断。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- §6.3 Europe -->
+      <article class="reg-data-card europe">
+        <header class="rd-head">
+          <span class="rd-flag">🇪🇺</span>
+          <div>
+            <span class="rd-eyebrow">§6.3 · Europe 分类决策树</span>
+            <strong class="rd-title">同一辆车，到了欧洲会被切成不同口径</strong>
+          </div>
+        </header>
+        <div class="rd-body">
+          <div class="eu-tree">
+            <div class="eu-root">
+              <span class="eu-root-cap">HS 871160 · 出口宽口径</span>
+              <em>中国出口的一行报关数据</em>
+            </div>
+            <div class="eu-branches">
+              <div class="eu-branch">
+                <strong>EN 15194 · 电助力自行车</strong>
+                <p>电助力通勤车 · 250W · 25 km/h · 走消费者保护框架</p>
+              </div>
+              <div class="eu-branch">
+                <strong>MOP / Moped · 轻便摩托</strong>
+                <p>L1e-B 类别 · ≤45 km/h · 部分国家零排放渗透率已很高（马耳他 98%、塞浦路斯 93%）</p>
+              </div>
+              <div class="eu-branch">
+                <strong>L-category · L 类车辆</strong>
+                <p>L3e / L5e 等 · 需型式认证 (WVTA) · Eurostat 汇总行部分年份零排放登记为 0，但成员国层面非零</p>
+              </div>
+            </div>
+            <p class="rd-note">数据来源：Eurostat road_eqr_mopeds + 欧盟 L-category 法规框架 · 渗透率截至 2024</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- §6.4 US -->
+      <article class="reg-data-card us">
+        <header class="rd-head">
+          <span class="rd-flag">🇺🇸</span>
+          <div>
+            <span class="rd-eyebrow">§6.4 · United States 低速电自</span>
+            <strong class="rd-title">越过这 4 条线，就可能进入另一套监管</strong>
+          </div>
+        </header>
+        <div class="rd-body">
+          <ul class="us-rules">
+            <li>
+              <span class="us-rule-num">01</span>
+              <div><strong>两轮或三轮</strong><em>structure</em></div>
+            </li>
+            <li>
+              <span class="us-rule-num">02</span>
+              <div><strong>有可操作踏板</strong><em>operable pedals</em></div>
+            </li>
+            <li>
+              <span class="us-rule-num">03</span>
+              <div><strong>电机功率 &lt; 750 W</strong><em>motor output</em></div>
+            </li>
+            <li>
+              <span class="us-rule-num">04</span>
+              <div><strong>纯电驱动最高速度 &lt; 20 mph</strong><em>top assisted speed</em></div>
+            </li>
+          </ul>
+          <p class="rd-note">四条全部满足 → 仍属消费者侧的 e-bike；任一越过 → 须按 motor vehicle 走 NHTSA / 州车管登记。来源：H.R.7279 / CPSC 2024 微出行安全报告。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="ckd-panel">
+    <div class="ckd-copy">
+      <span class="module-note">CKD / SKD</span>
+      <h3>不一定整车抵达，也可能“拆开”进入市场</h3>
+      <p>当关税、认证或本地化政策发生变化，企业会把整车出口改成套件、零部件或本地组装。对数据新闻来说，这意味着同一条增长曲线背后，可能同时包含整车贸易、零部件贸易和产能转移。</p>
+    </div>
+    <div class="assembly-flow" aria-label="CKD SKD 组装流程">
+      <svg class="assembly-svg" viewBox="0 0 540 220" aria-hidden="true">
+        <!-- 顶部 STEP 刻度 -->
+        <g font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#7A4F1A">
+          <line x1="60" y1="56" x2="110" y2="56" stroke="#B07D2A" stroke-width="0.5"/>
+          <circle cx="85" cy="56" r="1.6" fill="#B07D2A"/>
+          <text x="85" y="48" text-anchor="middle">STEP Ⅰ</text>
+
+          <line x1="240" y1="56" x2="290" y2="56" stroke="#B07D2A" stroke-width="0.5"/>
+          <circle cx="265" cy="56" r="1.6" fill="#B07D2A"/>
+          <text x="265" y="48" text-anchor="middle">STEP Ⅱ</text>
+
+          <line x1="420" y1="56" x2="470" y2="56" stroke="#B07D2A" stroke-width="0.5"/>
+          <circle cx="445" cy="56" r="1.6" fill="#B07D2A"/>
+          <text x="445" y="48" text-anchor="middle">STEP Ⅲ</text>
+        </g>
+
+        <!-- ① 中国工厂：箱体 + 散件电机（基线 78~140） -->
+        <g stroke="#14213D" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round">
+          <rect x="50" y="78" width="70" height="46"/>
+          <rect x="56" y="68" width="58" height="14"/>
+          <line x1="56" y1="75" x2="114" y2="75"/>
+          <line x1="85" y1="68" x2="85" y2="82"/>
+          <line x1="60" y1="92" x2="110" y2="92"/>
+          <line x1="60" y1="106" x2="110" y2="106"/>
+          <!-- 旁边散件：圆+十字 -->
+          <rect x="36" y="100" width="20" height="20"/>
+          <circle cx="46" cy="110" r="5"/>
+          <line x1="46" y1="105" x2="46" y2="115"/>
+          <line x1="41" y1="110" x2="51" y2="110"/>
+          <!-- 地面基线 -->
+          <line x1="30" y1="140" x2="120" y2="140" stroke="#B07D2A" stroke-width="0.6" stroke-dasharray="2 2"/>
+        </g>
+        <text x="75" y="158" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#14213D">CKD · SKD</text>
+        <text x="75" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#7A4F1A">CN FACTORY</text>
+
+        <!-- ② 海外仓：屋顶 + 窗 + 烟囱/天线（基线统一到 140） -->
+        <g stroke="#14213D" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M 220 78 L 245 60 L 285 60 L 310 78"/>
+          <rect x="220" y="78" width="90" height="62"/>
+          <line x1="220" y1="92" x2="310" y2="92"/>
+          <line x1="245" y1="60" x2="245" y2="50"/>
+          <line x1="245" y1="50" x2="265" y2="50"/>
+          <line x1="265" y1="50" x2="265" y2="60"/>
+          <line x1="255" y1="50" x2="255" y2="44"/>
+          <!-- 大门 + 窗 -->
+          <rect x="232" y="97" width="22" height="25"/>
+          <line x1="243" y1="97" x2="243" y2="122"/>
+          <line x1="232" y1="109" x2="254" y2="109"/>
+          <rect x="266" y="97" width="36" height="25"/>
+          <line x1="284" y1="97" x2="284" y2="122"/>
+          <line x1="266" y1="109" x2="302" y2="109"/>
+          <!-- 地面基线 -->
+          <line x1="210" y1="140" x2="320" y2="140" stroke="#B07D2A" stroke-width="0.6" stroke-dasharray="2 2"/>
+        </g>
+        <text x="265" y="158" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#14213D">海外仓</text>
+        <text x="265" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#7A4F1A">UNPACK · QC</text>
+
+        <!-- ③ 本地组装：传送带 + 半成品车 + 工人（基线拉到 140） -->
+        <g stroke="#14213D" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round">
+          <rect x="400" y="120" width="90" height="6"/>
+          <line x1="400" y1="126" x2="490" y2="126" stroke="#B07D2A" stroke-width="0.5" stroke-dasharray="2 3"/>
+          <circle cx="410" cy="132" r="4"/>
+          <circle cx="430" cy="132" r="4"/>
+          <circle cx="460" cy="132" r="4"/>
+          <circle cx="485" cy="132" r="4"/>
+          <line x1="410" y1="136" x2="410" y2="140"/>
+          <line x1="430" y1="136" x2="430" y2="140"/>
+          <line x1="460" y1="136" x2="460" y2="140"/>
+          <line x1="485" y1="136" x2="485" y2="140"/>
+          <!-- 半成品车（菱形车架）—— 抬高到 y=88-128 与 STEP Ⅰ/Ⅱ 视觉中线对齐 -->
+          <path d="M 410 128 L 432 96 L 458 96 L 480 128 L 458 138 L 432 138 Z"/>
+          <line x1="432" y1="96" x2="438" y2="88"/>
+          <line x1="458" y1="96" x2="452" y2="88"/>
+          <!-- 工人剪影（同样抬高到 78~100） -->
+          <circle cx="492" cy="80" r="3.5"/>
+          <path d="M 492 84 L 492 100 L 487 110 M 492 100 L 497 110 M 489 90 L 485 98 M 495 90 L 499 98"/>
+          <!-- 地面基线 -->
+          <line x1="390" y1="140" x2="500" y2="140" stroke="#B07D2A" stroke-width="0.6" stroke-dasharray="2 2"/>
+        </g>
+        <text x="445" y="158" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#14213D">本地组装</text>
+        <text x="445" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#7A4F1A">ASSEMBLE · DELIVER</text>
+
+        <!-- 流向箭头（垂直居中到 y=110，与三组视觉中线对齐） -->
+        <g stroke="#B07D2A" stroke-width="1.2" fill="none" stroke-linecap="round">
+          <path d="M 128 110 C 165 110 180 110 215 110" stroke-dasharray="3 3"/>
+          <polyline points="211,106 217,110 211,114"/>
+          <path d="M 320 110 C 350 110 370 110 395 110" stroke-dasharray="3 3"/>
+          <polyline points="391,106 397,110 391,114"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+    <!-- §8 产业链：国家—省—市—县区 多尺度观察（不再做同级 4 大集群） -->
+  <div class="industrial-clusters" id="industrialClusters" aria-label="中国产业链多尺度观察">
+    <div class="reg-section-head">
+      <span class="reg-kicker">§8 · Industrial Value Chain</span>
+      <h3>国家—省—市—县区：<em>产业链的多尺度观察</em></h3>
+      <p>出口数字背后，是一条由电机、控制器、车厢、车架、电池、外贸、跨境构成的全国性协作网络。下面按行政层级分四层观察：<strong>国家</strong>是面上的总量，<strong>省级</strong>看省份差异，<strong>市级</strong>看同级别城市案例，<strong>县/区</strong>看产业链具体如何运转。它们不是同级排名，是不同尺度的切面。</p>
+    </div>
+
+    <div class="ic-layers">
+      <!-- 1. 国家 -->
+      <article class="ic-layer">
+        <header class="ic-layer-head">
+          <span class="ic-layer-level">01 · 国家</span>
+          <strong>全国整体出口 · 2020—2025 六个完整年度 + 2026Q1 单列</strong>
+        </header>
+        <div class="ic-layer-body">
+          <div class="ic-layer-stats">
+            <div class="ic-layer-stat">
+              <div class="ic-layer-num">2,673<em>万辆</em></div>
+              <div class="ic-layer-cap">2025 出口量</div>
+            </div>
+            <div class="ic-layer-stat">
+              <div class="ic-layer-num">68.27<em>亿美元</em></div>
+              <div class="ic-layer-cap">2025 出口额</div>
+            </div>
+            <div class="ic-layer-stat">
+              <div class="ic-layer-num">+8.30<em>%</em></div>
+              <div class="ic-layer-cap">2020→2025 出口量五年 CAGR</div>
+            </div>
+            <div class="ic-layer-stat">
+              <div class="ic-layer-num">+14.26<em>%</em></div>
+              <div class="ic-layer-cap">2020→2025 出口额五年 CAGR</div>
+            </div>
+            <div class="ic-layer-stat">
+              <div class="ic-layer-num">720<em>万辆</em></div>
+              <div class="ic-layer-cap">2026Q1 出口量 · 同比 +68.2%</div>
+            </div>
+            <div class="ic-layer-stat">
+              <div class="ic-layer-num">1.21<em>亿辆</em></div>
+              <div class="ic-layer-cap">2020—2025 累计出口量</div>
+            </div>
+          </div>
+          <p class="ic-layer-foot">数据来源：海关总署 HS 8711.60.90 (2020-2024 A1-INTL · 2025 海关总署国别明细) · 2026Q1 来自厦门广电 / 光明日报 2026-06-04 援引行业通报 (B 级)</p>
+        </div>
+      </article>
+
+      <!-- 2. 省级 -->
+      <article class="ic-layer">
+        <header class="ic-layer-head">
+          <span class="ic-layer-level">02 · 省级</span>
+          <strong>浙江 vs 江苏 · 2023 年海关分省出口</strong>
+        </header>
+        <div class="ic-layer-body">
+          <div class="ic-layer-cards">
+            <div class="ic-layer-card">
+              <div class="ic-layer-card-name">浙江</div>
+              <div class="ic-layer-card-stat">467.2 <em>万辆</em> / 89.8 <em>亿元</em></div>
+              <div class="ic-layer-card-cap">2023 · 出口规模全国第一</div>
+            </div>
+            <div class="ic-layer-card">
+              <div class="ic-layer-card-name">江苏</div>
+              <div class="ic-layer-card-stat">236.4 <em>万辆</em> / 67.0 <em>亿元</em></div>
+              <div class="ic-layer-card-cap">2023 · 全国第三 · 锡山贡献核心</div>
+            </div>
+          </div>
+          <p class="ic-layer-foot">数据来源：B2 行业研究 (iResearch 2024) · 海关分省查询 = 报关注册地，可能含转口效应（质量提示 Q08）</p>
+        </div>
+      </article>
+
+      <!-- 3. 市级 -->
+      <article class="ic-layer">
+        <header class="ic-layer-head">
+          <span class="ic-layer-level">03 · 市级</span>
+          <strong>天津 vs 无锡 · 2024 年同级别观察（口径不完全一致）</strong>
+        </header>
+        <div class="ic-layer-body">
+          <div class="ic-layer-cards">
+            <div class="ic-layer-card">
+              <div class="ic-layer-card-name">天津 · 直辖市级</div>
+              <div class="ic-layer-card-stat">269.2 <em>万辆</em> / 41.92 <em>亿元</em></div>
+              <div class="ic-layer-card-cap">2024 电动自行车 · 同比 +112.76% / +72.12%</div>
+            </div>
+            <div class="ic-layer-card">
+              <div class="ic-layer-card-name">无锡 · 地级市</div>
+              <div class="ic-layer-card-stat">≈ 33 <em>亿元</em></div>
+              <div class="ic-layer-card-cap">2024 电动自行车 + 摩托车 · 同比 +46.6%（数量未披露）</div>
+            </div>
+          </div>
+          <p class="ic-layer-foot">数据来源：2025 中国自行车电动车国际交流论坛 (teda.gov.cn) · 无锡海关 / 观研天下 (chinabaogao.com) · 同级观察，非严格排名</p>
+        </div>
+      </article>
+
+      <!-- 4. 县/区 -->
+      <article class="ic-layer">
+        <header class="ic-layer-head">
+          <span class="ic-layer-level">04 · 县/区案例</span>
+          <strong>丰县 vs 锡山 · 产业链具体如何运转（不构成地区排名）</strong>
+        </header>
+        <div class="ic-layer-body">
+          <div class="ic-layer-cards">
+            <div class="ic-layer-card">
+              <div class="ic-layer-card-name">徐州丰县 <em>· 县</em></div>
+              <div class="ic-layer-card-stat">1000+ <em>家</em> / 500 <em>万+ 辆/年</em></div>
+              <div class="ic-layer-card-cap">电动三轮车国内份额 60%+ · 电机国内份额 95%+ · 半小时产业圈 · 出口 130+ 国</div>
+            </div>
+            <div class="ic-layer-card">
+              <div class="ic-layer-card-name">无锡锡山 <em>· 市辖区</em></div>
+              <div class="ic-layer-card-stat">126.4 <em>万辆</em> / 3.9 <em>亿美元</em></div>
+              <div class="ic-layer-card-cap">2024 整车出口同比 +68.8% / +48.4% · 集群 660 家企业 · 出口 130+ 国</div>
+            </div>
+          </div>
+          <p class="ic-layer-foot">数据来源：丰县电动车行业协会 / 新华日报交汇点 (2026-04-22) / 消费日报 (2025-06-20) · 锡山区政府公开信息 (2025-03-05) · 中国新闻网 2025</p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+
+  <!-- §9 海外需求分层：5 区域 -->
+  <div class="overseas-demand" id="overseasDemand" aria-label="海外需求分层">
+    <div class="reg-section-head">
+      <span class="reg-kicker">§9 · Overseas Demand</span>
+      <h3>海外客户更看重<em>哪些性能</em>？</h3>
+      <p>受访者反复提到的三个关键词是载重、耐用、售后。不同区域购买的并不只是一个品类名称，而是把车辆性能翻译成各自的使用场景——下面 5 张卡片把 5 个区域更看重的特性拆开看。</p>
+    </div>
+    <div class="od-grid">
+      <article class="od-card od-africa">
+        <span class="od-region">AFRICA · 非洲</span>
+        <strong>耐用、结实、皮实、耐造</strong>
+        <p>大车型、高配置，载重需求强。售后半径长，车一旦卖到 200 公里之外，维修点不像国内这么方便。</p>
+        <span class="od-tag">受访者 1 / 2 · 2026-06-25~26</span>
+      </article>
+      <article class="od-card od-russia">
+        <span class="od-region">RUSSIA / CA · 中亚 + 俄罗斯</span>
+        <strong>更大车型 · 早进入</strong>
+        <p>偏好更大车型。中亚是早期进入的市场，已进入价格主导的恶性竞争，进入存量博弈阶段。</p>
+        <span class="od-tag">受访者 1 · 2026-06-26</span>
+      </article>
+      <article class="od-card od-sea">
+        <span class="od-region">SEA · 东南亚</span>
+        <strong>轻便 + 续航 + 性价比</strong>
+        <p>增长快但价格持续承压。印尼市场中国人和中国人卷，性能被压低、售后率上升，损害中国品牌口碑。</p>
+        <span class="od-tag">受访者 1 · 2026-06-26</span>
+      </article>
+      <article class="od-card od-latam">
+        <span class="od-region">LATAM · 拉美</span>
+        <strong>客货两用 + 农场 + 坡道</strong>
+        <p>南美市场（古巴、巴拿马等）井喷式增长，电动三轮农场用车强需求。圣保罗 18° 坡道对载重和扭矩要求高。</p>
+        <span class="od-tag">DATA.regions · 2024</span>
+      </article>
+      <article class="od-card od-west">
+        <span class="od-region">WEST · 欧美</span>
+        <strong>功能 + 改装 + 蓝牙音响</strong>
+        <p>欧美客户更强调功能性、改装：宽轮胎、粗大梁、更强载重，甚至蓝牙音响。CE/DOT/PSmark 认证是门票。</p>
+        <span class="od-tag">DATA.certification · 2024</span>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <div class="chapter-gate">02</div>
+    <span class="chapter-question">谁把它造出来？谁在推它出海？</span>
+    <div class="chapter-kicker">Chapter 02 · 驱动力</div>
+    <h2 class="chapter-title">成链｜是什么在推这辆小车<em>出海</em></h2>
+    <p class="chapter-dek">
+      一辆电动车的出海，是<strong>政策、产业、消费</strong>三股力量共振的结果。
+      我们从浙江、江苏等产业链节点走访了 <span class="num-emph">7</span> 位一线从业者（其中 1 位匿名），
+      把驱动力拆解成看得见的因子——政策时间轴、产业链结构与一线访谈——
+      看清楚每一个齿轮的咬合方式。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：三齿轮咬合 -->
+  <div class="chapter-banner">
+    <svg class="chapter-banner-svg force-flow" viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Policy supply chain and demand flow">
+      <defs><marker id="forceArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#B07D2A"/></marker></defs>
+      <rect x="10" y="24" width="620" height="176" fill="#FAF7F2" stroke="#D9CDB8"/><path class="force-route" d="M150 112 C230 70 282 72 344 112 S470 154 548 112" fill="none" stroke="#B07D2A" stroke-width="2" marker-end="url(#forceArrow)"/>
+      <g class="force-node" transform="translate(96 112)"><circle r="54" fill="#F5EBD3" stroke="#14213D"/><path d="M-18 -22 H18 V22 H-18Z" fill="#14213D"/><path d="M-9 -10 H9 M-9 2 H9 M-9 14 H5" stroke="#FAF7F2" stroke-width="2"/><text y="74" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" fill="#14213D">&#x653F;&#x7B56;</text></g>
+      <g class="force-node" transform="translate(320 112)"><circle r="60" fill="#14213D"/><rect x="-36" y="-4" width="72" height="34" fill="#FAF7F2"/><path d="M-36 -4 L-18 -24 L0 -4 L18 -24 L36 -4" fill="#FAF7F2"/><circle cx="-18" cy="38" r="10" fill="none" stroke="#B07D2A" stroke-width="3"/><circle cx="20" cy="38" r="10" fill="none" stroke="#B07D2A" stroke-width="3"/><text y="78" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" fill="#14213D">&#x4EA7;&#x4E1A;</text></g>
+      <g class="force-node" transform="translate(544 112)"><circle r="54" fill="#F5EBD3" stroke="#14213D"/><path d="M-30 14 C-15 -16 20 -20 35 8 C16 20 -8 22 -30 14Z" fill="#14213D"/><circle cx="-18" cy="22" r="8" fill="#FAF7F2" stroke="#14213D" stroke-width="2"/><circle cx="30" cy="22" r="8" fill="#FAF7F2" stroke="#14213D" stroke-width="2"/><path d="M-4 -8 L12 -28 L32 -26" stroke="#14213D" stroke-width="3" fill="none"/><text y="74" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" fill="#14213D">&#x6D88;&#x8D39;</text></g>
+      <text x="320" y="222" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-style="italic" fill="#7A4F1A">policy signal -> factory response -> overseas order</text>
+    </svg>
+    <div class="chapter-banner-caption">
+      <strong>三股力量 · 咬合共振</strong><br>
+      政策推一把<br>
+      产业接一手<br>
+      消费买回家
+    </div>
+  </div>
+
+  <!-- 2.1 政策时间轴 -->
+  <h5 class="sub-head sub-head-rule">2.1 · 全球政策时间轴，2017—2025</h5>
+  <div class="timeline" id="timeline"></div>
+  <div class="prose" style="margin-top: 32px;">
+    <p>
+      政策的杠杆作用是<em>双向</em>的：当某国推出“油转电”补贴，中国出口商闻风而动；
+      而当某国启动反补贴调查，整个行业的海外策略就要重新画图。
+      这些可追溯的政策节点说明：这是一片受法规与贸易措施共同影响的市场，不是单纯靠产品说话的市场。
+    </p>
+  </div>
+
+  <!-- 2.2 原配套率图已撤下：本地材料没有可逐项复算的原始统计表。 -->
+
+  <blockquote class="pullquote">
+    “我们也要去做个选择、判断；看的是人口红利、消费能力。
+    有些国家太穷，几个月的工资才买一辆车，我们不会花太多精力去主动推广。”
+    <span class="pullquote-source">—— 陆先生 · 杰玛电机销售 · 2026-06-25 访谈</span>
+  </blockquote>
+
+  <!-- 2.3 电瓶车拆解图 -->
+  <section class="exploded" id="explodedScooter" aria-label="电瓶车拆解图">
+    <div class="exploded-head">
+      <div class="exploded-kicker">Supply Chain · 产业链拆解</div>
+      <h3 class="exploded-title">一辆电瓶车的<em>八个心脏</em></h3>
+      <p class="exploded-dek">
+        每一辆出口到海外的小电驴，背后都是八条产业链的合奏。
+        图中只标示部件结构与装配位置，不再展示缺少原始统计表支撑的配套率、价格或国产化百分比。
+      </p>
+    </div>
+
+    <div class="exploded-stage">
+      <div class="exploded-controls">
+        <button class="exploded-btn is-active" id="exBtnAssemble" type="button">整车</button>
+        <button class="exploded-btn" id="exBtnExplode" type="button">分解</button>
+        <span class="exploded-hint">点击<em>分解</em>按钮 · 8 个部件沿引线散开 · 点击任一部件查看详解</span>
+      </div>
+
+      <svg class="exploded-svg" viewBox="-80 -55 1260 690" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-label="电动两轮车八个部件结构与装配位置示意图">
+        <rect x="56" y="38" width="988" height="482" fill="#FAF7F2" stroke="#E4D8C2"/>
+        <line x1="92" y1="454" x2="1008" y2="454" stroke="#B07D2A" stroke-width="0.7" stroke-dasharray="4 6" opacity="0.45"/>
+        <ellipse cx="552" cy="486" rx="360" ry="10" fill="#14213D" opacity="0.08"/>
+        <g class="rays" stroke="#B07D2A" stroke-width="0.9" stroke-dasharray="3 4" fill="none" opacity="0.85"><line class="ray ray-1" x1="344" y1="168" x2="155" y2="92"/><line class="ray ray-2" x1="270" y1="208" x2="136" y2="198"/><line class="ray ray-3" x1="704" y1="188" x2="706" y2="84"/><line class="ray ray-4" x1="684" y1="286" x2="938" y2="178"/><line class="ray ray-5" x1="818" y1="412" x2="998" y2="360"/><line class="ray ray-6" x1="704" y1="424" x2="918" y2="500"/><line class="ray ray-7" x1="542" y1="410" x2="542" y2="532"/><line class="ray ray-8" x1="342" y1="390" x2="150" y2="500"/></g>
+        <g class="node-dots" fill="#B07D2A"><circle cx="155" cy="92" r="4"/><circle cx="136" cy="198" r="4"/><circle cx="706" cy="84" r="4"/><circle cx="938" cy="178" r="4"/><circle cx="998" cy="360" r="4"/><circle cx="918" cy="500" r="4"/><circle cx="542" cy="532" r="4"/><circle cx="150" cy="500" r="4"/></g>
+        <g class="node-labels" font-family="Georgia,serif" fill="#14213D"><g transform="translate(92 78)"><text font-style="italic" font-size="20">&#x667A;&#x80FD;&#x4EEA;&#x8868;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">SMART DASH</text></g><g transform="translate(86 184)"><text font-style="italic" font-size="20">&#x8F66;&#x628A;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">HANDLEBAR</text></g><g transform="translate(706 62)"><text font-style="italic" font-size="20">&#x978D;&#x5EA7;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">SADDLE</text></g><g transform="translate(958 160)"><text font-style="italic" font-size="20">&#x7535;&#x63A7;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">CONTROLLER</text></g><g transform="translate(1000 342)"><text font-style="italic" font-size="20">&#x7535;&#x673A;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">MOTOR</text></g><g transform="translate(895 482)"><text font-style="italic" font-size="20">&#x94FE;&#x6761;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">CHAIN</text></g><g transform="translate(542 516)"><text text-anchor="middle" font-style="italic" font-size="20">&#x7535;&#x6C60;&#x76D2;</text><text y="24" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">BATTERY PACK</text></g><g transform="translate(86 482)"><text font-style="italic" font-size="20">&#x8F66;&#x67B6;</text><text y="24" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">FRAME</text></g></g>
+        <g class="scooter">
+          <g class="wheel-rear"><circle cx="810" cy="420" r="58" fill="#FAF7F2" stroke="#14213D" stroke-width="2.4"/><circle cx="810" cy="420" r="46" fill="none" stroke="#14213D" opacity="0.45"/><g stroke="#14213D" stroke-width="0.8" opacity="0.55"><line x1="810" y1="365" x2="810" y2="475"/><line x1="755" y1="420" x2="865" y2="420"/><line x1="772" y1="382" x2="848" y2="458"/><line x1="848" y1="382" x2="772" y2="458"/></g></g>
+          <g class="wheel-front"><circle cx="274" cy="420" r="58" fill="#FAF7F2" stroke="#14213D" stroke-width="2.4"/><circle cx="274" cy="420" r="46" fill="none" stroke="#14213D" opacity="0.45"/><g stroke="#14213D" stroke-width="0.8" opacity="0.55"><line x1="274" y1="365" x2="274" y2="475"/><line x1="219" y1="420" x2="329" y2="420"/><line x1="236" y1="382" x2="312" y2="458"/><line x1="312" y1="382" x2="236" y2="458"/></g></g>
+          <g class="part part-frame" data-part="frame"><path d="M274 420 C335 352 436 342 542 348 C646 354 746 358 810 420" fill="none" stroke="#14213D" stroke-width="9" stroke-linecap="round"/><path d="M345 348 H710 C744 350 770 366 790 392" fill="none" stroke="#14213D" stroke-width="12" stroke-linecap="round"/><rect x="392" y="340" width="302" height="18" rx="4" fill="#14213D"/><rect x="402" y="346" width="282" height="4" fill="#B07D2A"/><line x1="705" y1="342" x2="705" y2="205" stroke="#14213D" stroke-width="7" stroke-linecap="round"/><path d="M705 270 L764 218" stroke="#14213D" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M355 346 L282 206" stroke="#14213D" stroke-width="7" stroke-linecap="round"/><path d="M270 360 L254 420 M286 360 L294 420" stroke="#14213D" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M786 364 L810 420 M762 362 L800 420" stroke="#14213D" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M514 360 L522 454 L548 454" stroke="#14213D" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="part part-battery" data-part="battery"><rect x="382" y="374" width="330" height="42" rx="5" fill="#FAF7F2" stroke="#14213D" stroke-width="2.4"/><rect x="396" y="384" width="302" height="22" rx="3" fill="#F5EBD3" stroke="#B07D2A"/><text x="547" y="399" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#14213D">48V 20Ah</text><rect x="390" y="389" width="8" height="10" rx="1" fill="#14213D"/></g>
+          <g class="part part-saddle" data-part="saddle"><ellipse cx="705" cy="202" rx="58" ry="12" fill="#14213D"/><ellipse cx="705" cy="197" rx="52" ry="7" fill="#7A4F1A"/><path d="M756 198 L772 166 M764 200 L780 168" stroke="#14213D" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g class="part part-handle" data-part="handle"><path d="M238 206 H336" stroke="#14213D" stroke-width="6" stroke-linecap="round"/><rect x="230" y="198" width="34" height="18" rx="3" fill="#7A4F1A"/><rect x="310" y="198" width="34" height="18" rx="3" fill="#7A4F1A"/><path d="M242 198 L236 176 M336 198 L342 176" stroke="#14213D" stroke-width="1.6"/><ellipse cx="234" cy="170" rx="5" ry="7" fill="#FAF7F2" stroke="#14213D"/><ellipse cx="344" cy="170" rx="5" ry="7" fill="#FAF7F2" stroke="#14213D"/></g>
+          <g class="part part-controller" data-part="controller"><rect x="642" y="286" width="64" height="46" rx="4" fill="#FAF7F2" stroke="#14213D" stroke-width="2.4"/><rect x="652" y="296" width="44" height="26" fill="#14213D"/><circle cx="662" cy="304" r="2" fill="#B07D2A"/><circle cx="674" cy="304" r="2" fill="#B07D2A"/><circle cx="686" cy="304" r="2" fill="#B07D2A"/><text x="674" y="326" text-anchor="middle" font-family="monospace" font-size="6" fill="#7A4F1A">VCU</text></g>
+          <g class="part part-motor" data-part="motor"><circle cx="810" cy="420" r="28" fill="#FAF7F2" stroke="#14213D" stroke-width="2.2"/><circle cx="810" cy="420" r="18" fill="#14213D"/><circle cx="810" cy="420" r="6" fill="#B07D2A"/><g stroke="#FAF7F2" stroke-width="1.3"><line x1="810" y1="398" x2="810" y2="442"/><line x1="788" y1="420" x2="832" y2="420"/><line x1="795" y1="405" x2="825" y2="435"/><line x1="825" y1="405" x2="795" y2="435"/></g></g>
+          <g class="part part-dash" data-part="dash"><rect x="314" y="154" width="66" height="42" rx="5" fill="#14213D"/><rect x="323" y="162" width="48" height="26" fill="#0A2540" stroke="#B07D2A"/><text x="347" y="180" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#B07D2A">28</text><line x1="346" y1="196" x2="360" y2="220" stroke="#14213D" stroke-width="4" stroke-linecap="round"/></g>
+          <g class="part part-chain" data-part="chain"><circle cx="548" cy="418" r="12" fill="#FAF7F2" stroke="#14213D" stroke-width="1.5"/><circle cx="548" cy="418" r="5" fill="#14213D"/><path d="M548 406 C640 400 724 398 810 402 L810 408 C724 410 640 414 548 430Z" fill="#7A4F1A" opacity="0.18"/><line x1="548" y1="406" x2="810" y2="402" stroke="#7A4F1A" stroke-width="1.5"/><line x1="548" y1="430" x2="810" y2="438" stroke="#7A4F1A" stroke-width="1.5"/></g>
+          <circle cx="250" cy="330" r="9" fill="#FAF7F2" stroke="#14213D" stroke-width="1.4"/><circle cx="250" cy="330" r="4" fill="#B07D2A"/><path d="M720 342 C755 344 786 360 812 394" fill="none" stroke="#14213D" stroke-width="3" opacity="0.85"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="exploded-legend"><div class="exploded-legend-item"><span class="exploded-legend-dot high"></span><span>结构示意 · 不表示产地份额或配套率</span></div></div></section>
+
+  <!-- 2.4 海外情感分析 -->
+
+
+<!-- ============================================================
+       R17 · 一手访谈：散件出口 (CKD/SKD) · 丰县集群 · 区域利润
+       来源：徐州苏征机车销售 / 杰玛电机销售 / 丰县电动车协会 (2026-06-24~26)
+       ============================================================ -->
+
+  <aside class="r17-block r17-ckd" aria-label="散件出口">
+    <div class="r17-eyebrow">Interview Insight · <em>No. 17</em></div>
+    <h4 class="r17-display">散件出口 <span class="r17-cjk">（</span><em>CKD&nbsp;/&nbsp;SKD</em><span class="r17-cjk">）</span> — 比整车更赚钱的出海方式</h4>
+    <p class="r17-lead">
+      在海关数据里看不到的故事：很多出海的小电驴，不是以“整车”形式漂洋过海，
+      而是被拆成几百个零件，整柜装上船——这就是 <em>CKD&nbsp;/&nbsp;SKD</em> 散件出口。
+      流程更繁琐，利润却更高。
+    </p>
+
+    <div class="r17-flow" id="ckdFlow"></div>
+
+    <div class="r17-cases">
+      <figure class="r17-case">
+        <div class="r17-img-wrap">
+          <img src="assets/interview/interviewee-1-2.jpg" alt="丰县电三源头厂家，外贸发货吉尔吉斯斯坦" loading="eager" decoding="async" fetchpriority="high" width="618" height="1200" />
+        </div>
+        <figcaption>
+          <span class="r17-case-tag">Case · 苏征</span>
+          <h5>出口吉尔吉斯斯坦</h5>
+          <p>徐州苏征机车，整柜散件装车发往中亚。整排的车架、车厢、电机控制器在仓库里码放等待装柜——这是丰县集群最常见的外贸场景。</p>
+          <span class="r17-case-credit">受访者 1 · 2026-06-26</span>
+        </figcaption>
+      </figure>
+
+      <figure class="r17-case">
+        <div class="r17-img-wrap">
+          <img src="assets/interview/interviewee-1b-2.jpg" alt="苏征出口老挝 160 套" loading="eager" decoding="async" fetchpriority="high" width="617" height="1200" />
+        </div>
+        <figcaption>
+          <span class="r17-case-tag">Case · 苏征</span>
+          <h5>出口老挝 160 套</h5>
+          <p>同一厂家，单柜 160 套车架散件发往老挝。彩色防撞车架整齐码放、卡车就位——客户在万象当地完成组装后分销到老挝各地农场。</p>
+          <span class="r17-case-credit">受访者 1 · 2026-06-26</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="r17-prose">
+      <p>
+        商家算了一笔账：散件出口虽然单价比整车低，但清关关税是按“零部件”计的（远低于整车税则），
+        再加上客户在海外组装省下的人工和当地税收，<strong>整体利润率反而比整车出口高 5–10 个百分点</strong>。
+        这也是为什么丰县厂家几乎都采用 CKD 模式——<em>“国内一辆车赚 100 块，海外散件同样的车能赚 300”</em>（受访者 1 语）。
+      </p>
+      <p>
+        但代价是流程繁琐：每批货都要多轮配件清点、加固防潮、复杂单证，比整车发货慢 2–3 倍。
+        散件出口是中国电动车的“暗线”——海关数据里以“零部件”报关，海外落地后才拼成整车，
+        也是为什么单看 2213 万辆的整车出口量，会低估中国电动车在海外的真实存在感。
+      </p>
+    </div>
+  </aside>
+
+  <aside class="r17-block r17-fengxian" aria-label="丰县产业中心">
+    <div class="r17-eyebrow">On-Site Insight · <em>Fengxian, Jiangsu</em></div>
+    <h4 class="r17-display">徐州丰县：全球电动三轮车产业中心</h4>
+    <p class="r17-lead">
+      如果你只听过“浙江台州”，可能会以为那是中国电动车的心脏。
+      但当你走进江苏徐州的丰县，会发现另一番景象——这里生产了全球 <em>90%&nbsp;以上</em>的电动三轮车。
+    </p>
+
+    <div class="r17-fengxian-stage">
+      <div class="r17-img-wrap">
+        <img src="assets/interview/interviewee-2-2.jpg" alt="受访者：陆先生 · 杰玛电机销售" class="r17-portrait" loading="eager" decoding="async" fetchpriority="high" width="320" height="568" />
+      </div>
+      <div class="r17-fengxian-caption">
+        <span class="r17-pull">受访者 · <em>陆先生</em></span>
+        <h5>杰玛电机 · 销售负责人</h5>
+        <p>主要生产两轮电动车电机，对接海外订单，长期合作客户在<em>巴西、阿根廷、印度、印尼、越南、沙特、土耳其、北欧</em>等地。</p>
+        <span class="r17-case-credit">2026-06-25 访谈</span>
+      </div>
+    </div>
+
+    <div class="r17-facts" id="fengxianFacts"></div>
+
+    <div class="r17-prose">
+      <p>
+        丰县的秘密在于“半小时产业圈”——从电机到控制器、从车厢到车架，<em>所有核心部件都能在方圆十几公里内配齐</em>。
+        这意味着一个新进入者，从买料到下线整车的全部供应链可以在一杯茶的时间里走完。
+        这种密度，全球独有。
+      </p>
+      <p>
+        在这种密度下，基地电机产线<em>每 12 秒下线一台电机</em>，控制器国产替代后生产效率提升 4 倍、
+        质量提升 2 个百分点——已经出口美国、土耳其等近 20 个国家。
+        整个丰县电动车产业链外贸覆盖 <em>130 多个国家和地区</em>。
+        <strong>它没有雅迪、爱玛那样的明星光环，却是中国电动车出海真正的产业底座。</strong>
+      </p>
+      <p>
+        这个底座还在向上延伸：依托本地配套，丰县企业已经自主研发了
+        <em>六驱边防巡检车、5 公斤级排爆机器人</em>等军民两用无人装备——
+        从“最后一公里代步”到“特种机器人”，技术能力的延伸远超外界想象。
+      </p>
+    </div>
+  </aside>
+
+  </section>
+
+<!-- ==================== 章节 03：从制造到智造 ==================== -->
+<section class="chapter chapter-alt" id="ch3">
+  <div class="chapter-head">
+    <div class="chapter-gate">03</div>
+    <span class="chapter-question">到了海外，它变成什么？</span>
+    <div class="chapter-kicker">Chapter 03 · 从制造到智造</div>
+    <h2 class="chapter-title">变身｜一辆车的<em>进化论</em></h2>
+    <p class="chapter-dek">
+      价格只是表象，<em>技术升级才是真正的话语权</em>。
+      电池从铅酸到锂电再到固态；功能从解锁到 OTA；品牌从代步到智能到高端——
+      高端化在不同企业身上表现为不同路径。
+      我们拆成电池、智能化、品牌三条线索，结合四家代表企业的真实样本来看这场进化。
+    </p>
+  </div>
+
+  <!-- 电池技术路线：三阶段更新路径 -->
+  <div class="chapter-banner battery-evolution" role="img" aria-label="电池技术从铅酸阶段，经锂电阶段，走向固态阶段">
+    <header class="battery-evolution-head">
+      <span>BATTERY EVOLUTION · 电池技术路线</span>
+      <strong>三次更新，一条清晰的技术路径</strong>
+      <p>从成熟存量，到当前增量，再到下一代试制</p>
+    </header>
+    <div class="battery-stage-flow">
+      <article class="battery-stage stage-lead">
+        <span class="battery-stage-no">01</span>
+        <em>成熟存量</em>
+        <strong>铅酸阶段</strong>
+        <p>成本更低 · 供应链成熟<br>传统代步车型的长期主力</p>
+      </article>
+      <div class="battery-stage-arrow" aria-hidden="true"><span>→</span><em>轻量化升级</em></div>
+      <article class="battery-stage stage-lithium">
+        <span class="battery-stage-no">02</span>
+        <em>当前增量</em>
+        <strong>锂电阶段</strong>
+        <p>车身更轻 · 续航提升<br>高端化与智能化的重要基础</p>
+      </article>
+      <div class="battery-stage-arrow" aria-hidden="true"><span>→</span><em>下一代试制</em></div>
+      <article class="battery-stage stage-solid">
+        <span class="battery-stage-no">03</span>
+        <em>未来方向</em>
+        <strong>固态阶段</strong>
+        <p>安全与能量密度再升级<br>仍处于试制和良率爬坡期</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- 3.1 电池演进 · 已撤下无本地原始数据源的旧图 -->
+  <!-- 保留 prose 段改写：用 NIU 公司公告真实数据替代示意数据 -->
+
+  <div class="prose">
+    <h5 class="sub-head">配 套 链 速 写</h5>
+    <p>
+      在浙江台州的电池配套链上，我们走访了一家电池供应商的产线。
+      总经理指着两条并行的产线说：一条是铅酸的，慢慢减；一条是锂电的，一直在加。
+      <em>“明年我们再上一条固态的试制线，”</em>他说，<em>“等良率上来了，老产线就可以拆了。”</em>
+    </p>
+    <p>
+      这条“加锂电、减铅酸”的线，能在上市公司公告里看到端倪。
+      <span class="num-emph">小牛电动 (NIU)</span> 2024 全年销量
+      <span class="num-emph">92.4 万辆</span>（公司公告原始披露），
+      2025 年累计交付 <span class="num-emph">约 119.8 万辆</span>，其中中国市场 <span class="num-emph">约 111.2 万辆</span>，海外 <span class="num-emph">约 8.6 万辆</span>（数学派生 = 119.8 − 111.2；2024 国际市场销量 <span class="num-emph">16.5 万辆</span>，公司公告）。
+      单家公司两年涨三成，背后是当地配套产能向“高端锂电”集中的过程。
+    </p>
+    <p class="prose-source">
+      数据来源：0703 第一稿 Page 16 R42（重构稿约数 119.8/111.2） ·
+      小牛电动 (NIU) 2024 年报（公司公告 92.4/16.5） ·
+      海外 8.6 = 119.8 − 111.2（数学派生）·
+      现场访谈 · 2024。
+    </p>
+  </div>
+
+  <!-- 3.2 智能化渗透 -->
+
+
+  <!-- 3.3 品牌案例 -->
+  <h5 class="sub-head sub-head-rule" style="max-width: var(--container); white-space: nowrap;">3.3 · 四个品牌样本，看中国力量的<em>高端化路径</em></h5>
+  <div class="case-list" id="brandGrid"></div>
+
+  <!-- 3.4 价值链三层 (R49 重构：爆发阶段+区域市场+价值链节点 → 改“产业带”为“产业链”) -->
+  <h5 class="sub-head sub-head-rule sub-head-compact">3.4 · 2020—2025：<em>爆发阶段</em> × <em>区域市场</em> × <em>产业链节点</em></h5>
+  <div class="fengxian-cluster" id="fengxianCluster"></div>
+</section>
+
+<!-- ==================== 章节 04：风险与博弈 ==================== -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <div class="chapter-gate">04</div>
+    <span class="chapter-question">怎样留下来？</span>
+    <div class="chapter-kicker">Chapter 04 · 走出去，走进去</div>
+    <h2 class="chapter-title">落地｜走出去，<em>走进去</em></h2>
+    <p class="chapter-dek">
+      一辆车从中国报关出去了，只是完成第一步。它能不能进入当地交通生活，还要过很多道门——贸易摩擦、技术壁垒、本土竞争，每一道关卡都在重新定义“中国制造”的真正含金量。
+    </p>
+  </div>
+
+  <!-- 章节插画横幅：3 段对抗 (出口→壁垒→本土) -->
+  <div class="chapter-banner">
+    <svg class="chapter-banner-svg risk-flow" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Risk route from export to trade barriers to local competitors">
+      <defs><marker id="riskArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#B07D2A"/></marker></defs>
+      <rect x="12" y="20" width="616" height="200" fill="#FAF7F2" stroke="#D9CDB8"/>
+      <path d="M170 112 H290" stroke="#B07D2A" stroke-width="1.8" marker-end="url(#riskArrow)"/><path d="M360 112 H480" stroke="#B07D2A" stroke-width="1.8" marker-end="url(#riskArrow)"/>
+      <g class="risk-stage" transform="translate(92 112)"><rect x="-66" y="-50" width="132" height="150" fill="#FFF" stroke="#9B8D76" stroke-dasharray="4 4"/><path d="M-36 16 C-24 -14 20 -20 42 7 C27 17 -11 23 -36 16Z" fill="#14213D"/><circle cx="-30" cy="26" r="11" fill="#FAF7F2" stroke="#14213D" stroke-width="2"/><circle cx="42" cy="26" r="11" fill="#FAF7F2" stroke="#14213D" stroke-width="2"/><path d="M-5 -2 L10 -24 L30 -24" stroke="#14213D" stroke-width="3" fill="none"/><text y="78" text-anchor="middle" font-family="Georgia,serif" font-size="15" fill="#14213D">&#x4E2D;&#x56FD;&#x51FA;&#x6D77;</text><text y="96" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">EXPORT</text></g>
+      <g class="risk-stage" transform="translate(320 112)"><rect x="-78" y="-56" width="156" height="162" fill="#F5EBD3" stroke="#9B8D76" stroke-dasharray="4 4"/><rect x="-42" y="-36" width="84" height="72" fill="#14213D"/><circle r="24" fill="none" stroke="#C8102E" stroke-width="2.5"/><text y="-5" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#C8102E">&#x5173;&#x7A0E;</text><text y="12" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#C8102E">&#x8BA4;&#x8BC1;</text><text y="78" text-anchor="middle" font-family="Georgia,serif" font-size="15" fill="#14213D">&#x95E8;&#x69DB;&#x58C1;&#x5792;</text><text y="96" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">TARIFF、CERT</text></g>
+      <g class="risk-stage" transform="translate(548 112)"><rect x="-66" y="-50" width="132" height="150" fill="#FFF" stroke="#9B8D76" stroke-dasharray="4 4"/><g transform="scale(0.78)"><path d="M0 -35 L48 -18 L48 20 Q48 54 0 72 Q-48 54 -48 20 L-48 -18Z" fill="none" stroke="#14213D" stroke-width="2.6"/><path d="M0 -8 L9 12 H30 L13 24 L19 44 L0 32 L-19 44 L-13 24 L-30 12 H-9Z" fill="#14213D"/></g><text y="78" text-anchor="middle" font-family="Georgia,serif" font-size="15" fill="#14213D">&#x672C;&#x571F;&#x7ADE;&#x5BF9;</text><text y="96" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#7A4F1A">LOCAL MARKET</text></g>
+      <text x="320" y="242" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-style="italic" fill="#7A4F1A">trade friction is a route constraint, not just a headline risk</text>
+    </svg>
+    <div class="chapter-banner-caption">
+      <strong>走出去，走进去</strong><br>
+      关税壁垒<br>
+      认证门票<br>
+      本土竞对
+    </div>
+  </div>
+
+  <!-- 4.1 贸易摩擦 -->
+  <h5 class="sub-head sub-head-rule">4.1 · 贸易摩擦时间轴</h5>
+  <p class="figure-source" style="margin-bottom: 16px;">以下时间轴仅收录针对中国电动两轮车的真实事件，全部经 EUR-Lex 原文核实（A1-政府/监管）。相关参照事件（土耳其乘用车 40% 关税 / 欧盟电动汽车反补贴等）口径不同，仅在下方叙事段落中作参照提及。</p>
+  <div class="timeline" id="tradeTimeline"></div>
+  <div class="prose" style="margin-top: 32px;">
+    <p>
+      关税、反倾销、反补贴——
+      从 <span class="num-emph">2017</span> 年到 <span class="num-emph">2025</span> 年，
+      针对中国电动两轮车的国际贸易壁垒<strong>不是在减少，而是在增加</strong>。
+      强度的最新峰值出现在 <span class="num-emph">2025-01</span>——欧盟委员会宣布将对中国电动自行车
+      反倾销税 <span class="num-emph">10.3%</span>–<span class="num-emph">70.1%</span> 与反补贴税 <span class="num-emph">3.9%</span>–<span class="num-emph">17.2%</span>
+      的组合延长 5 年。
+    </p>
+    <p class="prose-foot" style="margin-top: 12px; font-size: 0.9em; color: #5a6f7a;">
+      参照系（非电动两轮车口径，仅作贸易摩擦背景）：2024-06 土耳其对原产中国乘用车（含电动/燃油/混动）加征 40% 附加关税（中国商务部公告，2024-10-08 已诉诸 WTO）；2024-10 欧盟对中国电动汽车反补贴税 17.4%–38.1% 投票通过。
+    </p>
+  </div>
+
+  <!-- 4.2 认证成本 -->
+  <figure class="figure compliance-figure">
+    <div class="compliance-facts" role="list" aria-label="美国、欧盟、日本法规判定路径">
+      <article role="listitem">
+        <span class="compliance-market">UNITED STATES · 美国</span>
+        <strong>先判断是否属于机动车</strong>
+        <p>美国 NHTSA 明确：带可操作脚踏、功率不超过 750W，且仅靠电机在平坦铺装路面最高速度低于 20 mph 的电动自行车，不属于必须满足全部 FMVSS 的机动车。属于机动车的摩托车由制造商自行证明符合适用的 FMVSS；NHTSA 不审批厂家或产品。</p>
+      </article>
+      <article role="listitem">
+        <span class="compliance-market">EUROPEAN UNION · 欧盟</span>
+        <strong>250W / 25 km/h 分类边界</strong>
+        <p>欧盟 Regulation (EU) No 168/2013 将最大连续额定功率不超过 250W、停止踩踏即断助力且在达到 25 km/h 前逐步停止助力的电助力自行车排除在 L 类车辆型式批准范围之外；其他符合 L 类定义的车辆适用相应型式批准要求。</p>
+      </article>
+      <article role="listitem">
+        <span class="compliance-market">JAPAN · 日本</span>
+        <strong>PSE 不是统一整车认证套餐</strong>
+        <p>日本经济产业省的 PSE 制度针对《电气用品安全法》规定的电气用品，公开对象包括锂离子蓄电池等。官方页面未给出适用于所有电动两轮车整车的统一“PSmark 认证费”或固定办理周期。</p>
+      </article>
+    </div>
+    <figcaption class="figure-caption">
+      <strong>法规核验 · 出海前先确认车辆分类</strong>
+      认证与合规成本取决于车型、部件、测试项目、技术服务机构和目标市场，不能用一组无官方依据的固定价格代表所有企业。
+      <span class="figure-source">官方来源：美国 NHTSA《Importation and Certification FAQs》；欧盟 Regulation (EU) No 168/2013；日本经济产业省《电气用品安全法》PSE 指南。原“六国认证成本/周期”图因无法追溯到官方价格表，已删除。</span>
+    </figcaption>
+  </figure>
+
+  <!-- 4.3 竞争格局 -->
+
+
+  <div class="takeaway">
+    <div class="takeaway-inner">
+      <div class="takeaway-label">记 者 视 角</div>
+      <div class="takeaway-text">
+        从产业链访谈里可以读出两层信号：一层是中国电动车的“配套优势”——
+        电机、控制器、车厢、车架能在半小时产业圈里配齐，成本全球最低；
+        另一层也是这条链的“脆弱性”——控制器芯片、功率半导体仍依赖进口，
+        关键元件一旦被卡，整条链都得停。
+        <em>下一阶段的赢家，一定是那些能把产业链优势转化为技术深度与品牌资产的人。</em>
+      </div>
+      <div class="takeaway-meta">
+        <span>综合受访者 1 / 2 · 丰县集群 + 杰玛电机</span>
+        <span class="takeaway-sep">·</span>
+        <span>2026-06-24~26</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- §10 风险三类图：出海关卡 + OPSS 火灾 + 价格战因果链 -->
+  <div class="risk-trio" id="riskTrio" aria-label="风险三类图">
+    <div class="reg-section-head">
+      <span class="reg-kicker">§10 · Three Risk Lanes</span>
+      <h3>走出去，走进去：<em>关卡 / 火灾 / 价格战</em></h3>
+      <p>出口端是一条线，风险端是一张网。下面三组图，分别对应贸易摩擦、安全事故、和印尼式内卷这三种最常见的失败模式。</p>
+    </div>
+
+    <figure class="risk-figure">
+      <h4 class="risk-h4">§10.1 · 出海关卡：6 道门，6 种失败模式</h4>
+      <div class="passport-flow" aria-label="出海关卡 6 步流程">
+        <div class="pf-step"><span class="pf-num">01</span><strong>出口</strong><em>export</em><span class="pf-meta">HS 871160<br>报关通关</span></div>
+        <i class="pf-arr"></i>
+        <div class="pf-step"><span class="pf-num">02</span><strong>认证</strong><em>cert</em><span class="pf-meta">CE / DOT / PSmark<br>按目标市场审核</span></div>
+        <i class="pf-arr"></i>
+        <div class="pf-step"><span class="pf-num">03</span><strong>关税 / 反倾销</strong><em>tariff</em><span class="pf-meta">欧盟反倾销<br>10.3–70.1%<br>反补贴 3.9–17.2%</span></div>
+        <i class="pf-arr"></i>
+        <div class="pf-step"><span class="pf-num">04</span><strong>安全监管</strong><em>safety</em><span class="pf-meta">UL / 锂电池 / 火灾<br>OPSS 211 起</span></div>
+        <i class="pf-arr"></i>
+        <div class="pf-step"><span class="pf-num">05</span><strong>售后 / 召回</strong><em>aftersales</em><span class="pf-meta">本地仓 + 维修点<br>召回成本高</span></div>
+        <i class="pf-arr"></i>
+        <div class="pf-step pf-final"><span class="pf-num">06</span><strong>信任</strong><em>trust</em><span class="pf-meta">客户复购<br>品牌资产</span></div>
+      </div>
+      <p class="risk-foot">来源：EUR-Lex Regulations (EU) 2025/114、2025/120 · 英国 OPSS 2024 e-bike / e-scooter 火灾报告。</p>
+    </figure>
+
+    <figure class="risk-figure">
+      <h4 class="risk-h4">§10.2 · OPSS 2024 e-bike / e-scooter 火灾报告分解</h4>
+      <div class="opss-decomp" aria-label="OPSS 211 起火灾分解">
+        <div class="opss-row">
+          <span class="opss-cap">总报告</span>
+          <div class="opss-bar opss-bar-211"><b>211</b><i>起</i></div>
+        </div>
+        <div class="opss-row">
+          <span class="opss-cap opss-cap-sub">其中 e-bike</span>
+          <div class="opss-bar opss-bar-170"><b>170</b><i>起</i></div>
+        </div>
+        <div class="opss-row">
+          <span class="opss-cap opss-cap-sub2">e-bike 中确认为后市场改装电动化</span>
+          <div class="opss-bar opss-bar-77"><b>77</b><i>起</i></div>
+        </div>
+      </div>
+      <p class="risk-foot">来源：英国 OPSS 2024 e-bike / e-scooter 火灾报告 · 注解：英国数据，不能外推为全球；77 起仅指“确认为后市场改装”，不等于“全部后市场改装造成”。</p>
+    </figure>
+
+    <figure class="risk-figure">
+      <h4 class="risk-h4">§10.3 · 价格战因果链：低价订单 → 信任透支</h4>
+      <div class="trust-chain" aria-label="价格战因果链">
+        <div class="tc-node"><span>低价抢单</span><em>price war</em></div>
+        <i class="tc-arr"></i>
+        <div class="tc-node"><span>配置 / 材料压低</span><em>lower spec</em></div>
+        <i class="tc-arr"></i>
+        <div class="tc-node"><span>售后率上升</span><em>higher failure</em></div>
+        <i class="tc-arr"></i>
+        <div class="tc-node tc-warn"><span>客户反馈变差</span><em>poor feedback</em></div>
+        <i class="tc-arr"></i>
+        <div class="tc-node tc-bad"><span>信任透支</span><em>trust debt</em></div>
+      </div>
+      <blockquote class="risk-pq">
+        <span class="risk-pq-qmark" aria-hidden="true">&ldquo;</span>
+        不是外国人把我们中国人打败了，在这个行业里面，最终估计还是<em>我们自己把自己打败了</em>。
+        <br><br>
+        中国人不能骗中国人，中国人<em>更不能骗外国人</em>。
+        <span class="risk-pq-qmark risk-pq-qmark-end" aria-hidden="true">&rdquo;</span>
+      </blockquote>
+      <p class="risk-foot">来源：陆先生（杰玛电机销售）· 2026-06-25 访谈 · 受访者担心价格战带来的后果，措辞为受访者个人判断，不是全行业定论。</p>
+    </figure>
+  </div>
+</section>
+
+<!-- ==================== 章节 05：数据洞察（深色收尾） ==================== -->
+<section class="outro" id="ch5">
+  <div class="outro-inner">
+    <div class="chapter-head">
+      <div class="chapter-gate" style="color: var(--accent-gold);">05</div>
+      <span class="chapter-question" style="color: rgba(250,247,240,0.7);">下一站要完成的，是什么？</span>
+      <div class="chapter-kicker">Chapter 05 · 数据洞察</div>
+      <h2 class="chapter-title">下一站｜三句话总结这辆车驶向的<em>未来</em></h2>
+    </div>
+
+    <div class="outro-list">
+      <div class="outro-intro">
+      <span class="outro-kicker">The Three Conversions</span>
+      <p class="outro-lead">
+        下一站，中国小电驴要完成的不是更多的集装箱，而是<em>三场转换</em>——
+      </p>
+    </div>
+
+    <div class="outro-item">
+        <div class="outro-num">01</div>
+        <div>
+          <h4 class="outro-headline">被命名</h4>
+          <p class="outro-text">
+            在中国海关里，它是 HS 871160 的一行报关数据；
+            在海外仓库里，它是车架、电机、控制器的散件；
+            在雅加达、阿姆斯特丹、圣保罗的街头，它必须<em>被当地法规重新命名</em>——
+            e-bike、moped、L-category、货运三轮——
+            <em>名字对了，身份才对；身份对了，下一步才能开始。</em>
+          </p>
+        </div>
+      </div>
+      <div class="outro-item">
+        <div class="outro-num">02</div>
+        <div>
+          <h4 class="outro-headline">被维修</h4>
+          <p class="outro-text">
+            卖出去只是开始。100 公里之外的客户找不到维修点、
+            配件断了经销商也补不上——
+            <em>谁在目的地有维修网络，谁才能让车继续跑下去。</em>
+            这是受访者反复提到的三件事之一：<em>载重、耐用、售后</em>。
+          </p>
+        </div>
+      </div>
+      <div class="outro-item">
+        <div class="outro-num">03</div>
+        <div>
+          <h4 class="outro-headline">被信任</h4>
+          <p class="outro-text">
+            印尼市场上中国人和中国人卷价格、性能被无底线压低、售后率上升——
+            信任透支的代价，比少卖一辆车更贵。
+            出海越远，信任越贵。
+          </p>
+        </div>
+      </div>
+
+      <p class="outro-final">
+        在海关表里，<span class="num-emph">2,673 万辆</span>小电驴已经出发。<br>
+        但在海外道路上，它们还在<em>寻找自己的名字</em>。
+      </p>
+    </div>
+
+<!-- ==================== 文末数据方法 + 访谈致谢 ==================== -->
+<section class="r17-endmatter" id="data">
+  <div class="r17-datamethods">
+    <h4 class="r17-credits-title">
+      <span class="r17-credits-ornament">✦</span>
+      数据与方法
+      <span class="r17-credits-ornament">✦</span>
+    </h4>
+    <ul class="r17-datamethods-list">
+      <li>出口数据：中国海关总署 HS <span class="num-emph">8711.60.90</span></li>
+      <li>行业报告：Statista、艾瑞咨询</li>
+      <li>情感分析：Reddit · X · YouTube 爬虫</li>
+      <li>实地调研：浙江、江苏、广东等产业链节点</li>
+    </ul>
+  </div>
+
+<!-- ============================================================
+       R17 · 文末访谈贡献者致谢
+       ============================================================ -->
+
+</main>
+<!-- ==================== 页脚 ==================== -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <span>骑着电驴游世界编辑部</span>
+  </div>
+</footer>
+
+<!-- ==================== 脚本 ==================== -->
+<!-- R19: vendor 进 STYLE-C 仓库，所有图表/数据/渲染修复可追踪 -->
+<script src="js/vendor/data.js?v=41"></script>
+<script src="js/vendor/main.js"></script>
+<script src="js/vendor/banner-map.js"></script>
+<script src="js/vendor/charts.js?v=40"></script>
+    <script src="js/style-C.js?v=45"></script>
+</body>
+</html>

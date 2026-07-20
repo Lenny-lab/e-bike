@@ -1,0 +1,47 @@
+# robots.txt · 小电驴驶向大世界
+# 数据新闻参赛作品 · 允许主流搜索引擎索引 · 禁止训练爬虫与离线采集
+
+User-agent: *
+Allow: /
+Disallow: /assets/preview/
+Disallow: /_archive/
+Disallow: /.git/
+
+# AI / ML 训练爬虫：明确拒绝
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+Sitemap: https://lenny-lab.github.io/e-bike/sitemap.xml

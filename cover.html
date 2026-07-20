@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>封面</title>
+  <style>
+    body {
+      width: 1200px; height: 900px;
+      background: #FAF7F2;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 60px;
+      font-family: Georgia, 'Times New Roman', serif;
+      position: relative;
+    }
+    .cover-kicker {
+      font-size: 10px; letter-spacing: 0.5em;
+      text-transform: uppercase; color: #B07D2A;
+      margin-bottom: 25px;
+    }
+    .cover-title {
+      font-size: 52px; font-style: italic; font-weight: 600;
+      color: #14213D; text-align: center; line-height: 1.4;
+      margin-bottom: 35px; max-width: 850px;
+    }
+    .cover-title em { color: #B07D2A; font-weight: 700; }
+    .cover-illustration { margin: 15px 0 25px; }
+    .cover-line { width: 80px; height: 2px; background: #B07D2A; margin-bottom: 35px; }
+    .cover-team { font-size: 20px; font-style: italic; color: #4a4a4a; margin-bottom: 40px; }
+    .cover-byline {
+      font-family: sans-serif; font-size: 10px; color: #6a6a6a;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px 20px; max-width: 800px; margin-bottom: 15px;
+    }
+    .cover-byline strong { color: #14213D; margin-right: 6px; font-weight: 500; }
+    .cover-sep { color: #ccc; }
+    .cover-mentors {
+      font-family: sans-serif; font-size: 10px; color: #8a8a8a;
+      text-align: center; padding-top: 12px;
+      border-top: 1px solid rgba(200,200,200,0.5);
+    }
+    .cover-mentors strong { color: #14213D; margin-right: 6px; font-weight: 500; }
+    .cover-footer {
+      position: absolute; bottom: 30px;
+      font-family: monospace; font-size: 9px;
+      color: #B07D2A; letter-spacing: 0.2em;
+    }
+    @media print { body { width: 100%; height: 100%; } @page { size: 1200px 900px; margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="cover-kicker">深度数据 · DATA STORY</div>
+  <h1 class="cover-title">一辆中国<em>小电驴</em><br>何以驶向<em>海外大世界</em>？</h1>
+  <div class="cover-illustration">
+    <svg width="260" height="150" viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="65" cy="135" r="26" fill="#14213D" stroke="#FAF7F2" stroke-width="2"/>
+      <circle cx="65" cy="135" r="16" fill="#FAF7F2"/>
+      <circle cx="65" cy="135" r="9" fill="#14213D"/>
+      <circle cx="195" cy="135" r="26" fill="#14213D" stroke="#FAF7F2" stroke-width="2"/>
+      <circle cx="195" cy="135" r="16" fill="#FAF7F2"/>
+      <circle cx="195" cy="135" r="9" fill="#14213D"/>
+      <path d="M75 130 L95 115 L145 115 L165 130" stroke="#14213D" stroke-width="4" fill="none"/>
+      <path d="M95 115 L100 70 L108 55" stroke="#14213D" stroke-width="3" fill="none"/>
+      <path d="M145 115 L140 70 L132 55" stroke="#14213D" stroke-width="3" fill="none"/>
+      <rect x="100" y="50" width="45" height="16" rx="2" fill="#F5EBD3" stroke="#14213D" stroke-width="2"/>
+      <line x1="115" y1="55" x2="130" y2="55" stroke="#14213D" stroke-width="1.5"/>
+      <line x1="105" y1="66" x2="140" y2="66" stroke="#14213D" stroke-width="2"/>
+      <path d="M95 70 L78 65 L68 55" stroke="#14213D" stroke-width="3" fill="none"/>
+      <path d="M145 70 L162 65 L172 55" stroke="#14213D" stroke-width="3" fill="none"/>
+      <rect x="108" y="82" width="16" height="20" rx="2" fill="#B07D2A"/>
+      <path d="M115 100 Q125 80 135 100" stroke="#14213D" stroke-width="3" fill="none"/>
+      <circle cx="85" cy="120" r="3" fill="#B07D2A"/>
+      <circle cx="155" cy="120" r="3" fill="#B07D2A"/>
+    </svg>
+  </div>
+  <div class="cover-line"></div>
+  <div class="cover-team">骑着电驴游世界编辑部</div>
+  <div class="cover-byline">
+    <span><strong>主编</strong> 卜言庆</span>
+    <span class="cover-sep">·</span>
+    <span><strong>访谈</strong> 单文溪</span>
+    <span class="cover-sep">·</span>
+    <span><strong>文案</strong> 秦文雨</span>
+    <span class="cover-sep">·</span>
+    <span><strong>数据</strong> 朱桂子瑜</span>
+    <span class="cover-sep">·</span>
+    <span><strong>视觉</strong> 李一</span>
+  </div>
+  <div class="cover-mentors">
+    <strong>指导老师</strong> 龚凯乐 · 范海潮 · 朱威
+  </div>
+  <div class="cover-footer">CHINA'S E-BICYCLE INDUSTRY · 2025-2026</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head><body><iframe id="f" src="/index.html" style="width:390px;height:1100px;border:0"></iframe><pre id="r">{
+  "vw": 390,
+  "docW": 375,
+  "bodyW": 375,
+  "qmarks": 0,
+  "overflow": false,
+  "ids": {
+    "reverseIntro": true,
+    "reverseIntroCanvas": false,
+    "identityCards": true,
+    "identityCardsCanvas": false,
+    "identityJourney": true,
+    "identityJourneyCanvas": false,
+    "chartDestinationMatrix": true,
+    "chartDestinationMatrixCanvas": true,
+    "chartCompetition": true,
+    "chartCompetitionCanvas": true,
+    "explodedScooter": true,
+    "explodedScooterCanvas": false
+  },
+  "boxes": {
+    "reverseIntro": {
+      "x": 0,
+      "y": 1336,
+      "w": 375,
+      "h": 727,
+      "text": "OPENING INTERACTION · 一辆车的多语种提醒\n先听见一声倒车提示\n\n同一辆中国电动车进入不同国家，最先改变的可能不是外观，而是它向街头说话的方"
+    },
+    "identityCards": {
+      "x": 0,
+      "y": 2111,
+      "w": 375,
+      "h": 1054,
+      "text": "IDENTITY CARDS · 从商品到规则对象\n一辆车，三张身份牌\n\n补充材料里的关键线索是：出海不是把同一辆车复制到海外，而是在不同制度和使用场景中重新命"
+    },
+    "identityJourney": {
+      "x": 0,
+      "y": 16995,
+      "w": 375,
+      "h": 2817,
+      "text": "SUPPLEMENT · 身份、规则与市场分层\n同一辆车，出海后有了多重身份\n\n补充材料提示我们，出口增长不能只看数量。车辆在海关、仓储、法规和街头使用场景中会"
+    },
+    "chartDestinationMatrix": {
+      "x": 14,
+      "y": 13420,
+      "w": 347,
+      "h": 520,
+      "text": ""
+    },
+    "chartCompetition": {
+      "x": 14,
+      "y": 42056,
+      "w": 347,
+      "h": 640,
+      "text": ""
+    },
+    "explodedScooter": {
+      "x": 0,
+      "y": 25094,
+      "w": 375,
+      "h": 863,
+      "text": "SUPPLY CHAIN · 产业链拆解\n一辆电瓶车的八个心脏\n\n每一辆出口到海外的小电驴，背后都是八条产业链的合奏。 本土配套率越高，话语权越稳——而脆弱的咽"
+    }
+  },
+  "competitionGraphic": [],
+  "competitionSeries": [
+    "雅迪:25",
+    "爱玛:17",
+    "九号 (含滑板车):10"
+  ],
+  "matrixSeries": [
+    {
+      "name": "????",
+      "count": 5
+    },
+    {
+      "name": "??/??/????",
+      "count": 2
+    },
+    {
+      "name": "????????",
+      "count": 2
+    },
+    {
+      "name": "?????????",
+      "count": 3
+    },
+    {
+      "name": "????/????",
+      "count": 3
+    }
+  ]
+}</pre><script>
+function geom(d,sel){const el=d.querySelector(sel);if(!el)return null;const b=el.getBoundingClientRect();return {x:Math.round(b.x),y:Math.round(b.y),w:Math.round(b.width),h:Math.round(b.height),text:(el.innerText||'').slice(0,80)}}
+const done=()=>{const f=document.getElementById('f');const w=f.contentWindow;const d=f.contentDocument;const ids=['reverseIntro','identityCards','identityJourney','chartDestinationMatrix','chartCompetition','explodedScooter'];const res={vw:w.innerWidth,docW:d.documentElement.scrollWidth,bodyW:d.body.scrollWidth,qmarks:(d.body.innerText.match(/\?/g)||[]).length,overflow:false,ids:{},boxes:{}};res.overflow=res.docW>res.vw+2||res.bodyW>res.vw+2;ids.forEach(id=>{const el=d.getElementById(id);res.ids[id]=!!el;res.boxes[id]=geom(d,'#'+id);res.ids[id+'Canvas']=el?!!el.querySelector('canvas'):false});try{const chart=w.echarts.getInstanceByDom(d.getElementById('chartCompetition'));const opt=chart.getOption();res.competitionGraphic=(opt.graphic||[]).map(g=>g.style&&g.style.text).filter(Boolean).slice(0,6);res.competitionSeries=opt.series&&opt.series[0]&&opt.series[0].data?opt.series[0].data.slice(0,3).map(x=>x.name+':'+x.value):[];}catch(e){res.competitionError=String(e)}try{const dm=w.echarts.getInstanceByDom(d.getElementById('chartDestinationMatrix'));const opt2=dm.getOption();res.matrixSeries=(opt2.series||[]).map(s=>({name:s.name,count:s.data?s.data.length:0}));}catch(e){res.matrixError=String(e)}document.getElementById('r').textContent=JSON.stringify(res,null,2)};document.getElementById('f').onload=()=>setTimeout(done,4500);setTimeout(done,8000);</script></body></html>
+[40380:51832:0703/142534.134:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+[40380:27864:0703/142534.668:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.

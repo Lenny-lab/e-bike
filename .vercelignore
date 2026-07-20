@@ -1,0 +1,23 @@
+# Vercel 忽略 — 避免部署时上传历史/调试文件
+# 仓库根目录是 Vercel 部署根
+# 注: _archive/ 在 .gitignore 不一定生效，这里再保险一次
+
+# 历史归档
+_archive/
+_agents/
+
+# 调试 / 截图 / 临时
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# 截图（assets/preview/ 已经在 .gitignore）
+# 但保险起见再写一次
+assets/preview/
+
+# 编辑器
+.vscode/
+.idea/

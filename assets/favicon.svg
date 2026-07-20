@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="小电驴驶向大世界">
+  <rect width="64" height="64" rx="14" fill="#FAF7F0"/>
+  <path d="M10 47C19 38 31 34 51 38" fill="none" stroke="#B07D2A" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="20" cy="45" r="8" fill="#FAF7F0" stroke="#14213D" stroke-width="4"/>
+  <circle cx="45" cy="45" r="8" fill="#FAF7F0" stroke="#14213D" stroke-width="4"/>
+  <circle cx="20" cy="45" r="3" fill="#B07D2A"/>
+  <circle cx="45" cy="45" r="3" fill="#B07D2A"/>
+  <path d="M20 40L28 27H38L45 40" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 27L26 17" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round"/>
+  <rect x="20" y="13" width="16" height="8" rx="2" fill="#14213D"/>
+  <path d="M37 28L43 18" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M43 18H52" fill="none" stroke="#14213D" stroke-width="3" stroke-linecap="round"/>
+  <path d="M27 35H40" fill="none" stroke="#B07D2A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M13 19C22 9 38 7 51 16" fill="none" stroke="#B07D2A" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 6"/>
+</svg>
