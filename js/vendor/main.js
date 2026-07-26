@@ -10,16 +10,26 @@
     setCurrentDate();
     initNavHighlight();
     initHeroCounters();
-    renderTimeline();
-    renderTradeTimeline();
-    renderBrandGrid();
-    renderFengxianCluster();   // ★ R47 丰县集群独立渲染
+    // ★ 2026-07-26 单点 try/catch：任意 render 失败不影响其他 section
+    safeCall('renderTimeline', renderTimeline);
+    safeCall('renderTradeTimeline', renderTradeTimeline);
+    safeCall('renderBrandGrid', renderBrandGrid);
+    safeCall('renderFengxianCluster', renderFengxianCluster);
     initExplodedScooter();
     // ★ R17 访谈数据渲染
-    renderCkdFlow();
-    renderFengxianFacts();
-    renderInterviewCredits();
+    safeCall('renderCkdFlow', renderCkdFlow);
+    safeCall('renderFengxianFacts', renderFengxianFacts);
+    safeCall('renderInterviewCredits', renderInterviewCredits);
   });
+
+  /* ===== 兜底：单点失败不波及其他 ===== */
+  function safeCall(name, fn) {
+    try {
+      fn();
+    } catch (e) {
+      console.error(`[${name}] 渲染失败:`, e);
+    }
+  }
 
   /* ===== 当前日期 ===== */
   function setCurrentDate() {
@@ -118,32 +128,75 @@
     `).join('');
   }
 
-  /* ===== 品牌案例列表 (R47: 通用 stats 渲染，移除海外三维死字段) ===== */
+  /* ===== 品牌案例列表 (R47: 通用 stats 渲染，移除海外三维死字段) =====
+   * 2026-07-26 加固：
+   *  - brands 不存在或为空 → 容器保留骨架（不让整段消失）
+   *  - 单个 brand 字段缺失 → 跳过该 brand，其他正常渲染
+   *  - 单个 brand 渲染抛错 → 该 brand 显示占位，其他继续
+   */
   function renderBrandGrid() {
     const wrap = document.getElementById('brandGrid');
     if (!wrap) return;
-    wrap.innerHTML = DATA.upgrade.brands.map(b => `
+
+    const brands = (DATA && DATA.upgrade && Array.isArray(DATA.upgrade.brands))
+      ? DATA.upgrade.brands
+      : [];
+
+    if (brands.length === 0) {
+      console.warn('[renderBrandGrid] DATA.upgrade.brands 缺失或为空，保持骨架占位');
+      return;
+    }
+
+    wrap.innerHTML = brands.map(b => {
+      // 单个 brand 用 try/catch 包，坏一个不影响整体
+      try {
+        if (!b || !b.name) return '';
+        const nameParts = String(b.name).split(' ');
+        const nameZh = nameParts[0] || b.name;
+        const nameEn = nameParts.slice(1).join(' ') || '';
+        const founded = b.founded || '—';
+        const stats = Array.isArray(b.stats) ? b.stats : [];
+        const highlight = b.highlight || '';
+        const caseText = b.case || '';
+
+        return `
       <div class="case-row">
         <div class="case-brand">
-          <div class="case-brand-name">${b.name.split(' ')[0]}</div>
-          <div class="case-brand-en">${b.name.split(' ').slice(1).join(' ') || ''} · est. ${b.founded}</div>
+          <div class="case-brand-name">${esc(nameZh)}</div>
+          <div class="case-brand-en">${esc(nameEn)} · est. ${esc(String(founded))}</div>
         </div>
         <div>
           <div class="case-stats">
-            ${(b.stats || []).map(s => `
+            ${stats.map(s => `
               <div>
-                <div class="case-stat-num">${s.num}<em>${s.unit}</em></div>
-                <div class="case-stat-label">${s.label}</div>
+                <div class="case-stat-num">${esc(s && s.num)}${s && s.unit ? `<em>${esc(s.unit)}</em>` : ''}</div>
+                <div class="case-stat-label">${esc(s && s.label)}</div>
               </div>
             `).join('')}
           </div>
           <div class="case-body">
-            <strong>${b.highlight}</strong><br>
-            <em>案例：${b.case}</em>
+            <strong>${esc(highlight)}</strong><br>
+            <em>案例：${esc(caseText)}</em>
           </div>
         </div>
       </div>
-    `).join('');
+    `;
+      } catch (e) {
+        console.error('[renderBrandGrid] 单个 brand 渲染失败:', b && b.name, e);
+        return `<div class="case-row" data-error="true" style="opacity:.5"><div class="case-brand-name">${esc(b && b.name) || '—'}</div><div class="case-body">该条数据渲染失败，请刷新或查看控制台</div></div>`;
+      }
+    }).join('');
+  }
+
+  /* ===== 简易 HTML 转义 ===== */
+  function esc(s) {
+    if (s == null) return '';
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   /* ===== R49 三层叙事：爆发阶段 + 区域市场 + 价值链节点 ===== */
