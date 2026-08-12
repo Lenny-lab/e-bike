@@ -468,3 +468,61 @@ html.is-phone .mobile-risk-flow p {
 html.is-phone #ch5 .outro-kicker { display: none !important; }
 html.is-phone #ch5 .outro-intro { padding-top: 0; }
 html.is-phone #ch5 .outro-lead { margin-top: 0; }
+/* Hide the complete exploded-scooter section on phones. */
+html.is-phone #explodedScooter {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+/* Center the regulatory section heading group on phones. */
+html.is-phone .regulatory-data .reg-section-head {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+html.is-phone .regulatory-data .reg-kicker,
+html.is-phone .regulatory-data .reg-section-head h3 {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-wrap: balance;
+}
+
+html.is-phone .regulatory-data .reg-kicker {
+  line-height: 1.55;
+}
+/* Center the industrial scale heading group on phones. */
+html.is-phone .industrial-clusters .reg-section-head {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+html.is-phone .industrial-clusters .reg-kicker,
+html.is-phone .industrial-clusters .reg-section-head h3 {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-wrap: balance;
+}
+
+html.is-phone .industrial-clusters .reg-kicker {
+  line-height: 1.55;
+}
+
+html.is-phone .industrial-clusters .reg-section-head h3 em {
+  display: block;
+  margin-top: 4px;
+}
