@@ -66,12 +66,16 @@ html.is-phone .chapter-dek { font-size: 17px; line-height: 1.72; }
 html.is-phone .chapter-banner { display: flex; flex-direction: column; height: auto; min-height: 0; }
 html.is-phone .chapter-banner-svg { position: relative; width: 100%; min-height: 250px; }
 html.is-phone .chapter-banner-caption { position: relative; inset: auto; width: 100%; padding: 18px; }
+html.is-phone #ch1 .chapter-banner { margin-bottom: 18px; }
 html.is-phone .figure { margin: 48px auto; padding: 0 14px; }
+html.is-phone .figure-yearly { margin-top: 8px; }
 html.is-phone #chartYearly { height: 410px; }
 html.is-phone #chartYearly + .figure-caption strong {
-  font-size: 18px; line-height: 1.45; letter-spacing: -.01em; text-wrap: balance;
+  width: 100%; max-width: 330px; margin: 0 auto 12px;
+  font-size: 18px; line-height: 1.45; letter-spacing: -.01em;
+  text-align: center; text-wrap: balance;
 }
-html.is-phone .figure-caption { font-size: 14px; line-height: 1.72; }
+html.is-phone .figure-caption { font-size: 14px; line-height: 1.72; text-align: center; }
 html.is-phone .figure-source { letter-spacing: .1em; line-height: 1.65; }
 html.is-phone .prose-center {
   max-width: 352px; margin-left: auto; margin-right: auto;
