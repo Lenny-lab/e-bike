@@ -14,7 +14,7 @@
     renderTradeTimeline();
     renderBrandGrid();
     renderFengxianCluster();   // ★ R47 丰县集群独立渲染
-    initExplodedScooter();
+    if (!document.documentElement.classList.contains('is-phone')) initExplodedScooter();
     // ★ R17 访谈数据渲染
     renderCkdFlow();
     renderFengxianFacts();

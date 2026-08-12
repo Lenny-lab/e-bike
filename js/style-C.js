@@ -21,6 +21,7 @@
   const ICO = (key) => `<span class="cd-row-icon">${ICONS[key] || ''}</span>`;
 
   document.addEventListener('DOMContentLoaded', () => {
+    const isPhone = document.documentElement.classList.contains('is-phone');
     // buildCover(); // R17 2026-06-28: 默认跳过 Cover 入口（避免误操作导致下方内容被遮罩）
     // 如需重新启用 Cover，删除上面注释即可
     buildEditorNote();
@@ -30,7 +31,7 @@
     addChapterFolio();
     initReveal();
     addNavHints();
-    initReverseIntro();
+    if (!isPhone) initReverseIntro();
     initIdentityCards();
 
     // ===== R2 交互深挖 =====
@@ -39,7 +40,7 @@
     initBackToTop();
     initKeyboardNav();
     initThemeSwitcher();
-    initExplodedHover();
+    if (!isPhone) initExplodedHover();
 
     // ===== R3 数据深交互 + 阅读模式（故事模式已移除） =====
     initReadingMode();
@@ -56,7 +57,7 @@
     initCountUp();
 
     // ===== R8 出口 TOP 12 柱状图（替代重复地图） =====
-    initTopExportBar();
+    if (!isPhone) initTopExportBar();
   });
 
   // ========== 1. 启动 Cover 全屏封面 ==========
@@ -117,8 +118,8 @@
           <span class="editor-note-mark-cn">主编按</span>
         </div>
         <blockquote class="editor-note-quote">
-          当一辆贴着<em>"Made in China"</em>标签的小电驴，<br>
-          出现在雅加达的雨季、阿姆斯特丹的清晨、<br>
+          当一辆贴着<em>"Made in China"</em>标签的<span class="mobile-nowrap">小电驴</span>，<br>
+          出现在雅加达的雨季、<span class="mobile-nowrap">阿姆斯特丹的清晨</span>、<br>
           圣保罗的山坡——<br>
           我们意识到，<em>这不是出口数据的膨胀，<br>而是一场关于"中国制造如何被看见"的叙事更迭</em>。
         </blockquote>

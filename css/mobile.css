@@ -1,0 +1,221 @@
+/* Phone-only layout repairs. Desktop and tablet remain governed by style.css. */
+html.is-phone,
+html.is-phone body { overflow-x: hidden; }
+
+html.is-phone .reverse-intro,
+html.is-phone .mobile-hide-figure-2,
+html.is-phone #explodedScooter .exploded-stage,
+html.is-phone #explodedScooter .exploded-controls,
+html.is-phone #explodedScooter .exploded-legend,
+html.is-phone #explodedScooter .exploded-tooltip { display: none !important; }
+
+html.is-phone .hero { padding: 48px 18px 44px; }
+html.is-phone .hero-title { margin-bottom: 24px; }
+html.is-phone .hero-title-main,
+html.is-phone .hero-title-question {
+  padding: 0; width: 100%;
+  font-size: clamp(27px, 8.4vw, 35px); line-height: 1.22;
+  text-align: center;
+}
+html.is-phone .hero-title em { white-space: nowrap; }
+html.is-phone .hero-dek { padding: 0; margin-bottom: 20px; font-size: 15.5px; line-height: 1.82; }
+html.is-phone .hero-byline { gap: 7px 10px; line-height: 1.65; }
+html.is-phone .hero-numbers { padding: 38px 18px; }
+html.is-phone .hero-num { padding: 21px 10px; border-bottom: 1px solid var(--rule); }
+html.is-phone .hero-num:nth-child(2n) { border-right: 0; }
+html.is-phone .hero-num:nth-last-child(-n+2) { border-bottom: 0; }
+html.is-phone .hero-num-figure { margin-bottom: 10px; font-size: clamp(37px, 11vw, 47px); }
+
+html.is-phone .editor-note { padding: 48px 18px 42px; }
+html.is-phone .editor-note-mark { margin-bottom: 28px; gap: 10px; }
+html.is-phone .editor-note-quote {
+  width: 100%; max-width: none; margin: 0 0 32px;
+  font-size: 18px; line-height: 1.75; text-align: left;
+  word-break: normal; overflow-wrap: break-word; text-wrap: pretty;
+}
+html.is-phone .editor-note-quote br { display: none; }
+html.is-phone .mobile-nowrap { white-space: nowrap; }
+html.is-phone .editor-note-body { margin-bottom: 38px; font-size: 16px; line-height: 1.82; }
+html.is-phone .editor-note-sign { padding-top: 28px; }
+
+html.is-phone .identity-cards { margin: 38px auto; padding: 34px 18px 18px; }
+html.is-phone .identity-head { margin-bottom: 24px; }
+html.is-phone .identity-card-row {
+  display: grid; grid-template-columns: 1fr; gap: 18px;
+  overflow: visible; padding: 0;
+}
+html.is-phone .identity-card { width: 100%; min-height: 430px; }
+html.is-phone .identity-card-inner { min-height: 430px; }
+html.is-phone .identity-emblem { width: 126px; height: 126px; }
+html.is-phone .identity-title { font-size: 29px; }
+html.is-phone .identity-stats li { grid-template-columns: 62px minmax(0, 1fr) auto; }
+
+html.is-phone .lede { padding: 48px 18px; font-size: 17px; line-height: 1.85; }
+html.is-phone .lede-scene { width: 100%; margin: 26px auto; padding: 14px; gap: 14px; }
+html.is-phone .lede-scene-svg { width: 100%; max-width: none; margin: 0; }
+html.is-phone .lede-scene-body p { font-size: 15px; line-height: 1.78; }
+
+html.is-phone .chapter-head { padding: 52px 18px 0; margin-bottom: 28px; }
+html.is-phone .chapter-title {
+  font-size: clamp(30px, 8.5vw, 36px); line-height: 1.24;
+  text-wrap: balance;
+}
+html.is-phone .chapter-title em { white-space: nowrap; }
+html.is-phone .chapter-dek { font-size: 17px; line-height: 1.72; }
+
+html.is-phone .chapter-banner { display: flex; flex-direction: column; height: auto; min-height: 0; }
+html.is-phone .chapter-banner-svg { position: relative; width: 100%; min-height: 250px; }
+html.is-phone .chapter-banner-caption { position: relative; inset: auto; width: 100%; padding: 18px; }
+html.is-phone .figure { margin: 48px auto; padding: 0 14px; }
+html.is-phone #chartYearly { height: 410px; }
+html.is-phone #chartYearly + .figure-caption strong {
+  font-size: 18px; line-height: 1.45; letter-spacing: -.01em; text-wrap: balance;
+}
+html.is-phone .figure-caption { font-size: 14px; line-height: 1.72; }
+html.is-phone .figure-source { letter-spacing: .1em; line-height: 1.65; }
+html.is-phone .prose-center {
+  max-width: 352px; margin-left: auto; margin-right: auto;
+  font-size: 18px; line-height: 1.7; text-wrap: balance;
+}
+html.is-phone .prose-center br { display: block; content: ''; margin-top: .42em; }
+
+html.is-phone .identity-journey { margin: 54px auto; padding: 0 14px; }
+html.is-phone .identity-journey .compact-head { padding: 0 4px; margin-bottom: 30px; }
+html.is-phone .identity-journey .chapter-kicker { margin-bottom: 14px; line-height: 1.65; }
+html.is-phone .identity-journey .chapter-title {
+  max-width: 350px; margin: 0 auto 20px;
+  font-size: 32px; line-height: 1.28;
+}
+html.is-phone .identity-journey .chapter-title em { white-space: nowrap; }
+html.is-phone .identity-journey .chapter-dek { font-size: 16px; line-height: 1.78; text-align: left; }
+html.is-phone .regulatory-data,
+html.is-phone .industrial-clusters,
+html.is-phone .overseas-demand { padding: 0; }
+html.is-phone .reg-section-head { padding: 16px 2px; text-align: left; }
+html.is-phone .reg-section-head h3 { font-size: 22px; line-height: 1.35; text-wrap: balance; }
+html.is-phone .reg-section-head p { font-size: 14px; }
+
+html.is-phone .ic-map-stage { display: block; }
+html.is-phone .ic-cn-map-wrap { position: static; margin-bottom: 22px; }
+html.is-phone .ic-layers {
+  position: relative; gap: 18px; margin: 32px auto;
+  padding: 0 2px 0 16px;
+}
+html.is-phone .ic-layers::before {
+  content: ''; position: absolute; left: 5px; top: 7px; bottom: 7px;
+  width: 2px; background: var(--accent-gold); opacity: .55;
+}
+html.is-phone .ic-layer {
+  position: relative; padding: 15px 12px;
+  border: 0; border-top: 2px solid var(--accent-gold);
+  box-shadow: none; background: rgba(250, 247, 242, .72);
+}
+html.is-phone .ic-layer::before {
+  content: ''; position: absolute; left: -16px; top: 15px;
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent-gold);
+}
+html.is-phone .ic-layer-head { display: block; padding-bottom: 10px; margin-bottom: 12px; }
+html.is-phone .ic-layer-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+html.is-phone .ic-layer-cards > :only-child { grid-column: 1 / -1; }
+html.is-phone .ic-layer-card { min-height: 0; padding: 10px; }
+html.is-phone .ic-layer-card-name { padding-right: 22px; font-size: 15px; }
+html.is-phone .ic-layer-card-stat { font-size: 18px; }
+html.is-phone .ic-layer-card-cap { font-size: 11px; line-height: 1.55; }
+
+html.is-phone .pullquote {
+  margin: 48px 18px; padding: 28px 0;
+  font-size: 21px; line-height: 1.65; text-align: left;
+}
+html.is-phone .pullquote-source { margin-top: 20px; font-size: 10px; letter-spacing: .12em; line-height: 1.6; }
+html.is-phone .r17-fengxian-stage { display: grid; grid-template-columns: 1fr; gap: 16px; }
+html.is-phone .r17-img-wrap { max-width: 260px; margin: 0 auto; }
+html.is-phone .r17-fengxian-caption { padding: 18px 0 0; }
+
+html.is-phone .battery-evolution { display: block; padding: 26px 16px; }
+html.is-phone .battery-evolution-head { text-align: left; }
+html.is-phone .battery-stage-flow {
+  position: relative; display: grid; grid-template-columns: 1fr;
+  gap: 12px; margin-top: 24px; padding-left: 18px;
+}
+html.is-phone .battery-stage-flow::before {
+  content: ''; position: absolute; left: 5px; top: 14px; bottom: 14px;
+  width: 2px; background: var(--accent-gold); opacity: .55;
+}
+html.is-phone .battery-stage { min-height: 0; padding: 18px 16px; }
+html.is-phone .battery-stage::after {
+  content: ''; position: absolute; left: -18px; top: 16px;
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent-gold);
+}
+html.is-phone .battery-stage-arrow { min-height: 10px; height: 10px; overflow: hidden; opacity: 0; }
+html.is-phone .battery-stage-arrow span { display: none; }
+
+html.is-phone .risk-trio { padding: 0 10px; }
+html.is-phone .risk-figure { padding: 16px 14px; }
+html.is-phone .passport-flow { gap: 5px; }
+html.is-phone .pf-step { min-width: 0; padding: 10px; }
+html.is-phone .opss-row { gap: 8px; align-items: flex-start; }
+html.is-phone .opss-cap { flex: 0 0 96px; font-size: 12px; line-height: 1.45; }
+html.is-phone .trust-chain {
+  position: relative; display: grid; grid-template-columns: 1fr;
+  gap: 0; padding-left: 24px;
+}
+html.is-phone .trust-chain::before {
+  content: ''; position: absolute; left: 7px; top: 18px; bottom: 18px;
+  width: 2px; background: var(--accent-gold);
+}
+html.is-phone .tc-node {
+  position: relative; min-width: 0; width: 100%;
+  padding: 11px 13px; margin: 4px 0;
+  text-align: left; font-size: 16px; line-height: 1.35;
+}
+html.is-phone .tc-node::before {
+  content: ''; position: absolute; left: -22px; top: 15px;
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent-gold);
+}
+html.is-phone .tc-node em { margin-top: 3px; font-size: 11px; }
+html.is-phone .tc-arr { display: none; }
+html.is-phone .risk-pq { padding: 14px 14px 14px 19px; font-size: 16px; line-height: 1.72; }
+html.is-phone .risk-foot { font-size: 11px; line-height: 1.6; }
+
+html.is-phone .outro { padding: 68px 0 54px; }
+html.is-phone .outro-inner { padding: 0 18px; }
+html.is-phone .outro .chapter-head { padding: 0; margin-bottom: 28px; }
+html.is-phone .outro .chapter-gate { font-size: 52px; line-height: 1; }
+html.is-phone .outro .chapter-question { margin-bottom: 12px; font-size: 12px; }
+html.is-phone .outro .chapter-kicker { margin-bottom: 14px; }
+html.is-phone .outro .chapter-title {
+  max-width: 350px; margin: 0 auto;
+  font-size: 32px; line-height: 1.28; text-wrap: balance;
+}
+html.is-phone .outro-intro { margin: 24px auto 18px; padding: 0; }
+html.is-phone .outro-item {
+  display: grid; grid-template-columns: 46px minmax(0, 1fr);
+  gap: 10px; padding: 24px 0;
+}
+html.is-phone .outro-num { grid-row: 1; font-size: 32px; line-height: 1.15; }
+html.is-phone .outro-item > div:last-child { min-width: 0; }
+html.is-phone .outro-headline { margin: 2px 0 9px; font-size: 25px; }
+html.is-phone .outro-text { font-size: 15px; line-height: 1.75; }
+html.is-phone .outro-final {
+  max-width: 340px; margin: 30px auto 42px; padding: 0;
+  font-size: 16px; line-height: 1.8; text-wrap: balance;
+}
+html.is-phone .outro-final .num-emph { white-space: nowrap; }
+
+@media (max-width: 370px) {
+  html.is-phone .ic-layer-cards { grid-template-columns: 1fr; }
+  html.is-phone .ic-layer-cards > :only-child { grid-column: auto; }
+  html.is-phone .chapter-title,
+  html.is-phone .identity-journey .chapter-title,
+  html.is-phone .outro .chapter-title { font-size: 29px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.is-phone *,
+  html.is-phone *::before,
+  html.is-phone *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

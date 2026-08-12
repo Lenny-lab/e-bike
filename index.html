@@ -45,6 +45,8 @@
   <!-- (no external font links — system font stack only) -->
 
   <link rel="stylesheet" href="css/style.css?v=66" />
+  <link rel="stylesheet" href="css/mobile.css?v=1" />
+  <script src="js/mobile-mode.js?v=1"></script>
 
   <!-- ECharts 4.9（map 文件可直接 CDN 加载） -->
   <script src="assets/lib/echarts.min.js"></script>
@@ -647,7 +649,7 @@
   </div>
 
   <!-- 1.2 出口 TOP 12 排名（替代重复地图：banner 已有大地图，这里用条形图更聚焦） -->
-  <figure class="figure">
+  <figure class="figure mobile-hide-figure-2">
     <div id="chartTopBar" class="chart chart-tall"></div>
     <figcaption class="figure-caption">
       <strong>图 <i>2</i> · 出口规模 TOP <span class="num-emph">12</span> 单一市场</strong>
